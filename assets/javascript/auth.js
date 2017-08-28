@@ -76,6 +76,8 @@ $(function(){
       // Create User
       var promise = auth.createUserWithEmailAndPassword(loginEmail, loginPswd);
       promise.catch(event => console.log(event.message));
+
+      document.location.href = 'scoring.html';
     });
   
     // Add a realtime listener
