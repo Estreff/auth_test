@@ -5,10 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- BootStrap  -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
 	<!-- Awesome Fonts -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!-- CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- Firebase -->
+  	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<!-- Firebase UI-->
+	<script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+	<!-- Firebase CSS -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
 </head>
 
 <body>
@@ -32,6 +40,7 @@
 	  </div>
 	</nav>
 
+<div id="firebaseui-auth-container"></div>
 
 
 	<div class="container-fluid">
@@ -65,8 +74,7 @@
 															
 					       	<button class="btn btn-lg btn-primary btn-block" id="createAcct" type="submit">Create Account</button>
 					       	<button class="btn btn-lg btn-danger btn-block cancel" id="signupCancel" type="cancel">Cancel</button>
-					        
-									
+					        			
 						</form>
 					</div>
 				</div>
