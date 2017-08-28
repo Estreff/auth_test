@@ -8,7 +8,7 @@ $(function(){
     storageBucket: "test-auth-37723.appspot.com",
     messagingSenderId: "206272245401"
   };
-  firebase.initializeApp(config)
+  firebase.initializeApp(config);
    
       var auth = firebase.auth(); 
 
@@ -91,6 +91,8 @@ $(function(){
         $('#logout-nav').removeClass('hide')
         $('#login-nav').addClass('hide');
         $('#signup-nav').addClass('hide');
+        $('#login-form').addClass('hide')
+        $('#signup-form').addClass('hide')
       } else {
         console.log('not logged in');
         $('#logout-nav').addClass('hide')
