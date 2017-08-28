@@ -46,11 +46,10 @@ $(function(){
       var promise = auth.signInWithEmailAndPassword(loginEmail, loginPswd);
       promise.catch(event => console.log(event.message));
 
-      document.location.href = 'scoring.html';
 
-      $('#login-nav').addClass('hide');
-      $('#signup-nav').addClass('hide');
-      $('#logout-nav').removeClass('hide');
+      // $('#login-nav').addClass('hide');
+      // $('#signup-nav').addClass('hide');
+      // $('#logout-nav').removeClass('hide');
 
 
     });
@@ -77,16 +76,26 @@ $(function(){
       var promise = auth.createUserWithEmailAndPassword(loginEmail, loginPswd);
       promise.catch(event => console.log(event.message));
 
-      document.location.href = 'scoring.html';
     });
+
+    // LogOut of Firebase
+      $('#logout-nav').click(function(event){
+        auth.signOut();
+      })
   
     // Add a realtime listener
 
-    auth.onAuthStateChanged(firebaseUser => {
+    firebase.auth().onAuthStateChanged(firebaseUser => {
       if(firebaseUser) {
         console.log('Valid User: ', firebaseUser);
+        $('#logout-nav').removeClass('hide')
+        $('#login-nav').addClass('hide');
+        $('#signup-nav').addClass('hide');
       } else {
         console.log('not logged in');
+        $('#logout-nav').addClass('hide')
+        $('#login-nav').removeClass('hide');
+        $('#signup-nav').removeClass('hide');
       }
       
     });
