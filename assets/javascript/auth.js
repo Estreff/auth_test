@@ -1,34 +1,15 @@
 $(function(){
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyAtRMKj4TBfFGKWT2O9j2GRKpNQEErUJEA",
-    authDomain: "test-auth-37723.firebaseapp.com",
-    databaseURL: "https://test-auth-37723.firebaseio.com",
-    projectId: "test-auth-37723",
-    storageBucket: "test-auth-37723.appspot.com",
-    messagingSenderId: "206272245401"
+    apiKey: "AIzaSyAbJX4QcF-KzWZrahes6M3iKgDBI_Jg6os",
+    authDomain: "golf-tourny-scoring.firebaseapp.com",
+    databaseURL: "https://golf-tourny-scoring.firebaseio.com",
+    projectId: "golf-tourny-scoring",
+    storageBucket: "golf-tourny-scoring.appspot.com",
+    messagingSenderId: "110343822868"
   };
   firebase.initializeApp(config);
 
-  // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: '<url-to-redirect-to-on-success>',
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID
-
-        ],
-        // Terms of service url.
-        tosUrl: '<your-tos-url>'
-      };
-
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-   
       var auth = firebase.auth(); 
 
   // Sign-up Navbar to show the form
