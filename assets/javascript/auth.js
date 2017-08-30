@@ -98,7 +98,7 @@ $(function(){
 
       $('#email-input').val("");
       $('#fName-input').val("");
-      $('#lname-input').val("");
+      $('#lName-input').val("");
       $('#password-input').val("");
 
     });
