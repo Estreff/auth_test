@@ -132,18 +132,18 @@ $(function(){
         $('#signup-nav').addClass('hide');
         $('#login-form').addClass('hide')
         $('#signup-form').addClass('hide')
-        $('#scorecard').removeClass('hide');
-        $('#leaderboard').removeClass('hide');
-        $('#games').removeClass('hide');
+        // $('#scorecard').removeClass('hide');
+        // $('#leaderboard').removeClass('hide');
+        // $('#games').removeClass('hide');
         
       } else {
         console.log('not logged in');
         $('#logout-nav').addClass('hide');
         $('#login-nav').removeClass('hide');
         $('#signup-nav').removeClass('hide');
-        $('#scorecard').addClass('hide');
-        $('#leaderboard').addClass('hide');
-        $('#games').addClass('hide');
+        // $('#scorecard').addClass('hide');
+        // $('#leaderboard').addClass('hide');
+        // $('#games').addClass('hide');
       }
       
     });
