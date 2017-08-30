@@ -64,6 +64,8 @@ $(function(){
       $('#email-login').val("")
       $('#password-login').val("")
 
+      $('#loginModal').modal('hide');      
+
     });
 
   // Add Signup on click 
@@ -105,7 +107,7 @@ $(function(){
       $('#lName-input').val("");
       $('#password-input').val("");
 
-      $('#myModal').modal('hide');
+      $('#createModal').modal('hide');
 
       playerId++
       golfdb.ref('playerCount').set({
@@ -117,6 +119,7 @@ $(function(){
     // LogOut of Firebase
       $('#logout-nav').click(function(event){
         auth.signOut();
+        window.location.replace('index.html');
       })
   
     // Add a realtime listener
@@ -129,12 +132,18 @@ $(function(){
         $('#signup-nav').addClass('hide');
         $('#login-form').addClass('hide')
         $('#signup-form').addClass('hide')
+        $('#scorecard').removeClass('hide');
+        $('#leaderboard').removeClass('hide');
+        $('#games').removeClass('hide');
         
       } else {
         console.log('not logged in');
         $('#logout-nav').addClass('hide');
         $('#login-nav').removeClass('hide');
         $('#signup-nav').removeClass('hide');
+        $('#scorecard').addClass('hide');
+        $('#leaderboard').addClass('hide');
+        $('#games').addClass('hide');
       }
       
     });
@@ -142,7 +151,7 @@ $(function(){
 
 
       $('#signup-nav').on('shown.bs.modal', function () {
-        $('#myModal').focus()
+        $('#createModal').focus()
       })
 
 });

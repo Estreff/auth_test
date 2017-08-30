@@ -20,180 +20,211 @@
 </head>
 
 <body>
-<div class="container">
-<!-- 	<nav class="navbar navbar-inverse">
-	  	<div class="container-fluid">
-	        <div class="navbar-header">
-		    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-		        	<span class="fa fa-bars fa-lg" style="color:white"></span> 
-		      	</button>
-		      	<a class="navbar-brand" id="" href="index.html">GTS</a>
-    		</div>
-    		<div class="collapse navbar-collapse" id="myNavbar">
-    		    <ul class="nav navbar-nav">
-			      <li><a href="#">Scorecard</a></li>
-			      <li><a href="#">Leaderboard</a></li>
-			      <li><a href="#">Join Game</a></li>
-			      <li><a href="#">Courses</a></li>
-			    </ul>
-			    <ul class="nav navbar-nav navbar-right">
-			     
-			      	<li id="signup-nav"><button class="btn btn-primary navbar-btn btn-block"><span class="glyphicon glyphicon-user"></span> Sign Up</button></li>
-			      	<li id="login-nav"><button class="btn btn-primary navbar-btn btn-block"><span class="glyphicon glyphicon-log-in"></span> Login</button></li>
+<div class="wrapper">
+	<!-- <div class="container-fluid"> -->
+		<nav class="navbar navbar-default">
+		  	<div class="">
 
-			      	<li id="logout-nav" class="hide"><button class="btn btn-primary navbar-btn btn-block"><span class="glyphicon glyphicon-log-out"></span> Logout</button></li>	
-			    </ul>
-			</div>	
-	  </div>
-	</nav> -->
-	<nav class="navbar navbar-default">
-	  	<div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        	<span class="sr-only">Toggle navigation</span>
-		        	<span class="fa fa-bars fa-lg"></span> 
-		      	</button>
-		      	<a class="navbar-brand" href="#">GTS</a>
-		    </div>
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      	<ul class="nav navbar-nav">
-		      		<li class="active"><a href="#">Home</a></li>
-		        	<li><a href="#">Scorecard <span class="sr-only">(current)</span></a></li>
-		        	<li><a href="#">Leaderboard</a></li>
-		        	<li class="dropdown">
-		          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
-		          		<ul class="dropdown-menu">
-				            <li><a href="#">Create Game</a></li>
-				            <li><a href="#">Join Game</a></li>
-				            <li><a href="#">End Game</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">Completed Games</a></li>
-				        </ul>
-				    </li>
-		     	</ul>
-		        <ul class="nav navbar-nav navbar-right">
-		      		<li id="signup-nav" data-toggle="modal" data-target="#myModal"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-		            <li id="login-nav"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		            <li id="logout-nav" class="hide"><a href="#"><span class="glyphicon glyphicon-log-out"> Logout</a></li>
-				</ul>
-	    	</div>
-	  	</div>
-	</nav>
-
-	<div class="modal" id="myModal">
-	  	<div class="modal-dialog" role="document">
-	    	<div class="modal-content">
-	      		<div class="modal-header">
-	        		<h5 class="modal-title">Create Account</h5>
-	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          			<span aria-hidden="true">&times;</span>
-	        		</button>
-	      		</div>
-	      		<div class="modal-body">
-	        		<form role="form" class="form-group">
-							
-						<div id="firebaseui-auth-container"></div>
-
-						<label for="Search">Email Address:</label>
-						<input type="email" class="form-control" id="email-input" placeholder="" required>
-									
-						<label for="First Name">First Name:</label>
-						<input type="text" class="form-control" id="fName-input">
-													
-						<label for="Last Name">Last Name:</label>
-						<input type="text" class="form-control" id="lName-input" >
-						
-						<label for="Password">Password:</label>
-						<input type="text" class="form-control" id="password-input">
-					</form>
-	      		</div>
-	      		<div class="modal-footer">
-	        		<button type="button" class="btn btn-primary" id="createAcct">Save changes</button>
-	        		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	    		</div>
-	    	</div>
-	  	</div>
-	</div>
+			    <div class="navbar-header">
+			      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        	<span class="sr-only">Toggle navigation</span>
+			        	<span class="fa fa-bars fa-lg"></span> 
+			      	</button>
+			      	<a class="navbar-brand" href="#">GTS</a>
+			    </div>
 
 
-	<div class="container-fluid">
-	
-<!-- 		<div class="row">
-			<div class="col-md-8"></div>
-			<div class=" col-md-4">
-				<div class="panel panel-primary hide" id="signup-form">
-					<div class="panel-heading">
-			        	<h4 class="form-signin-heading">Create Account</h4>				
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      	<ul class="nav navbar-nav">
+			      		<li class="active" id=home><a href="index.html">Home</a></li>
+			        	<li class="hide" id = scorecard><a href="scorecard.html">Scorecard</a></li>
+			        	<li class="hide" id="leaderboard"><a href="#">Leaderboard</a></li>
+			        	<li class="dropdown hide" id="games">
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
+			          		<ul class="dropdown-menu">
+					            <li><a href="#">Create Game</a></li>
+					            <li><a href="#">Join Game</a></li>
+					            <li><a href="#">End Game</a></li>
+					            <li role="separator" class="divider"></li>
+					            <li><a href="#">Completed Games</a></li>
+					        </ul>
+					    </li>
+			     	</ul>
+			        <ul class="nav navbar-nav navbar-right">
+			      		<li id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
+			            <li id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
+			            <li id="logout-nav" class="hide"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
+					</ul>
+		    	</div>
+		  	</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="topicLeft col-lg-8">
+					<div class="mainContent">
+						<div id="localTitle">
+							<h2 class="text-center"><span><img src="assets/images/logo-1.png" height="60" width="40"></span> Golf Tourney Scoring</h2>
+						</div>
+						<div id="localHeatMap">Heat Map</div>
 					</div>
-	
-					<div class="panel-body" id="newUser" > 	
-	
-						<form role="form" class="form-group">
-							
+				</div>
+				<div class="topicRight col-lg-4">
+					<div class=sidebar>	
+						<div id="weather">Weather</div>
+						<div id="otherInfo"></div>
+						<div id="moreInfo"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Create New User Modal -->
+		<div class="modal" id="createModal">
+		  	<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<h5 class="modal-title"><span class="fa fa-user-plus"></span> Create Account</h5>
+		      		</div>
+		      		<div class="modal-body">
+		        		<form role="form" class="form-group">
+								
 							<div id="firebaseui-auth-container"></div>
-	
+
 							<label for="Search">Email Address:</label>
 							<input type="email" class="form-control" id="email-input" placeholder="" required>
-									
+										
 							<label for="First Name">First Name:</label>
 							<input type="text" class="form-control" id="fName-input">
-													
+														
 							<label for="Last Name">Last Name:</label>
 							<input type="text" class="form-control" id="lName-input" >
-						
+							
 							<label for="Password">Password:</label>
-							<input type="text" class="form-control" id="password-input">
-	
-							<label for="Password Verify">Verify Password:</label>
-							<input type="text" class="form-control" id="verifyPassword-input">
-															
-					       	<button class="btn btn-lg btn-primary btn-block" id="createAcct" type="submit">Create Account</button>
-					       	<button class="btn btn-lg btn-danger btn-block cancel" id="signupCancel" type="cancel">Cancel</button>
-					        			
+							<input type="text" class="form-control" id="password-input" >
 						</form>
-					</div>
-				</div>
-				</div>
-			<div class="col-md-4"></div>
+		      		</div>
+		      		<div class="modal-footer">
+		        		<button type="button" class="btn btn-primary" id="createAcct">Create Account</button>
+		        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		    		</div>
+		    	</div>
+		  	</div>
 		</div>
-	 -->
-		<div class="row">
-			<div class="col-md-8"></div>
-			<div class="col-md-4">	
-				<div class="panel panel-primary hide" id="login-form">
-					<div class="panel-heading">
-			        	<h4 class="form-signin-heading">Sign-In</h4>				
-					</div>
-					<div class="panel-body">
+		
+		<!-- Login with Existing Credentials Modal -->
+		<div class="modal" id="loginModal">
+		  	<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<h5 class="modal-title"><span class="fa fa-sign-in"></span> Login</h5>
+		      		</div>
+		      		<div class="modal-body">
 				    	<form class="form-signin">
-	
+
 				        	<label for="email">Email address</label>
-				        	<input type="email" id="email-login" class="form-control" placeholder="Email address" required="" autofocus="">
-	
+				        	<input type="email" id="email-login" class="form-control" placeholder="Email address" required autofocus="">
+
 					        <label for="password">Password</label>
-					        <input type="password" id="password-login" class="form-control" placeholder="Password" required="">
-	
-						    <div class="checkbox">
+					        <input type="password" id="password-login" class="form-control" placeholder="Password" required>
+
+<!-- 						    <div class="checkbox">
 						        <label>
 						    	    <input type="checkbox" value="remember-me"> Remember me
 						        </label>
-						    </div>
-							
-					        <button class="btn btn-lg btn-primary btn-block" id="login" name="" type="submit">Sign in</button>
-					        <button class="btn btn-lg btn-danger btn-block cancel" id="loginCancel" type="cancel">Cancel</button>
+						    </div> -->
 					        
 				    	</form>
-				    </div>
-				</div>
-			</div>
-			<div class="col-md-4"></div>
+	      		</div>
+		      		<div class="modal-footer">
+		        		<button type="button" class="btn btn-primary" id="login">Sign In</button>
+		        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		    		</div>
+		    	</div>
+		  	</div>
 		</div>
-	    </div>
-	</div>
 
+	<!--
+		<div class="container-fluid">
+		
+	 		<div class="row">
+				<div class="col-md-8"></div>
+				<div class=" col-md-4">
+					<div class="panel panel-primary hide" id="signup-form">
+						<div class="panel-heading">
+				        	<h4 class="form-signin-heading">Create Account</h4>				
+						</div>
+		
+						<div class="panel-body" id="newUser" > 	
+		
+							<form role="form" class="form-group">
+								
+								<div id="firebaseui-auth-container"></div>
+		
+								<label for="Search">Email Address:</label>
+								<input type="email" class="form-control" id="email-input" placeholder="" required>
+										
+								<label for="First Name">First Name:</label>
+								<input type="text" class="form-control" id="fName-input">
+														
+								<label for="Last Name">Last Name:</label>
+								<input type="text" class="form-control" id="lName-input" >
+							
+								<label for="Password">Password:</label>
+								<input type="text" class="form-control" id="password-input">
+		
+								<label for="Password Verify">Verify Password:</label>
+								<input type="text" class="form-control" id="verifyPassword-input">
+																
+						       	<button class="btn btn-lg btn-primary btn-block" id="createAcct" type="submit">Create Account</button>
+						       	<button class="btn btn-lg btn-danger btn-block cancel" id="signupCancel" type="cancel">Cancel</button>
+						        			
+							</form>
+						</div>
+					</div>
+					</div>
+				<div class="col-md-4"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-8"></div>
+				<div class="col-md-4">	
+					<div class="panel panel-primary hide" id="login-form">
+						<div class="panel-heading">
+				        	<h4 class="form-signin-heading">Sign-In</h4>				
+						</div>
+						<div class="panel-body">
+					    	<form class="form-signin">
+		
+					        	<label for="email">Email address</label>
+					        	<input type="email" id="email-login" class="form-control" placeholder="Email address" required="" autofocus="">
+		
+						        <label for="password">Password</label>
+						        <input type="password" id="password-login" class="form-control" placeholder="Password" required="">
+		
+							    <div class="checkbox">
+							        <label>
+							    	    <input type="checkbox" value="remember-me"> Remember me
+							        </label>
+							    </div>
+								
+						        <button class="btn btn-lg btn-primary btn-block" id="login" name="" type="submit">Sign in</button>
+						        <button class="btn btn-lg btn-danger btn-block cancel" id="loginCancel" type="cancel">Cancel</button>
+						        
+					    	</form>
+					    </div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		    </div>
+		</div>
+	 -->
+		<footer class="navbar navbar-default navbar-fixed-bottom">
+				<ul class="nav navbar-nav col-lg-12">
+					<li class= "col-lg-12" id = "copyright"><a href="#"><h5>&copy; Golf Tourney Scoring Inc.</h5></a></li>
+				</ul>
+		</footer>
+</div>
 
 
 	<!-- Firebase -->
