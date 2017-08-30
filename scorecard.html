@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Auth</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- BootStrap  -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Bootswatch -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/spacelab/bootstrap.min.css">	
+	<!-- Awesome Fonts -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- Firebase -->
+  	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<!-- Firebase UI-->
+	<script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+	<!-- Firebase CSS -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+</head>
+
+<body>
+<div class="wrapper">
+	<!-- <div class="container-fluid"> -->
+		<nav class="navbar navbar-default">
+		  	<div class="">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        	<span class="sr-only">Toggle navigation</span>
+			        	<span class="fa fa-bars fa-lg"></span> 
+			      	</button>
+			      	<a class="navbar-brand" href="#">GTS</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      	<ul class="nav navbar-nav">
+			      		<li class="active" id=home><a href="#">Home</a></li>
+			        	<li class="hide" id = scorecard><a href="#">Scorecard</a></li>
+			        	<li class="hide" id="leaderboard"><a href="#">Leaderboard</a></li>
+			        	<li class="dropdown hide" id="games">
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
+			          		<ul class="dropdown-menu">
+					            <li><a href="#">Create Game</a></li>
+					            <li><a href="#">Join Game</a></li>
+					            <li><a href="#">End Game</a></li>
+					            <li role="separator" class="divider"></li>
+					            <li><a href="#">Completed Games</a></li>
+					        </ul>
+					    </li>
+			     	</ul>
+			        <ul class="nav navbar-nav navbar-right">
+			      		<li id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
+			            <li id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
+			            <li id="logout-nav" class="hide"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
+					</ul>
+		    	</div>
+		  	</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="topicLeft col-lg-8">
+					<div class="mainContent">
+						<div id="localTitle">
+							<h2 class="text-center"></span> Scorecard</h2>
+						</div>
+						<div id="scorecardEntry">
+							<div id="holeNumber">Hole 1</div>
+							<div id="scoreInput" class="form-group">
+								<input type="text" class="form-control" id="holeScore">
+								<button type="button" class="btn btn-primary" id="login">Previous Hole</button>
+			        			<button type="button" class="btn btn-danger" data-dismiss="modal">Next Hole</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="topicRight col-lg-4">
+					<div class=sidebar>	
+						<div id="weather">Weather</div>
+						<div id="otherInfo"></div>
+						<div id="moreInfo"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="navbar navbar-default navbar-fixed-bottom">
+				<ul class="nav navbar-nav col-lg-12">
+					<li class= "col-lg-12" id = "copyright"><a href="#"><h5>&copy; Golf Tourney Scoring Inc.</h5></a></li>
+				</ul>
+		</footer>
+</div>
+
+
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Bootstrap jQuery -->
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<!-- Moment JS -->
+  	<!-- <script text="text/javascript" src="assets/javascript/moment.js"></script> -->
+  	<!-- Local Javascript -->
+  	<script type="text/javascript" src="assets/javascript/auth.js"></script>
+</body>
+</html>
