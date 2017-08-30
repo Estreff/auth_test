@@ -12,7 +12,7 @@ $(function(){
 
       var auth = firebase.auth(); 
       var golfdb = firebase.database();
-      var playerId = 0;
+      var playerId = 1;
 
   // Sign-up Navbar to show the form
 
@@ -40,6 +40,10 @@ $(function(){
   var loginPswd = "";
   var uid = "";
   var gamesPlayed = [0];
+
+      golfdb.ref('playerCount').on('value', function(snapshot){
+        playerId = snapshot.val().playerId;
+      });
 
   // Add Login on click
     $('#login').click(function(event){
@@ -77,7 +81,7 @@ $(function(){
 
       // $('#player').text('Username');
 
-      event.preventDefault();
+      // event.preventDefault();
 
 
       // Create User
@@ -100,6 +104,13 @@ $(function(){
       $('#fName-input').val("");
       $('#lName-input').val("");
       $('#password-input').val("");
+
+      $('#myModal').modal('hide');
+
+      playerId++
+      golfdb.ref('playerCount').set({
+        playerId:playerId
+      });
 
     });
 
@@ -129,5 +140,9 @@ $(function(){
     });
 
 
+
+      $('#signup-nav').on('shown.bs.modal', function () {
+        $('#myModal').focus()
+      })
 
 });
