@@ -22,22 +22,22 @@ $.ajax({
 
     //display City
     $("#city").text(response.name)
-	console.log("City: " + response.name);
 
-    //Display temperature a s whole number
-    $("#temperature").text(Math.round(response.main.temp));
-    console.log("Temperature (F): " + response.main.temp);
-
+    //Display temperature a s whole number with degree symbol
+    $("#temperature").text(Math.round(response.main.temp)+String.fromCharCode(176));
+    
     //Add weather Icon to page
     $("#weather-icon").html("<img src= " + wxIconPath + ">")
-    console.log("Icon: " + wxIcon);
 
     //textual description of weather
     $("#weather-description").text(response.weather[0].main);
-    console.log(response.weather[0].main)
+    //display windspeed
+    $("#windspeed").text(Math.round(response.wind.speed) + "mph")
+    
+    //display wind direction arrow
+    $("#wind-direction").html("<img src= 'assets/images/windIndicator.png'>")
 
-    //other data
-   	console.log("Wind Speed: " + response.wind.speed);
-    console.log("Wind Direction: " + response.wind.deg);
+    //rotate arrow into the wind using 3rd party plugin
+    $("#wind-direction").rotate(response.wind.deg);
 
 }); //end ajax.done
