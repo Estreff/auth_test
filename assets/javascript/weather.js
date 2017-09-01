@@ -18,7 +18,7 @@ $.ajax({
 
     //create path weather icon
     wxIcon = response.weather[0].icon
-    wxIconPath = "http://openweathermap.org/img/w/"+ wxIcon +".png";
+    wxIconPath = "https://openweathermap.org/img/w/"+ wxIcon +".png";
 
     //display City
     $("#city").text(response.name)
