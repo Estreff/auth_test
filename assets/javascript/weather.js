@@ -5,7 +5,7 @@ var wxIcon; //Wx icon code
 var wxIconPath; //path to Wx icon
 var userLocation = "Denver, CO, USA" 
 var apiKey = "b1d8243e585e458550ec2db368435c82";
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q="+ userLocation + "&units=imperial&appid=" + apiKey; 
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ userLocation + "&units=imperial&appid=" + apiKey; 
 	//console.log(queryURL);
 
 $.ajax({
