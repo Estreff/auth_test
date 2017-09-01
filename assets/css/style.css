@@ -46,7 +46,9 @@ nav {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	height: 12vh;
+	min-height: 12vh;
+	height: auto;
+	overflow: auto;
 }
 
 #otherInfo {
@@ -82,5 +84,9 @@ footer {
 #copyright h5{
 	text-align: center;
 	line-height: 0px;
+}
+
+#wind-direction{
+	float: left;
 }
 
