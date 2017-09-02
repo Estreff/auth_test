@@ -1,5 +1,6 @@
 body {
-	height: auto;
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -146,3 +147,18 @@ footer {
 	float: left;
 }
 
+#scorecardView {
+    margin: auto;
+    margin-top: 20pt;
+}
+
+#score {
+	height: 250px;
+	width: 100%;
+	font-size: 10em;
+	text-align: center;
+}
+
+#card-column {
+	border: 1px solid red;
+}
