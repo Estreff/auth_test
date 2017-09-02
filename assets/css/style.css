@@ -23,8 +23,8 @@ body {
 }*/
 
 #localTitle {
-	/*background-color: blue;*/
-	border: 2px solid #5d85b1;
+	background-color: #446e9b;
+	border: 2px solid #446e9b;
 	border-radius: 5px;
 	margin: 2vh;
 	height: 12vh;
@@ -33,7 +33,7 @@ body {
 
 #localTitle h2 {
 	/*line-height: 0px;*/
-	color: #5d85b1;
+	color: #ffffff;
 	font-size: 3vh;
 	font-weight: bold;
 	line-height: 20px;
@@ -41,6 +41,7 @@ body {
 }
 
 #localHeatMap {
+	background-color: #446e9b;
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
@@ -49,6 +50,14 @@ body {
 
 th {
 	text-align: center;
+	background-color: #446e9b;
+	border: 2px solid #446e9b;
+	border-radius: 5px;
+	color: #ffffff;
+	font-size: 3vh;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 0px;
 }
 
 /*.sidebar {
