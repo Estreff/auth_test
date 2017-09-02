@@ -36,6 +36,10 @@ nav {
 	height: 66vh;
 }
 
+th {
+	text-align: center;
+}
+
 /*.sidebar {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
@@ -51,11 +55,42 @@ nav {
 	overflow: auto;
 }
 
+/*#chat {
+	border: 2px solid #5d85b1;
+	border-radius: 5px;
+	margin: 2vh;
+	height: 67vh;
+}*/
+
+#chatBox {
+	margin: 2vh;
+}
+
+#chatHeading {
+	height: 8vh;
+
+}
+
+#chatHeading h4 {
+	color:white;
+}
+
+#chatBody {
+	height: 59vh;
+}
+
+#messages {
+	min-height: 64vh;
+}
+
+
 #otherInfo {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
 	height: 32vh;
+}
+
 }
 
 #moreInfo {
@@ -85,6 +120,10 @@ footer {
 	text-align: center;
 	line-height: 0px;
 }
+
+
+#createGame {
+	margin-top: 10px;
 
 #wind-direction{
 	float: left;

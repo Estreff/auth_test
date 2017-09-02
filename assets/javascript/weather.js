@@ -5,7 +5,9 @@ var wxIcon; //Wx icon code
 var wxIconPath; //path to Wx icon
 var userLocation = "Denver, CO, USA" 
 var apiKey = "b1d8243e585e458550ec2db368435c82";
+
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ userLocation + "&units=imperial&appid=" + apiKey; 
+
 	//console.log(queryURL);
 
 $.ajax({
@@ -18,6 +20,7 @@ $.ajax({
 
     //create path weather icon
     wxIcon = response.weather[0].icon
+
     wxIconPath = "https://openweathermap.org/img/w/"+ wxIcon +".png";
 
     //display City
@@ -39,5 +42,6 @@ $.ajax({
 
     //rotate arrow into the wind using 3rd party plugin
     $("#wind-direction").rotate(response.wind.deg);
+
 
 }); //end ajax.done
