@@ -94,7 +94,7 @@ th {
 }
 
 #chatBody {
-	height: 36vh;
+	height: 35vh;
 }
 
 #messages {
@@ -159,6 +159,3 @@ footer {
 	text-align: center;
 }
 
-#card-column {
-	border: 1px solid red;
-}
