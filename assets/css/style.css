@@ -19,14 +19,21 @@ nav {
 }*/
 
 #localTitle {
+	/*background-color: blue;*/
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
 	height: 12vh;
+
 }
 
 #localTitle h2 {
-	line-height: 0px;
+	/*line-height: 0px;*/
+	color: #5d85b1;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 20px;
+	margin: 0px;
 }
 
 #localHeatMap {
@@ -50,9 +57,8 @@ th {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	min-height: 12vh;
-	height: auto;
-	overflow: auto;
+	min-height: 18vh;
+
 }
 
 /*#chat {
@@ -76,11 +82,12 @@ th {
 }
 
 #chatBody {
-	height: 59vh;
+	height: 44vh;
 }
 
 #messages {
-	min-height: 64vh;
+	height: 40vh;
+	overflow-y: auto;
 }
 
 
@@ -89,8 +96,6 @@ th {
 	border-radius: 5px;
 	margin: 2vh;
 	height: 32vh;
-}
-
 }
 
 #moreInfo {

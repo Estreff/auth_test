@@ -51,32 +51,32 @@
 		</nav>
 		<div class="container">
 			<div class="row">
-				<div class="topicLeft col-lg-8">
+				<div class="topicLeft col-lg-9">
 					<div class="mainContent">
-						<div id="localTitle">
-							<h2 class="text-center"></span> Scorecard</h2>
+						<div class="well well-lg well-primary" id="localTitle">
+							<h2 class="text-center"> Scorecard</h2>
 						</div>
 						<div id="scorecardEntry">
-							<div>Total Score: <span id="totalScore"></span></div>
-							<div id="holeNumber">Hole <span id=hole>1</span></div>
-							<div id="scoreInput" class="form-group">
-								<input type="text" class="form-control" id="holeScore">
-								<button type="button" class="btn btn-primary" id="login">Previous Hole</button>
-			        			<button type="button" class="btn btn-danger" id="nextHole" data-dismiss="modal">Next Hole</button>
-							</div>
+							
 						</div>
-						<button type="submit" class="btn btn-danger" id="createGame" data-dismiss="modal">Create Game</button>
-
-						<div id=openGames></div>
+						
 					</div>
 				</div>
-				<div class="topicRight col-lg-4">
+				<div class="topicRight col-lg-3">
 					<div class=sidebar>	
-						<div id="weather">
-							<div id="city"></div>
-							<div id="temperature"></div>
-							<div id="weather-icon"></div>
-							<div id="weather-description"></div>
+						<div id = "weather">
+								<div class = "text-center col-md-4 col-xs-4">
+									<h3 id = "city"></h3>
+									<h3 id = "temperature"></h3>
+								</div>
+								<div class = "text-center col-md-4 col-xs-4">
+									<h3 id = "weather-description"></h3>
+									<p id = "weather-icon"></p>
+								</div>
+								<div class = "text-center col-md-4 col-xs-4">
+									<h3 id = "windspeed"></h3>
+									<p id = "wind-direction"></p>
+								</div>						
 						</div>
 						<div id="chat">
 							<div class="panel panel-primary" id = "chatBox">
@@ -86,16 +86,17 @@
 								<div class="panel-body" id="chatBody"> 
 	
 									<div id="messages">	</div>
-									<div class="input-group col-md-8 col-sm-12 " id="buttonInput">		
-										<input type="text" class="form-control" id = "chatMessage" placeholder="Search for Topic...">
-										<span class="input-group-btn">
-	    									<button class="btn btn-warning" id="messageSubmit" type="button">Add Topic!</button>
-	  									</span>
-									</div>
+									
 		  						</div>
+		  						<div class="input-group col-md-12 col-sm-12 " id="buttonInput">		
+									<input type="text" class="form-control" id = "chatMessage" placeholder="Enter Message">
+									<span class="input-group-btn">
+    									<button class="btn btn-warning" id="messageSubmit" type="button">Add Topic!</button>
+  									</span>
+								</div>
 		  					</div>
 		  				</div>
-						<div id="moreInfo"></div>
+						
 					</div>
 				</div>
 			</div>
