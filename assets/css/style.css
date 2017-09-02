@@ -50,7 +50,9 @@ th {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	height: 12vh;
+	min-height: 12vh;
+	height: auto;
+	overflow: auto;
 }
 
 /*#chat {
@@ -119,7 +121,11 @@ footer {
 	line-height: 0px;
 }
 
+
 #createGame {
 	margin-top: 10px;
+
+#wind-direction{
+	float: left;
 }
 

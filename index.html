@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>Test Auth</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- BootStrap  -->
@@ -59,14 +60,25 @@
 					</div>
 				</div>
 				<div class="topicRight col-lg-4">
-					<div class=sidebar>	
-						<div id="weather">
-							<div id="city"></div>
-							<div id="temperature"></div>
-							<div id="weather-icon"></div>
+
+					<!-- weather sidebar -->
+					<div class = sidebar>
+						<div id = "weather">
+								<div class = "col-md-4">
+									<h3 id = "city"></h3>
+									<h3 id = "temperature"></h3>
+								</div>
+								<div class = "col-md-4">
+									<h3 id = "weather-description"></h3>
+									<p id = "weather-icon"></p>
+								</div>
+								<div class = "col-md-4">
+									<h3 id = "windspeed"></h3>
+									<p id = "wind-direction"></p>
+								</div>						
 						</div>
-						<div id="otherInfo"></div>
-						<div id="moreInfo"></div>
+						<div id = "otherInfo"></div>	
+						<div id = "moreInfo"></div>	
 					</div>
 				</div>
 			</div>
@@ -158,8 +170,11 @@
   	<!-- Moment JS -->
   	<!-- <script text="text/javascript" src="assets/javascript/moment.js"></script> -->
   	<!-- Local Javascript -->
-  	<script type="text/javascript" src="assets/javascript/auth.js"></script>
+
+	<script type="text/javascript" src="assets/javascript/auth.js"></script>
+	<!-- jQueryRotate.js  for rotating the weather icon-->
+    <script src="assets/javascript/jQueryRotate.js"></script>
+
   	<script type="text/javascript" src="assets/javascript/weather.js"></script>
-  	<!-- <script type="text/javascript" src="assets/javascript/chat.js"></script> -->
 </body>
 </html>
