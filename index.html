@@ -22,7 +22,7 @@
 
 <body>
 <div class="wrapper">
-	<!-- <div class="container-fluid"> -->
+	
 		<nav class="navbar navbar-default">
 		  	<div class="container-fluid">
 
@@ -41,7 +41,7 @@
 			        	<li class="hide" id="games"><a href="games.html">Games</a></li>
 			     	</ul>
 			        <ul class="nav navbar-nav navbar-right">
-			      		<li data-toggle="modal" data-target="#createModal"><a href="#" id="player"></a></li>
+			      		<li><a href="#" id="player"></a></li>
 			      		<li id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
 			            <li id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
 			            <li id="logout-nav" class="hide"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
@@ -49,9 +49,10 @@
 		    	</div>
 		  	</div>
 		</nav>
+
 		<div class="container">
 			<div class="row">
-				<div class="topicLeft col-lg-8">
+				<div class="topicLeft col-lg-9">
 					<div class="mainContent">
 						<div class="well well-lg well-primary" id="localTitle">
 							<h2 class="text-center"> Golf Tourney Scoring</h2>
@@ -59,23 +60,27 @@
 						<div id="localHeatMap"></div>
 					</div>
 				</div>
-				<div class="topicRight col-lg-4">
+				<div class="topicRight col-lg-3">
 
 					<!-- weather sidebar -->
 					<div class = sidebar>
 						<div id = "weather">
-								<div class = "col-md-4 col-xs-4">
-									<h3 id = "city"></h3>
-									<h3 id = "temperature"></h3>
+							<div class="panel panel-primary">
+								<div class="panel-heading col-md-12">
+									<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
+									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
 								</div>
-								<div class = "col-md-4 col-xs-4">
-									<h3 id = "weather-description"></h3>
-									<p id = "weather-icon"></p>
+								<div class="panel-body" id="weatherDetail">
+									<div class = "col-md-6 col-xs-6 text-left">
+										<h3 id = "weather-description"></h3>
+										<p id = "weather-icon"></p>
+									</div>
+									<div class = "col-md-6 col-xs-6 text-right">
+										<h3 id = "windspeed"></h3>
+										<p id = "wind-direction"></p>
+									</div>
 								</div>
-								<div class = "col-md-4 col-xs-4">
-									<h3 id = "windspeed"></h3>
-									<p id = "wind-direction"></p>
-								</div>						
+							</div>								
 						</div>
 						<div id = "otherInfo"></div>	
 						<div id = "moreInfo"></div>	
@@ -158,6 +163,7 @@
 					<li class= "col-lg-12" id = "copyright"><a href="#"><h5>&copy; Golf Tourney Scoring Inc.</h5></a></li>
 				</ul>
 		</footer>
+	
 </div>
 
 

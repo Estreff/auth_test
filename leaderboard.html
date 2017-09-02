@@ -21,7 +21,7 @@
 
 <body>
 <div class="wrapper">
-	<!-- <div class="container-fluid"> -->
+	
 		<nav class="navbar navbar-default">
 		  	<div class="container-fluid">
 
@@ -35,12 +35,12 @@
 			  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      	<ul class="nav navbar-nav">
 			      		<li class="" id=home><a href="index.html">Home</a></li>
-			        	<li class="hide" id = scorecard><a href="scorecard.html">Scorecard</a></li>
-			        	<li class="hide" id="leaderboard"><a href="leaderboard.html">Leaderboard</a></li>
-			        	<li class="active" id="games"><a href="games.html">Games</a></li>
+			        	<li class="" id = scorecard><a href="scorecard.html">Scorecard</a></li>
+			        	<li class="active" id="leaderboard"><a href="leaderboard.html">Leaderboard</a></li>
+			        	<li class="" id="games"><a href="games.html">Games</a></li>
 			     	</ul>
 			        <ul class="nav navbar-nav navbar-right">
-			      		<li data-toggle="modal" data-target="#createModal"><a href="#" id="player"></a></li>
+			      		<li><a href="#" id="player"></a></li>
 			      		<li id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
 			            <li id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
 			            <li id="logout-nav" class="hide"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
@@ -55,28 +55,48 @@
 						<div class="well well-lg well-primary" id="localTitle">
 							<h2 class="text-center">Leaderboard</h2>
 						</div>
-					</div>
+    					<div class="col-sm-2"></div>
+				        <div class="col-sm-8">
+				          	<table class="table">
+				            	<thead>
+				              		<tr>
+				                		<th>Name</th>
+				                		<th>Score</th>
+				                		<th>Thru</th>
+				              		</tr>
+				            	</thead>
+				            	<tbody id="tbody">
+
+				            	</tbody>
+				         	</table>  
+				        </div>
+				        <div class="col-sm-2"></div>
+				    </div>					
 				</div>
 				<div class="topicRight col-lg-3">
 					<div class=sidebar>	
 						<div id = "weather">
-								<div class = "text-center col-md-4 col-xs-4">
-									<h3 id = "city"></h3>
-									<h3 id = "temperature"></h3>
+							<div class="panel panel-primary">
+								<div class="panel-heading col-md-12">
+									<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
+									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
 								</div>
-								<div class = "text-center col-md-4 col-xs-4">
-									<h3 id = "weather-description"></h3>
-									<p id = "weather-icon"></p>
+								<div class="panel-body" id="weatherDetail">
+									<div class = "col-md-6 col-xs-6 text-left">
+										<h4 id = "weather-description"></h4>
+										<p id = "weather-icon"></p>
+									</div>
+									<div class = "col-md-6 col-xs-6 text-right">
+										<h4 id = "windspeed"></h4>
+										<p id = "wind-direction"></p>
+									</div>
 								</div>
-								<div class = "text-center col-md-4 col-xs-4">
-									<h3 id = "windspeed"></h3>
-									<p id = "wind-direction"></p>
-								</div>						
+							</div>								
 						</div>
 						<div id="chat">
 							<div class="panel panel-primary" id = "chatBox">
 							  	<div class="panel-heading" id="chatHeading">
-							  		<h4><i id = "symbol" class = "fa fa-chat fa-lg"></i>Player Chat</h4>
+							  		<h4><i id = "symbol" class = "fa fa-comments fa-lg"></i>  Player Chat</h4>
 								</div>
 								<div class="panel-body" id="chatBody"> 
 	
@@ -86,7 +106,7 @@
 		  						<div class="input-group col-md-12 col-sm-12 " id="buttonInput">		
 									<input type="text" class="form-control" id = "chatMessage" placeholder="Enter Message">
 									<span class="input-group-btn">
-    									<button class="btn btn-warning" id="messageSubmit" type="button">Add Topic!</button>
+    									<button class="btn btn-warning" id="messageSubmit" type="button">Send</button>
   									</span>
 								</div>
 		  					</div>

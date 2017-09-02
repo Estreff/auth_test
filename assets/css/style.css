@@ -1,11 +1,14 @@
-
-
-nav {
-	height: 7vh;
+body {
+	height: auto;
 }
+
 
 .navbar {
 	margin-bottom: 0px;
+}
+
+#player {
+	font-weight: bold;
 }
 
 .row > div {
@@ -30,7 +33,7 @@ nav {
 #localTitle h2 {
 	/*line-height: 0px;*/
 	color: #5d85b1;
-	font-size: 36px;
+	font-size: 3vh;
 	font-weight: bold;
 	line-height: 20px;
 	margin: 0px;
@@ -54,8 +57,8 @@ th {
 }*/
 
 #weather {
-	border: 2px solid #5d85b1;
-	border-radius: 5px;
+	/*border: 2px solid #5d85b1;
+	border-radius: 5px;*/
 	margin: 2vh;
 	min-height: 18vh;
 
@@ -68,6 +71,11 @@ th {
 	height: 67vh;
 }*/
 
+.panel-heading {
+	padding-top:5px;
+	min-height: 8vh;
+}
+
 #chatBox {
 	margin: 2vh;
 }
@@ -77,16 +85,19 @@ th {
 
 }
 
-#chatHeading h4 {
+.panel-heading h4 {
 	color:white;
+	font-size:20px;
+	font-weight: bold;
+
 }
 
 #chatBody {
-	height: 44vh;
+	height: 36vh;
 }
 
 #messages {
-	height: 40vh;
+	height: 32vh;
 	overflow-y: auto;
 }
 
@@ -95,14 +106,14 @@ th {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	height: 32vh;
+	height: 23vh;
 }
 
 #moreInfo {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	height: 32vh;
+	height: 24vh;
 }
 
 .modal-header {
@@ -129,8 +140,9 @@ footer {
 
 #createGame {
 	margin-top: 10px;
+}
 
-#wind-direction{
+#wind-direction {
 	float: left;
 }
 

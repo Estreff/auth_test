@@ -87,7 +87,7 @@ $(function(){
       var promise = auth.signInWithEmailAndPassword(email, loginPswd);
       promise.catch(event => alert(event.message));
 
-      // $('#player').text('Username');
+      
 
       $('#email-login').val("")
       $('#password-login').val("")
@@ -158,7 +158,7 @@ $(function(){
 
       function loggedIn() {
         
-        $('#player').text(displayName);
+        
         $('#logout-nav').removeClass('hide');
         $('#login-nav').addClass('hide');
         $('#signup-nav').addClass('hide');
@@ -174,6 +174,7 @@ $(function(){
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if(firebaseUser) {
+        $('#player').text(firebaseUser.displayName);
         loggedIn();
         console.log('Valid User: ', firebaseUser);
         console.log('Username: ', firebaseUser.displayName);
@@ -295,7 +296,9 @@ function sendChatMessage() {
 
   chatdb.on('child_added', function(snapshot){
     var message = snapshot.val();
-    $('#messages').append(`<p>${message.name}: ${message.message}</p>`);
+    $('#messages').append(`<p><b>${message.name}:</b> ${message.message}</p>`);
     $('#chatMessage').val("");
   });
+
+
 });
