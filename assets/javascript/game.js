@@ -55,5 +55,12 @@ var gamedb = firebase.database().ref('/games');
     		item.remove();
     	}
     })
+
+
+
+
+    
  });
+
+
 
