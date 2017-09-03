@@ -48,8 +48,7 @@ body {
 	height: 66vh;
 }
 
-th {
-	text-align: center;
+thead {
 	background-color: #446e9b;
 	border: 2px solid #446e9b;
 	border-radius: 5px;
@@ -58,6 +57,10 @@ th {
 	font-weight: bold;
 	line-height: 20px;
 	margin: 0px;
+}
+
+th {
+	text-align: center;
 }
 
 /*.sidebar {
