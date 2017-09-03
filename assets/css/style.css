@@ -139,8 +139,13 @@ footer {
 	float: left;
 }
 
+#openGames {
+	/*max-height: 60vh;*/
+	/*overflow-y: scroll;*/
+}
+
 #scorecardEntry {
-	margin: 2vh;
+	/*margin: 2vh;*/
 } 
 
 #scorecardView {
