@@ -48,7 +48,7 @@ body {
 	height: 66vh;
 }
 
-thead {
+/*thead {
 	background-color: #446e9b;
 	border: 2px solid #446e9b;
 	border-radius: 5px;
@@ -57,7 +57,7 @@ thead {
 	font-weight: bold;
 	line-height: 20px;
 	margin: 0px;
-}
+}*/
 
 th {
 	text-align: center;
