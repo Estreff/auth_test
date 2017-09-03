@@ -319,7 +319,7 @@ join-game logic
   $('#join-game').click(function() {
     console.log('joined game')
     newPostRef = ref.push({
-      name: 'nick',
+      name: firebase.auth().currentUser.displayName,
       holeOne: 0,
       holeTwo: 0,
       holeThree: 0,
