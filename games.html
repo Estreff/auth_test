@@ -48,7 +48,7 @@
 		    	</div>
 		  	</div>
 		</nav>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="topicLeft col-lg-9">
 					<div class="mainContent">
@@ -65,20 +65,20 @@
 								<input type="text" class="form-control" id="courseName-input" placeholder="" required>
 
 								<button type="submit" class="btn btn-danger" id="createGame" data-dismiss="modal">Create Game</button>
-								</div>
 							
 								<!-- Temporary join game button -->
-								<button type="submit" class="btn btn-danger" id="join-game" data-dismiss="modal">Join Game</button>
-
+								<button type="button" class="btn btn-danger" id="join-game" style="margin-top: 10px">Join Game</button>
 
 							</form>
+						</div>
+
 							
 							
 
 							
 
 						<div class="col-md-9">
-							<table class="table table-striped text-center">
+							<table class="scroll table table-striped text-center">
 								<thead>
 				  					<tr>
 										<th>Tournament Name</th>
@@ -89,6 +89,13 @@
 									</tr>
 								</thead>
 								<tbody id="openGames">
+									<tr>
+										<td>test</td>
+										<td>test</td>
+										<td>test</td>
+										<td><button class="btn btn-primary" id="openGame" data-gameNo="12">Game 12</button></td>
+										<td><button class="btn btn-danger deleteGame" id="${gameDetail.gameId}">X</button></td>
+									</tr>
 				  			
 				  				</tbody>
 
@@ -102,7 +109,7 @@
 							<div class="panel panel-primary">
 								<div class="panel-heading col-md-12">
 									<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
-									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
+									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	 
 								</div>
 								<div class="panel-body" id="weatherDetail">
 									<div class = "col-md-6 col-xs-6 text-left">
@@ -152,11 +159,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!-- Bootstrap jQuery -->
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<!-- Moment JS -->
-  	<!-- <script text="text/javascript" src="assets/javascript/moment.js"></script> -->
+  	<!-- jQueryRotate.js  for rotating the weather icon-->
+    <script src="assets/javascript/jQueryRotate.js"></script>
   	<!-- Local Javascript -->
   	<script type="text/javascript" src="assets/javascript/auth.js"></script>
+  	<!-- Weather Local Javascript -->
   	<script type="text/javascript" src="assets/javascript/weather.js"></script>
-  	<!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
-  	<!-- <script type="text/javascript" src="assets/javascript/chat.js"></script> -->
 </body>
