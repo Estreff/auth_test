@@ -23,6 +23,7 @@ body {
 }*/
 
 #localTitle {
+	background-color: #446e9b;
 	border: 2px solid #446e9b;
 	border-radius: 5px;
 	margin: 2vh;
@@ -40,7 +41,7 @@ body {
 }
 
 #localHeatMap {
-	background-color: #446e9b;
+	
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
