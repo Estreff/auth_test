@@ -65,40 +65,32 @@ th {
 
 }
 
-/*#chat {
-	border: 2px solid #5d85b1;
-	border-radius: 5px;
+#chat {
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
 	margin: 2vh;
 	height: 67vh;
-}*/
+}
 
 .panel-heading {
-	padding-top:5px;
-	min-height: 8vh;
-}
-
-#chatBox {
-	margin: 2vh;
-}
-
-#chatHeading {
-	height: 8vh;
-
+	/*padding-top:0px;*/
+	height: 42px;
 }
 
 .panel-heading h4 {
 	color:white;
 	font-size:20px;
 	font-weight: bold;
+	margin: 0px;
 
 }
 
 #chatBody {
-	height: 35vh;
+	max-height: 35vh;
 }
 
 #messages {
-	height: 32vh;
+	max-height: 32vh;
 	overflow-y: auto;
 }
 
@@ -146,6 +138,15 @@ footer {
 #wind-direction {
 	float: left;
 }
+
+#openGames {
+	/*max-height: 60vh;*/
+	/*overflow-y: scroll;*/
+}
+
+#scorecardEntry {
+	/*margin: 2vh;*/
+} 
 
 #scorecardView {
     margin: auto;
