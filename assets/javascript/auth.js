@@ -43,36 +43,12 @@ $(function(){
   var loginPswd = "";
   var uid = "";
   var scorecard = [""];
-  var gamesPlayed = [""]
-  var scores = {
-      hole01:"",
-      hole02:"",
-      hole03:"",
-      hole04:"",
-      hole05:"",
-      hole06:"",
-      hole07:"",
-      hole08:"",
-      hole09:"",
-      hole10:"",
-      hole11:"",
-      hole12:"",
-      hole13:"",
-      hole14:"",
-      hole15:"",
-      hole16:"",
-      hole17:"",
-      hole18:""
-  };
-  
+  var gamesPlayed = [""];  
 
       golfdb.ref('playerCount').on('value', function(snapshot){
         playerId = snapshot.val().playerId;
       });
       
-
-
-
   // Add Login on click
     $('#login').click(function(event){
       // Get email and password
@@ -87,13 +63,8 @@ $(function(){
       var promise = auth.signInWithEmailAndPassword(email, loginPswd);
       promise.catch(event => alert(event.message));
 
-      
-
       $('#email-login').val("")
       $('#password-login').val("")
-
-           
-
     });
 
   // Add Signup on click 
@@ -218,30 +189,59 @@ $(function(){
       };
       console.log('GameId: ', gameId);
       // Push game information to Firebase
-      gamedb.child('Game' + gameId).set(currentGame);
-       // Add 1 to GameId
-      gameId++
-      // Push New GameId back to irebase
-      golfdb.ref('gameCount').set({
-        gameId:gameId
-      });
-      $('#gameName-input').val("");
-      $('#courseName-input').val("");
+
+      if(gameName != "" && courseName != "") {
+        gamedb.child('Game' + gameId).set(currentGame);
+         // Add 1 to GameId
+        gameId++
+        // Push New GameId back to irebase
+        golfdb.ref('gameCount').set({
+          gameId:gameId
+        });
+
+        $('#gameName-input').val("");
+        $('#courseName-input').val("");
+      }
 
     }
       golfdb.ref('gameCount').on('value', function(snapshot){
           gameId = snapshot.val().gameId;
-        });
+      });
 
     $('#createGame').click(function() {
       createGame();
+      // Delete Game on Game Page  !!!!Not Working!!!!
+    $('.deleteGame').click(function(){
+      deleteGame();
+    });
+
+    // Join Game on Game Page  !!!!Not Working!!!!
+    $('.join-game').click(function(){
+      joinGame();
+    });
     })
 
     gamedb.on('child_added', function(snapshot){
-    var gameDetail = snapshot.val();
-    console.log(gameDetail);
-    $('#openGames').append(`<tr><td>${gameDetail.gameName}</td><td>${gameDetail.courseName}</td><td>${gameDetail.creator.user}</td><td><button class="openGame btn btn-primary" id="Game${gameDetail.gameId}">Game ${gameDetail.gameId}</button></td><td><button class="btn btn-danger">X</button></td></tr>`);
-  });
+      var gameDetail = snapshot.val();
+      console.log(gameDetail);
+      $('#openGames').append(`<tr><td>${gameDetail.gameName}</td><td>${gameDetail.courseName}</td><td>${gameDetail.creator.user}</td><td><button class="btn btn-primary join-game" data-gameNo="Game${gameDetail.gameId}">Game ${gameDetail.gameId}</button></td><td><button class="btn btn-danger deleteGame" id="${gameDetail.gameId}">X</button></td></tr>`);
+    
+    });
+
+
+
+    function deleteGame() {
+      alert('Delete Me');
+      // var deleteID = $('#gameId').val();
+      // console.log('Delete Game: ', deleteId);
+    }
+
+    function joinGame() {
+      alert('Joined Game');
+      // var joinID = $('#openGame').attr('data-gameNo').val();
+      // console.log('Joined Game: ', joinId);
+    }
+
 
 
       $('#hole').text(hole);
@@ -251,25 +251,23 @@ $(function(){
       var holeNumber = 'Hole ' + hole;
       console.log('Hole Number: ',holeNumber);
 
-      $('#nextHole').click(function(){
-        var scoreData = $('#holeScore').val().trim();
-        score = parseInt(scoreData,10);
-        console.log(score);
-        hole++; 
-        $('#hole').text(hole);
-        $('#holeScore').val("");
-        totalScore = totalScore + score;
-        console.log('Total Score: ', totalScore);
-        $('#totalScore').text(totalScore);
+    $('#nextHole').click(function(){
+      var scoreData = $('#holeScore').val().trim();
+      score = parseInt(scoreData,10);
+      console.log(score);
+      hole++; 
+      $('#hole').text(hole);
+      $('#holeScore').val("");
+      totalScore = totalScore + score;
+      console.log('Total Score: ', totalScore);
+      $('#totalScore').text(totalScore);
 
-        golfdb.ref('Scores').push({
-          totalScore: totalScore,
-          
-            
-           
-        })
-
+      golfdb.ref('Scores').push({
+        totalScore: totalScore,          
       })
+    });
+
+
 
 
 var chatdb = firebase.database().ref("/chat");
@@ -278,10 +276,12 @@ function sendChatMessage() {
   messageField = $('#chatMessage').val().trim();
   console.log('Message: ', messageField);
 
-  chatdb.push().set({
-    name:firebase.auth().currentUser.displayName,
-    message: messageField
-  });
+    if(messageField != "") {
+      chatdb.push().set({
+        name:firebase.auth().currentUser.displayName,
+        message: messageField
+      });
+    }  
 }
   
   $('#messageSubmit').click(function() {
@@ -299,6 +299,14 @@ function sendChatMessage() {
     $('#messages').append(`<p><b>${message.name}:</b> ${message.message}</p>`);
     $('#chatMessage').val("");
   });
+
+//  Auto Scroll to Bottom on Chat - Not Currently working
+    // var chatAutoScroll = $('#messages');
+    // chatAutoScroll.scrollIntoView();
+
+
+
+
 
  /******************************************
 

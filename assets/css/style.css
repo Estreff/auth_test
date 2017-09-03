@@ -23,6 +23,7 @@ body {
 }*/
 
 #localTitle {
+	background-color: #446e9b;
 	border: 2px solid #446e9b;
 	border-radius: 5px;
 	margin: 2vh;
@@ -40,11 +41,17 @@ body {
 }
 
 #localHeatMap {
-	background-color: #446e9b;
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	height: 66vh;
+	height: 50vh;
+}
+
+#scorecardPage {
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
+	margin: 2vh;
+	height: 50vh;
 }
 
 /*thead {
@@ -58,8 +65,67 @@ body {
 	margin: 0px;
 }*/
 
-th {
-	text-align: center;
+/*Creating Scrollable Table*/
+
+table.scroll {
+    width: 100%;
+    border-spacing: 0;
+}
+
+table.scroll th,
+table.scroll td,
+table.scroll tr,
+table.scroll thead,
+table.scroll tbody { display: block; }
+
+table.scroll thead tr {
+    /* fallback */
+    width: 97%;
+    /* minus scroll bar width */
+    width: calc(100% - 16px);
+}
+
+table.scroll tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+table.scroll tbody {
+    height: 44vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table.scroll tbody td,
+table.scroll thead th {
+    width: 19%;
+    float: left;
+}
+
+thead {
+	background-color: #446e9b;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px; 
+}
+
+tbody {
+	border: 1px solid #446e9b;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px; 
+}
+
+thead tr th { 
+	color:#ffffff;
+    height: 60px;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+tbody td:last-child, thead th:last-child {
+    border-right: none !important;
 }
 
 /*.sidebar {
@@ -110,14 +176,14 @@ th {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	height: 23vh;
+	height: 21vh;
 }
 
 #moreInfo {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	height: 24vh;
+	height: 21vh;
 }
 
 .modal-header {
@@ -150,11 +216,6 @@ footer {
 	float: left;
 }
 
-#openGames {
-	/*max-height: 60vh;*/
-	/*overflow-y: scroll;*/
-}
-
 #scorecardEntry {
 	/*margin: 2vh;*/
 } 
@@ -165,7 +226,7 @@ footer {
 }
 
 #score {
-	height: 250px;
+	height: 350px;
 	width: 100%;
 	font-size: 10em;
 	text-align: center;
