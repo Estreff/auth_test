@@ -58,57 +58,7 @@
 							<h2 class="text-center"> Golf Tourney Scoring</h2>
 						</div>
 						<div id="localHeatMap">
-							<style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-   <body>
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 2,
-          center: {lat: -33.865427, lng: 151.196123},
-          mapTypeId: 'terrain'
-        });
-
-        // Create a <script> tag and set the USGS URL as the source.
-        var script = document.createElement('script');
-
-        // This example uses a local copy of the GeoJSON stored at
-        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-        document.getElementsByTagName('head')[0].appendChild(script);
-
-      }
-
-      function eqfeed_callback(results) {
-        var heatmapData = [];
-        for (var i = 0; i < results.features.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
-          var latLng = new google.maps.LatLng(coords[1], coords[0]);
-          heatmapData.push(latLng);
-        }
-        var heatmap = new google.maps.visualization.HeatmapLayer({
-          data: heatmapData,
-          dissipating: false,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByS1Ugc40pFTd1TIswGXWKCS5saUsvfnM&libraries=visualization&callback=initMap">
-    </script>
+							<div id="map"></div>
 						</div>
 					</div>
 				</div>
@@ -134,7 +84,69 @@
 								</div>
 							</div>								
 						</div>
-						<div id = "otherInfo"></div>	
+						<!-- Golf Course Search -->
+						<div id = "otherInfo">
+							<div id="findCourse">
+      							Find a Course To Play:
+    						</div>
+
+    						<div id="locationField">
+      							<input id="autocomplete" placeholder="Enter a Course" type="text" />
+    						</div>
+    						<div id="controls">
+						      <select id="country">
+						        <option value="all">All</option>
+						        <option value="au">Australia</option>
+						        <option value="br">Brazil</option>
+						        <option value="ca">Canada</option>
+						        <option value="fr">France</option>
+						        <option value="de">Germany</option>
+						        <option value="mx">Mexico</option>
+						        <option value="nz">New Zealand</option>
+						        <option value="it">Italy</option>
+						        <option value="za">South Africa</option>
+						        <option value="es">Spain</option>
+						        <option value="pt">Portugal</option>
+						        <option value="us" selected>U.S.A.</option>
+						        <option value="uk">United Kingdom</option>
+						      </select>
+						    </div>
+
+						    <div id="listing">
+						      <table id="resultsTable">
+						        <tbody id="results"></tbody>
+						      </table>
+						    </div>
+
+						    <div style="display: none">
+						      <div id="info-content">
+						        <table>
+						          <tr id="iw-url-row" class="iw_table_row">
+						            <td id="iw-icon" class="iw_table_icon"></td>
+						            <td id="iw-url"></td>
+						          </tr>
+						          <tr id="iw-address-row" class="iw_table_row">
+						            <td class="iw_attribute_name">Address:</td>
+						            <td id="iw-address"></td>
+						          </tr>
+						          <tr id="iw-phone-row" class="iw_table_row">
+						            <td class="iw_attribute_name">Telephone:</td>
+						            <td id="iw-phone"></td>
+						          </tr>
+						          <tr id="iw-rating-row" class="iw_table_row">
+						            <td class="iw_attribute_name">Rating:</td>
+						            <td id="iw-rating"></td>
+						          </tr>
+						          <tr id="iw-website-row" class="iw_table_row">
+						            <td class="iw_attribute_name">Website:</td>
+						            <td id="iw-website"></td>
+						          </tr>
+						        </table>
+						      </div>
+						    </div>
+						</div>
+
+
 						<div id = "moreInfo"></div>	
 					</div>
 				</div>
@@ -231,5 +243,9 @@
   	<script type="text/javascript" src="assets/javascript/auth.js"></script>
   	<!-- Weather Local Javascript -->
   	<script type="text/javascript" src="assets/javascript/weather.js"></script>
+  	<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByS1Ugc40pFTd1TIswGXWKCS5saUsvfnM&libraries=visualization&callback=initMap&libraries=places">
+    </script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByS1Ugc40pFTd1TIswGXWKCS5saUsvfnM&libraries=places"></script> -->
 </body>
 </html>
