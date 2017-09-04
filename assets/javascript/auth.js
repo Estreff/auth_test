@@ -211,46 +211,48 @@ $(function(){
     $('#createGame').click(function() {
       createGame();
     })
+    function loadGames() {
 
-    gamedb.on('child_added', function(snapshot){
-        var gameDetail = snapshot.val();
-        console.log(gameDetail);
-        var tableRow = $('<tr>');
-        var gameNameCell = $('<td>' + gameDetail.gameName + '</td>');
-        var gameDetailCell = $('<td>' + gameDetail.courseName + '</td>');
-        var userCell = $('<td>' + gameDetail.creator.user + '</td>');
-        var joinTableCell = $('<td>');
-        var delTableCell = $('<td>')
-        var joinButton = $('<button class="openGame btn btn-primary">' + 'Game ' + gameDetail.gameId + '</button>');
-        var deleteButton = $('<button class="delete btn btn-danger">' + 'X' + '</button>');
-          joinButton.attr('data-value', `Game${gameDetail.gameId}`);
-          deleteButton.attr('data-value', `Game${gameDetail.gameId}`);
-          $('#openGames').append(tableRow);
-          tableRow.append(gameNameCell);
-          tableRow.append(gameDetailCell);
-          tableRow.append(userCell);
-          tableRow.append(joinTableCell);
-          joinTableCell.append(joinButton);
-          tableRow.append(delTableCell);
-          delTableCell.append(deleteButton);
-    });
+      gamedb.on('child_added', function(snapshot){
+        
+          var gameDetail = snapshot.val();
+          console.log(gameDetail);
+          var tableRow = $('<tr>');
+          var gameNameCell = $('<td>' + gameDetail.gameName + '</td>');
+          var gameDetailCell = $('<td>' + gameDetail.courseName + '</td>');
+          var userCell = $('<td>' + gameDetail.creator.user + '</td>');
+          var joinTableCell = $('<td>');
+          var delTableCell = $('<td>')
+          var joinButton = $('<button class="openGame btn btn-primary">' + 'Game ' + gameDetail.gameId + '</button>');
+          var deleteButton = $('<button class="delete btn btn-danger">' + 'X' + '</button>');
+            joinButton.attr('data-value', `Game${gameDetail.gameId}`);
+            deleteButton.attr('data-value', `Game${gameDetail.gameId}`);
+            $('#openGames').append(tableRow);
+            tableRow.append(gameNameCell);
+            tableRow.append(gameDetailCell);
+            tableRow.append(userCell);
+            tableRow.append(joinTableCell);
+            joinTableCell.append(joinButton);
+            tableRow.append(delTableCell);
+            delTableCell.append(deleteButton);
+      });
+    }
+    loadGames();
 
     $(document).on('click', '.openGame', function() {
       console.log('join button clicked');
       console.log($(this).attr('data-value'))
     });
 
-    function removeItem(ref) {
-      // Now we can get back to that item we just pushed via .child().
-      ref.remove(function(error) {
-        alert(error ? "Uh oh!" : "Success!");
-      });
-    }
 
     $(document).on('click', '.delete', function() {
       console.log('delete button clicked');
       console.log($(this).attr('data-value'))
-      var deleteGame = $(this).attr('data-value');
+      var deleteGame = $(this).attr('data-value');     
+      var findGameID = firebase.database().ref(`games`);
+      findGameID.child(deleteGame).remove();
+      $('#openGames').html("");
+      loadGames();      
     });
 
 
