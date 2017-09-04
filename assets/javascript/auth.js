@@ -211,10 +211,10 @@ $(function(){
     $('#createGame').click(function() {
       createGame();
     })
-    function loadGames() {
 
+    function loadGames() {
       gamedb.on('child_added', function(snapshot){
-        
+          var user = firebase.auth().currentUser;
           var gameDetail = snapshot.val();
           console.log(gameDetail);
           var tableRow = $('<tr>');
@@ -226,7 +226,7 @@ $(function(){
           var joinButton = $('<button class="openGame btn btn-primary">' + 'Game ' + gameDetail.gameId + '</button>');
           var deleteButton = $('<button class="delete btn btn-danger">' + 'X' + '</button>');
             joinButton.attr('data-value', `Game${gameDetail.gameId}`);
-            deleteButton.attr('data-value', `Game${gameDetail.gameId}`);
+              deleteButton.attr('data-value', `Game${gameDetail.gameId}`);
             $('#openGames').append(tableRow);
             tableRow.append(gameNameCell);
             tableRow.append(gameDetailCell);
@@ -234,7 +234,9 @@ $(function(){
             tableRow.append(joinTableCell);
             joinTableCell.append(joinButton);
             tableRow.append(delTableCell);
-            delTableCell.append(deleteButton);
+            if(gameDetail.creator.user === user.displayName) { 
+              delTableCell.append(deleteButton);
+            } 
       });
     }
     loadGames();
@@ -254,34 +256,6 @@ $(function(){
       $('#openGames').html("");
       loadGames();      
     });
-
-
-
-      $('#hole').text(hole);
-      var hole = 1;
-      var score = 0;
-      var totalScore = 0;
-      var holeNumber = 'Hole ' + hole;
-      console.log('Hole Number: ',holeNumber);
-
-    $('#nextHole').click(function(){
-      var scoreData = $('#holeScore').val().trim();
-      score = parseInt(scoreData,10);
-      console.log(score);
-      hole++; 
-      $('#hole').text(hole);
-      $('#holeScore').val("");
-      totalScore = totalScore + score;
-      console.log('Total Score: ', totalScore);
-      $('#totalScore').text(totalScore);
-
-      golfdb.ref('Scores').push({
-        totalScore: totalScore,          
-      })
-    });
-
-
-
 
 var chatdb = firebase.database().ref("/chat");
 
