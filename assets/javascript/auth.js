@@ -465,7 +465,7 @@ scorecard logic
     var holeNine = snap.val().holeNine;
 
     var newPlayer = snap.val().name
-    var score = $('<td id="score">');
+    var score = $('<td id="boardScore">');
     var thru = $('<td id="thru">');
     var tableRow = $('<tr>');
     score.text(holeOne + holeTwo + holeThree + holeFour + holeFive + holeSix + holeSeven + holeEight + holeNine);
@@ -481,7 +481,22 @@ scorecard logic
 
 });
 
-   
+ // PGA Tour Twitter feed
+
+ $.ajax({
+  url: "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=PGATour&count=3",
+  method: "GET" 
+ }) .done(function(response){
+    console.log(response);
+ });
+
+//  function loadTweets(){
+//     var _url = 'https://api.twitter.com/1/statuses/user_timeline/CypressNorth.json?callback=?&count=1';
+//     $.getJSON(_url,function(data){
+//         var tweet = data[0].text;
+//         $("#localHeatMap").html('<p>'+tweet+'</p>');
+//     });
+// }  
 
 
 

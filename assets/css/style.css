@@ -110,9 +110,12 @@ thead {
 }
 
 tbody {
+	font-size: 3em;
+	color: #446e9b;
 	border: 1px solid #446e9b;
 	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	text-align: center;
 }
 
 thead tr th { 
