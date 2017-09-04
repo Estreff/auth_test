@@ -109,10 +109,12 @@ thead {
 	border-top-right-radius: 5px; 
 }
 
-tbody {
+#openGames {
+	color: #446e9b;
 	border: 1px solid #446e9b;
 	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	text-align: center;
 }
 
 thead tr th { 
@@ -176,6 +178,8 @@ tbody td:last-child, thead th:last-child {
 	border-radius: 5px;
 	margin: 2vh;
 	height: 21vh;
+	padding: 5pt;
+	color: #446e9b;
 }
 
 #moreInfo {
@@ -231,6 +235,25 @@ footer {
 	text-align: center;
 }
 
-#leaderTable {
-	color: black;
+#leaderBody {
+	font-size: 3em;
+	color: #446e9b;
+	border: 1px solid #446e9b;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	text-align: center;
+}
+
+#map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+#autocomplete {
+	width: 90%;
 }
