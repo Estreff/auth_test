@@ -174,11 +174,11 @@ tbody td:last-child, thead th:last-child {
 
 
 #otherInfo {
-	border: 2px solid #5d85b1;
-	border-radius: 5px;
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
 	margin: 2vh;
-	height: 21vh;
-	padding: 5pt;
+	min-height: 21vh;
+	padding: 0;
 	color: #446e9b;
 }
 
@@ -254,6 +254,14 @@ footer {
         padding: 0;
       }
 
-#autocomplete {
+/*input .form-control {
 	width: 90%;
-}
+	margin: 5px, auto;
+	padding-bottom: 5px;
+}*/
+
+/*#findCourse {
+	color: black;
+	font-weight: bold;
+	padding-bottom: 5px;
+}*/
