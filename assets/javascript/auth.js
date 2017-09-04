@@ -210,37 +210,48 @@ $(function(){
 
     $('#createGame').click(function() {
       createGame();
-      // Delete Game on Game Page  !!!!Not Working!!!!
-    $('.deleteGame').click(function(){
-      deleteGame();
-    });
-
-    // Join Game on Game Page  !!!!Not Working!!!!
-    $('.join-game').click(function(){
-      joinGame();
-    });
     })
 
     gamedb.on('child_added', function(snapshot){
-      var gameDetail = snapshot.val();
-      console.log(gameDetail);
-      $('#openGames').append(`<tr><td>${gameDetail.gameName}</td><td>${gameDetail.courseName}</td><td>${gameDetail.creator.user}</td><td><button class="btn btn-primary join-game" data-gameNo="Game${gameDetail.gameId}">Game ${gameDetail.gameId}</button></td><td><button class="btn btn-danger deleteGame" id="${gameDetail.gameId}">X</button></td></tr>`);
-    
+        var gameDetail = snapshot.val();
+        console.log(gameDetail);
+        var tableRow = $('<tr>');
+        var gameNameCell = $('<td>' + gameDetail.gameName + '</td>');
+        var gameDetailCell = $('<td>' + gameDetail.courseName + '</td>');
+        var userCell = $('<td>' + gameDetail.creator.user + '</td>');
+        var joinTableCell = $('<td>');
+        var delTableCell = $('<td>')
+        var joinButton = $('<button class="openGame btn btn-primary">' + 'Game ' + gameDetail.gameId + '</button>');
+        var deleteButton = $('<button class="delete btn btn-danger">' + 'X' + '</button>');
+          joinButton.attr('data-value', `Game${gameDetail.gameId}`);
+          deleteButton.attr('data-value', `Game${gameDetail.gameId}`);
+          $('#openGames').append(tableRow);
+          tableRow.append(gameNameCell);
+          tableRow.append(gameDetailCell);
+          tableRow.append(userCell);
+          tableRow.append(joinTableCell);
+          joinTableCell.append(joinButton);
+          tableRow.append(delTableCell);
+          delTableCell.append(deleteButton);
     });
 
+    $(document).on('click', '.openGame', function() {
+      console.log('join button clicked');
+      console.log($(this).attr('data-value'))
+    });
 
-
-    function deleteGame() {
-      alert('Delete Me');
-      // var deleteID = $('#gameId').val();
-      // console.log('Delete Game: ', deleteId);
+    function removeItem(ref) {
+      // Now we can get back to that item we just pushed via .child().
+      ref.remove(function(error) {
+        alert(error ? "Uh oh!" : "Success!");
+      });
     }
 
-    function joinGame() {
-      alert('Joined Game');
-      // var joinID = $('#openGame').attr('data-gameNo').val();
-      // console.log('Joined Game: ', joinId);
-    }
+    $(document).on('click', '.delete', function() {
+      console.log('delete button clicked');
+      console.log($(this).attr('data-value'))
+      var deleteGame = $(this).attr('data-value');
+    });
 
 
 
@@ -355,11 +366,11 @@ scorecard logic
   
   // getting data from player path in db using unique id
   golfdb.ref('/players/' + playerKey).on('value', function(snap) {
-      console.log(playerKey)
+      console.log('Player Key: ',playerKey)
 
       // getting current hole number from db to use in switch statement
       var holeNumber = snap.val().holeNumber;
-      console.log(holeNumber)
+      console.log('Hole Number: ',holeNumber)
 
       $('#hole-number').text(holeNumber);
 
