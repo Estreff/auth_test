@@ -241,10 +241,58 @@ $(function(){
     }
     loadGames();
 
+/*******************************************
+join-game logic
+*******************************************/   
+
+    var playerKey = localStorage.userKey;
+    var gameKey = localStorage.gameKey;
+
     $(document).on('click', '.openGame', function() {
       console.log('join button clicked');
       console.log($(this).attr('data-value'))
+
+      gameKey = $(this).attr('data-value');
+
+      var gameRef = golfdb.ref('/games/' + gameKey + '/players');
+
+      newPostRef = gameRef.push({
+      name: firebase.auth().currentUser.displayName,
+      holeOne: 0,
+      holeTwo: 0,
+      holeThree: 0,
+      holeFour: 0,
+      holeFive: 0,
+      holeSix: 0,
+      holeSeven: 0,
+      holeEight: 0,
+      holeNine: 0,
+      holeTen: 0,
+      holeEleven: 0,
+      holeTwelve: 0,
+      holeThirteen: 0,
+      holeFourteen: 0,
+      holeFifteen: 0,
+      holeSixteen: 0,
+      holeSeventeen: 0,
+      holeEighteen: 0,
+      holeNumber: 1
     });
+    // grabbing unique id from push method above and storing it to localStorage
+    localStorage.setItem('userKey', newPostRef.key);
+    localStorage.setItem('gameKey', gameKey)
+
+    // assigning unique id to variable to use to keep track of player data
+    playerKey = localStorage.userKey;
+    gameKey = localStorage.gameKey;
+    
+    console.log(playerKey);
+
+    });
+
+/*******************************************
+END join-game logic
+*******************************************/ 
 
 
     $(document).on('click', '.delete', function() {
@@ -292,132 +340,150 @@ function sendChatMessage() {
     // chatAutoScroll.scrollIntoView();
 
 
-
-
-
- /******************************************
-
- START OF NICK'S CODE
-
- *******************************************/
-
-/*******************************************
-join-game logic
-*******************************************/
-
-  var ref = golfdb.ref('/players');
-
-  var playerKey = localStorage.userKey;
-  
-  console.log(playerKey)
-
-  $('#join-game').click(function() {
-    console.log('joined game')
-    newPostRef = ref.push({
-      name: firebase.auth().currentUser.displayName,
-      holeOne: 0,
-      holeTwo: 0,
-      holeThree: 0,
-      holeFour: 0,
-      holeFive: 0,
-      holeSix: 0,
-      holeSeven: 0,
-      holeEight: 0,
-      holeNine: 0,
-      holeNumber: 1
-    });
-    // grabbing unique id from push method above and storing it to localStorage
-    localStorage.setItem('userKey', newPostRef.key);
-
-    // assigning unique id to variable to use to keep track of player data
-    playerKey = localStorage.userKey;
-    
-    console.log(playerKey);
-
-  })
-
 /****************************************
 scorecard logic
 ****************************************/
   
   // getting data from player path in db using unique id
-  golfdb.ref('/players/' + playerKey).on('value', function(snap) {
+  golfdb.ref('/games/' + gameKey + '/players/' + playerKey).on('value', function(snap) {
       console.log('Player Key: ',playerKey)
 
       // getting current hole number from db to use in switch statement
+      
       var holeNumber = snap.val().holeNumber;
-      console.log('Hole Number: ',holeNumber)
-
       $('#hole-number').text(holeNumber);
 
     $('#submit').click(function() {
       // temporary solution to update hole number. was not updating without page reload
       location.reload()
-      
+      var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey)
       // getting score input from user
       var score = Number($('#score').val());
      
         switch (holeNumber) {
           case 1:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeOne: score,
               holeNumber: holeNumber + 1          
             })            
             break;
 
           case 2:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeTwo: score,
               holeNumber: holeNumber + 1
             })       
             break;
 
           case 3:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeThree: score,
               holeNumber: holeNumber + 1
             })    
             break;
 
           case 4:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeFour: score,
               holeNumber: holeNumber + 1
             }) 
             break;
 
           case 5:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeFive: score,
               holeNumber: holeNumber + 1
             }) 
             break;
 
           case 6:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeSix: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 7:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeSeven: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 8:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeEight: score,
               holeNumber: holeNumber + 1
             })  
             break;
 
           case 9:
-            golfdb.ref('/players/' + playerKey).update({
+            playerRef.update({
               holeNine: score,
               holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 10:
+            playerRef.update({
+              holeTen: score,
+              holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 11:
+            playerRef.update({
+              holeEleven: score,
+              holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 12:
+            playerRef.update({
+              holeTwelve: score,
+              holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 13:
+            playerRef.update({
+              holeThirteen: score,
+              holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 14:
+            playerRef.update({
+              holeFourteen: score,
+              holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 15:
+            playerRef.update({
+              holeFifteen: score,
+              holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 16:
+            playerRef.update({
+              holeSixteen: score,
+              holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 17:
+            playerRef.update({
+              holeSeventeen: score,
+              holeNumber: holeNumber + 1
+            })
+            break;
+
+          case 18:
+            playerRef.update({
+              holeEighteen: score,
+              holeNumber: 0
             })
             break;
 
@@ -438,24 +504,21 @@ scorecard logic
   *****************************************/
 
   // adding player to leaderboard as soon as they join the game. it is also updating their hole and score...i think
-  ref.on('child_added', function(snap) {
+  golfdb.ref('/games/' + gameKey + '/players').on('child_added', function(snap) {
     
-    // will change this to a loop
-    var holeOne = snap.val().holeOne;
-    var holeTwo = snap.val().holeTwo;
-    var holeThree = snap.val().holeThree;
-    var holeFour = snap.val().holeFour;
-    var holeFive = snap.val().holeFive;
-    var holeSix = snap.val().holeSix;
-    var holeSeven = snap.val().holeSeven;
-    var holeEight = snap.val().holeEight;
-    var holeNine = snap.val().holeNine;
+    var holeScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine, snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen]
+    
+    var total = 0;
+
+    for (var i = 0; i < holeScores.length; i++) {
+      total += holeScores[i];
+    }
 
     var newPlayer = snap.val().name
     var score = $('<td id="boardScore">');
     var thru = $('<td id="thru">');
     var tableRow = $('<tr>');
-    score.text(holeOne + holeTwo + holeThree + holeFour + holeFive + holeSix + holeSeven + holeEight + holeNine);
+    score.text(total);
     thru.text(snap.val().holeNumber - 1);
     
     
