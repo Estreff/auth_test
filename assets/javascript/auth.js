@@ -426,63 +426,63 @@ scorecard logic
 
           case 10:
             playerRef.update({
-              holeNine: score,
+              holeTen: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 11:
             playerRef.update({
-              holeNine: score,
+              holeEleven: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 12:
             playerRef.update({
-              holeNine: score,
+              holeTwelve: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 13:
             playerRef.update({
-              holeNine: score,
+              holeThirteen: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 14:
             playerRef.update({
-              holeNine: score,
+              holeFourteen: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 15:
             playerRef.update({
-              holeNine: score,
+              holeFifteen: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 16:
             playerRef.update({
-              holeNine: score,
+              holeSixteen: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 17:
             playerRef.update({
-              holeNine: score,
+              holeSeventeen: score,
               holeNumber: holeNumber + 1
             })
             break;
 
           case 18:
             playerRef.update({
-              holeNine: score,
+              holeEighteen: score,
               holeNumber: 0
             })
             break;
