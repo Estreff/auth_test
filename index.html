@@ -97,14 +97,15 @@
 		        		<h5 class="modal-title"><span class="fa fa-user-plus"></span> Create Account</h5>
 		      		</div>
 		      		<div class="modal-body">
-		        		<form role="form" class="form-group">
+		      			<div class="alert alert-danger hide" id="createError" role="alert"></div>
+		        		<form role="form" class="form-group" id="createUser">
 								
 							<div id="firebaseui-auth-container"></div>
 
-							<label for="Search">Email Address:</label>
+							<label for="Search">Email Address:<span style="color:red">*</span></label>
 							<input type="email" class="form-control" id="email-input" placeholder="" required>
 										
-							<label for="DisplayName">Display Name:</label>
+							<label for="DisplayName">Display Name:<span style="color:red">*</span></label>
 							<input type="text" class="form-control" id="displayName-input">
 
 							<label for="First Name">First Name:</label>
@@ -113,13 +114,14 @@
 							<label for="Last Name">Last Name:</label>
 							<input type="text" class="form-control" id="lName-input" >
 							
-							<label for="Password">Password:</label>
-							<input type="text" class="form-control" id="password-input" >
+							<label for="Password">Password:<span style="color:red">*</span></label>
+							<input type="text" class="form-control" id="password-input">
+							<p><span style="color:red">*</span> Required</p>
 						</form>
 		      		</div>
 		      		<div class="modal-footer">
 		        		<button type="submit" class="btn btn-primary" id="createAcct">Create Account</button>
-		        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		        		<button type="button" class="btn btn-danger" id="createCancel" data-dismiss="modal">Cancel</button>
 		    		</div>
 		    	</div>
 		  	</div>
@@ -133,8 +135,9 @@
 		        		<h5 class="modal-title"><span class="fa fa-sign-in"></span> Login</h5>
 		      		</div>
 		      		<div class="modal-body">
+		      			<div class="alert alert-danger hide" id="loginError" role="alert"></div>
+				    	
 				    	<form class="form-signin">
-
 				        	<label for="email">Email address</label>
 				        	<input type="email" id="email-login" class="form-control" placeholder="Email address" required autofocus="">
 
@@ -148,10 +151,10 @@
 						    </div> -->
 					        
 				    	</form>
-	      		</div>
+	      			</div>
 		      		<div class="modal-footer">
 		        		<button type="submit" class="btn btn-primary" id="login">Sign In</button>
-		        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		        		<button type="button" class="btn btn-danger" data-dismiss="modal" id="loginCancel">Cancel</button>
 		    		</div>
 		    	</div>
 		  	</div>
