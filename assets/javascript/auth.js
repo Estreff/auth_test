@@ -68,7 +68,7 @@ $(function(){
       var promise = auth.signInWithEmailAndPassword(email, loginPswd);
       promise.catch(event => $('#loginError').text(event.message).removeClass('hide'));
 
-      if(gameName != "" && courseName != "") {
+      if(event.message = "") {
         $('#email-login').val("");
         $('#password-login').val("");
       }
@@ -97,44 +97,44 @@ $(function(){
 
 
       // Create User
-      var promise = auth.createUserWithEmailAndPassword(email, loginPswd);
-        promise.then(function(user) {
-          // add Display Name
-          user.updateProfile({displayName: displayName});
-        })
-        promise.catch(event => $('#createError').text(event.message).removeClass('hide'));
+        // if (displayName == "") {
+        //   $('#createError').text('Display Name Required').removeClass('hide')
+        //   console.log()
+        //   } else {
+            var promise = auth.createUserWithEmailAndPassword(email, loginPswd);
+            promise.then(function(user) {
+              // add Display Name
+              user.updateProfile({displayName: displayName});
+            })
 
+            promise.catch(event => $('#createError').text(event.message).removeClass('hide'));
 
-      event.preventDefault();
+              event.preventDefault();
+          
+            var userRef = golfdb.ref("users");
 
+            userRef.child(displayName).set({
+              playerId: playerId,
+              firstname: firstName,
+              lastName: lastName,
+              email: email,
+              games: gamesPlayed,
+              scores: scores,
+              dataAdded: firebase.database.ServerValue.TIMESTAMP
+            })
+
+            $('#email-input').val("");
+            $('#displayName-input').val("");
+            $('#fName-input').val("");
+            $('#lName-input').val("");
+            $('#password-input').val("");
+
+            playerId++
+            golfdb.ref('playerCount').set({
+              playerId:playerId
+            });                    
+        // }
         
-          var userRef = golfdb.ref("users");
-
-          userRef.child(displayName).set({
-            playerId: playerId,
-            firstname: firstName,
-            lastName: lastName,
-            email: email,
-            games: gamesPlayed,
-            scores: scores,
-            dataAdded: firebase.database.ServerValue.TIMESTAMP
-          })
-
-
-          $('#email-input').val("");
-          $('#displayName-input').val("");
-          $('#fName-input').val("");
-          $('#lName-input').val("");
-          $('#password-input').val("");
-
-
-
-          playerId++
-          golfdb.ref('playerCount').set({
-            playerId:playerId
-          });
-        
-
     });
 
     $('#createCancel').click(function() {
@@ -147,9 +147,7 @@ $(function(){
         window.location.replace('index.html');
       })
 
-      function loggedIn() {
-        
-        
+      function loggedIn() {       
         $('#logout-nav').removeClass('hide');
         $('#login-nav').addClass('hide');
         $('#signup-nav').addClass('hide');
@@ -159,6 +157,18 @@ $(function(){
         $('#leaderboard').removeClass('hide');
         $('#games').removeClass('hide');
         $('#loginModal').modal('hide');
+        $('#createModal').modal('hide');
+        loadGames();
+      }
+
+      function loggedOut() {
+        console.log('not logged in');
+        $('#logout-nav').addClass('hide');
+        $('#login-nav').removeClass('hide');
+        $('#signup-nav').removeClass('hide');
+        $('#scorecard').addClass('hide');
+        $('#leaderboard').addClass('hide');
+        $('#games').addClass('hide'); 
       }
   
     // Add a realtime listener
@@ -169,18 +179,9 @@ $(function(){
         loggedIn();
         console.log('Valid User: ', firebaseUser);
         console.log('Username: ', firebaseUser.displayName);
-        console.log('User UID: ', firebaseUser.uid);
-
- 
-        
+        console.log('User UID: ', firebaseUser.uid);        
       } else {
-        console.log('not logged in');
-        $('#logout-nav').addClass('hide');
-        $('#login-nav').removeClass('hide');
-        $('#signup-nav').removeClass('hide');
-        $('#scorecard').addClass('hide');
-        $('#leaderboard').addClass('hide');
-        $('#games').addClass('hide');
+        loggedOut();
       }
     });
 
@@ -235,8 +236,9 @@ $(function(){
     function loadGames() {
       gamedb.on('child_added', function(snapshot){
           var user = firebase.auth().currentUser;
+          console.log('User Information:', user)
           var gameDetail = snapshot.val();
-          console.log(gameDetail);
+          console.log('Game Detail:', gameDetail);
           var tableRow = $('<tr>');
           var gameNameCell = $('<td>' + gameDetail.gameName + '</td>');
           var gameDetailCell = $('<td>' + gameDetail.courseName + '</td>');
@@ -259,7 +261,7 @@ $(function(){
             } 
       });
     }
-    loadGames();
+    
 
 /*******************************************
 join-game logic
