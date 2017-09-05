@@ -358,25 +358,19 @@ function sendChatMessage() {
       }
   });  
 
-  function updateScroll(){
-    var element = $('#messages');
-    element.scrollTop = element.scrollHeight;
-}
-
   chatdb.orderByChild("dateAdded").on('child_added', function(snapshot){
     var message = snapshot.val();
     $('#messages').append(`<p><b>${message.name}:</b> ${message.message}</p>`);
     $('#chatMessage').val("");
     
-
     var height = 0;
     $('#messages p').each(function(i, value){
       height += parseInt($(this).height());
     });
 
-    height += '';
+    height += 150;
 
-    $('#messages').animate({scrollTop: height});
+    $('#messages').animate({scrollTop: height},0);
 
   });
 //  Auto Scroll to Bottom on Chat - Not Currently working

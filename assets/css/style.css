@@ -164,11 +164,11 @@ tbody td:last-child, thead th:last-child {
 }
 
 #chatBody {
-	max-height: 38vh;
+	max-height: 39vh;
 }
 
 #messages {
-	max-height: 35vh;
+	max-height: 36vh;
 	overflow-y: auto;
 }
 
