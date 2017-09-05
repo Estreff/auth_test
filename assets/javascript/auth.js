@@ -48,9 +48,14 @@ $(function(){
       golfdb.ref('playerCount').on('value', function(snapshot){
         playerId = snapshot.val().playerId;
       });
+
+
+    
+
       
   // Add Login on click
     $('#login').click(function(event){
+      
       // Get email and password
       email = $('#email-login').val().trim();
       console.log(email);
@@ -61,15 +66,22 @@ $(function(){
 
       // Login
       var promise = auth.signInWithEmailAndPassword(email, loginPswd);
-      promise.catch(event => alert(event.message));
+      promise.catch(event => $('#loginError').text(event.message).removeClass('hide'));
 
-      $('#email-login').val("")
-      $('#password-login').val("")
+      if(gameName != "" && courseName != "") {
+        $('#email-login').val("");
+        $('#password-login').val("");
+      }
+    });
+
+    $('#loginCancel').click(function() {
+      $('#loginError').text("").addClass('hide');
     });
 
   // Add Signup on click 
 
-    $('#createAcct').click(function(event){
+    $('#createAcct').click(function(event) {
+    
       // Get email and password
       email = $('#email-input').val().trim();
       console.log(email);
@@ -81,7 +93,8 @@ $(function(){
       console.log(lastName);
       loginPswd = $('#password-input').val().trim();
       console.log(loginPswd);
-      
+
+
 
       // Create User
       var promise = auth.createUserWithEmailAndPassword(email, loginPswd);
@@ -89,36 +102,43 @@ $(function(){
           // add Display Name
           user.updateProfile({displayName: displayName});
         })
-        promise.catch(event => alert(event.message));
+        promise.catch(event => $('#createError').text(event.message).removeClass('hide'));
+
 
       event.preventDefault();
 
-      var userRef = golfdb.ref("users");
+        
+          var userRef = golfdb.ref("users");
 
-      userRef.child(displayName).set({
-        playerId: playerId,
-        firstname: firstName,
-        lastName: lastName,
-        email: email,
-        games: gamesPlayed,
-        scores: scores,
-        dataAdded: firebase.database.ServerValue.TIMESTAMP
-      })
-
-
-      $('#email-input').val("");
-      $('#displayName-input').val("");
-      $('#fName-input').val("");
-      $('#lName-input').val("");
-      $('#password-input').val("");
+          userRef.child(displayName).set({
+            playerId: playerId,
+            firstname: firstName,
+            lastName: lastName,
+            email: email,
+            games: gamesPlayed,
+            scores: scores,
+            dataAdded: firebase.database.ServerValue.TIMESTAMP
+          })
 
 
+          $('#email-input').val("");
+          $('#displayName-input').val("");
+          $('#fName-input').val("");
+          $('#lName-input').val("");
+          $('#password-input').val("");
 
-      playerId++
-      golfdb.ref('playerCount').set({
-        playerId:playerId
-      });
 
+
+          playerId++
+          golfdb.ref('playerCount').set({
+            playerId:playerId
+          });
+        
+
+    });
+
+    $('#createCancel').click(function() {
+      $('#createError').text("").addClass('hide');
     });
 
     // LogOut of Firebase
