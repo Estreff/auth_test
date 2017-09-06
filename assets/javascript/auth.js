@@ -386,11 +386,11 @@ scorecard logic
   golfdb.ref('/games/' + gameKey + '/players/' + playerKey).on('value', function(snap) {
       console.log('Player Key: ',playerKey)
 
-      // getting current hole number from db to use in switch statement
-      
+      // getting current hole number from db to use in switch statement  
       var holeNumber = snap.val().holeNumber;
       $('#hole-number').text(holeNumber);
 
+    // Need to disable button if nothing is entered
     $('#submit').click(function() {
       // temporary solution to update hole number. was not updating without page reload
       location.reload()
@@ -403,7 +403,7 @@ scorecard logic
             playerRef.update({
               holeOne: score,
               holeNumber: holeNumber + 1          
-            })            
+            })          
             break;
 
           case 2:
@@ -531,12 +531,42 @@ scorecard logic
         var score = Number($('#score').val(''));
 
     })
+
+    var frontNineScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine];
+    var backNineScores = [snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen];
+
+    var frontNine = 0;
+    var backNine = 0;
+
+    for (var i = 0; i < frontNineScores.length; i++) {
+      if (frontNineScores[i] != 0) {
+        $('#front').find('td').eq(i).text(frontNineScores[i])
+      }
+    }
+
+    for (var i = 0; i < frontNineScores.length; i++) {
+      frontNine += frontNineScores[i];
+    }
+
+    $('#out').text(frontNine);
+
+    for (var i = 0; i < backNineScores.length; i++) {
+      if (backNineScores[i] != 0) {
+        $('#back').find('td').eq(i).text(backNineScores[i])
+      }
+    }
+
+    for (var i = 0; i < backNineScores.length; i++) {
+      backNine += backNineScores[i];
+    }
+
+    $('#in').text(backNine);
       
-    }, function(errorObject) {
+  }, function(errorObject) {
       console.log('the read failed ' + errorObject.code)
-    });
+  });
 
-
+  
   /*****************************************
   leaderboard logic
   *****************************************/
@@ -544,10 +574,10 @@ scorecard logic
   // adding player to leaderboard as soon as they join the game. it is also updating their hole and score...i think
   golfdb.ref('/games/' + gameKey + '/players').on('child_added', function(snap) {
     
-    var holeScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine, snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen]
+    var holeScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine, snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen]
     
     var total = 0;
-
+    
     for (var i = 0; i < holeScores.length; i++) {
       total += holeScores[i];
     }
