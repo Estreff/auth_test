@@ -403,7 +403,7 @@ scorecard logic
             playerRef.update({
               holeOne: score,
               holeNumber: holeNumber + 1          
-            })            
+            })           
             break;
 
           case 2:
@@ -545,9 +545,43 @@ scorecard logic
   golfdb.ref('/games/' + gameKey + '/players').on('child_added', function(snap) {
     
     var holeScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine, snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen]
-    
+    var frontNineScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine]
+    var backNineScores = [snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen]
+
+    var frontNine = 0;
+    var backNine = 0;
     var total = 0;
 
+    for (var i = 0; i < frontNineScores.length; i++) {
+      frontNine += frontNineScores[i];
+    }
+
+    $('#one').text(snap.val().holeOne);
+    $('#two').text(snap.val().holeTwo);
+    $('#three').text(snap.val().holeThree);
+    $('#four').text(snap.val().holeFour);
+    $('#five').text(snap.val().holeFive);
+    $('#six').text(snap.val().holeSix);
+    $('#seven').text(snap.val().holeSeven);
+    $('#eight').text(snap.val().holeEight);
+    $('#nine').text(snap.val().holeNine);
+    $('#out').text(frontNine);
+
+    for (var i = 0; i < backNineScores.length; i++) {
+      backNine += backNineScores[i];
+    }
+
+    $('#ten').text(snap.val().holeTen);
+    $('#eleven').text(snap.val().holeEleven);
+    $('#twelve').text(snap.val().holeTwelve);
+    $('#thirteen').text(snap.val().holeThirteen);
+    $('#fourteen').text(snap.val().holeFourteen);
+    $('#fifteen').text(snap.val().holeFifteen);
+    $('#sixteen').text(snap.val().holeSixteen);
+    $('#seventeen').text(snap.val().holeSeventeen);
+    $('#eighteen').text(snap.val().holeEighteen);
+    $('#in').text(backNine);
+    
     for (var i = 0; i < holeScores.length; i++) {
       total += holeScores[i];
     }
