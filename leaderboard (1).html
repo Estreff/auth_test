@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>GTS</title>
+	<title>Test Auth</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- BootStrap  -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
 
 <body>
 <div class="wrapper">
-	<!-- <div class="container-fluid"> -->
+	
 		<nav class="navbar navbar-default">
 		  	<div class="container-fluid">
 
@@ -35,15 +35,15 @@
 			  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      	<ul class="nav navbar-nav">
 			      		<li class="" id=home><a href="index.html">Home</a></li>
-			        	<li class="active" id="games"><a href="games.html">Games</a></li>
+			        	<li class="" id="games"><a href="games.html">Games</a></li>
 			        	<li class="" id = scorecard><a href="scorecard.html">Scorecard</a></li>
-			        	<li class="" id="leaderboard"><a href="leaderboard.html">Leaderboard</a></li>
+			        	<li class="active" id="leaderboard"><a href="leaderboard.html">Leaderboard</a></li>
 			     	</ul>
 			        <ul class="nav navbar-nav navbar-right">
 			      		<li><a href="#" id="player"></a></li>
-			      		<li class="hide" id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
-			            <li class="hide" id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
-			            <li id="logout-nav" class=""><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
+			      		<li id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
+			            <li id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
+			            <li id="logout-nav" class="hide"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
 					</ul>
 		    	</div>
 		  	</div>
@@ -53,45 +53,25 @@
 				<div class="topicLeft col-lg-9">
 					<div class="mainContent">
 						<div class="well well-lg well-primary" id="localTitle">
-							<h2 class="text-center"> Tournaments</h2>
+							<h2 class="text-center">Leaderboard</h2>
 						</div>
-						<div class="col-md-3">
-							<form role="form" class="form-group">
+    					<div class="col-sm-2"></div>
+				        <div class="col-sm-8">
+				          	<table class="table">
+				            	<thead>
+				              		<tr>
+				                		<th>Name</th>
+				                		<th>Score</th>
+				                		<th>Thru</th>
+				              		</tr>
+				            	</thead>
+				            	<tbody id="leaderBody">
 
-								<label for="Search">Tournament Name:</label>
-								<input type="text" class="form-control" id="gameName-input" placeholder="" required>
-
-								<label for="Search">Course Name:</label>
-								<input type="text" class="form-control" id="courseName-input" placeholder="" required>
-
-								<button type="submit" class="btn btn-danger" id="createGame">Create Game</button>
-
-							</form>
-						</div>
-
-							
-							
-
-							
-
-						<div class="col-md-9">
-							<table class="scroll table table-striped text-center">
-								<thead>
-				  					<tr>
-										<th>Tournament Name</th>
-										<th>Course Name</th>
-										<th class="hidden-xs">Created by</th>
-										<th>Join</th>
-										<th class="hidden-xs">Remove</th>
-									</tr>
-								</thead>
-								<tbody id="openGames">
-				
-				  				</tbody>
-
-				  			</table>
-						</div>
-					</div>
+				            	</tbody>
+				         	</table>  
+				        </div>
+				        <div class="col-sm-2"></div>
+				    </div>					
 				</div>
 				<div class="topicRight col-lg-3">
 					<div class=sidebar>	
@@ -99,7 +79,7 @@
 							<div class="panel panel-primary">
 								<div class="panel-heading col-md-12">
 									<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
-									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	 
+									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
 								</div>
 								<div class="panel-body" id="weatherDetail">
 									<div class = "col-md-6 col-xs-6 text-left">
@@ -116,7 +96,7 @@
 						<div id="chat">
 							<div class="panel panel-primary" id = "chatBox">
 							  	<div class="panel-heading" id="chatHeading">
-							  		<h4><i id = "symbol" class = "fa fa-comments fa-lg"></i> Player Chat</h4>
+							  		<h4><i id = "symbol" class = "fa fa-comments fa-lg"></i>  Player Chat</h4>
 								</div>
 								<div class="panel-body" id="chatBody"> 
 	
