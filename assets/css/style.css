@@ -27,11 +27,11 @@ body {
 	padding: 0px;
 }
 
-/*.mainContent {
-	border: 2px solid #5d85b1;
-	border-radius: 5px;
-	height: 84vh;
-}*/
+.mainContent {
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
+	min-height: 84vh;
+}
 
 #localTitle {
 	background-color: #446e9b;
@@ -165,18 +165,17 @@ tbody td:last-child, thead th:last-child {
     border-right: none !important;
 }
 
-/*.sidebar {
-	border: 2px solid #5d85b1;
-	border-radius: 5px;
-	height: 84vh;
-}*/
+.sidebar {
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
+	min-height: 84vh;
+}
 
 #weather {
 	/*border: 2px solid #5d85b1;
 	border-radius: 5px;*/
 	margin: 2vh;
 	min-height: 18vh;
-
 }
 
 #chat {
@@ -219,8 +218,8 @@ tbody td:last-child, thead th:last-child {
 }
 
 #moreInfo {
-	border: 2px solid #5d85b1;
-	border-radius: 5px;
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
 	margin: 2vh;
 	min-height: 21vh;
 }
