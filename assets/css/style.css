@@ -60,7 +60,36 @@ body {
 #scorecardPage {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/	
-	height: auto;
+	height: 50vh;
+}
+
+.scorecardLayout tr th {
+	width:50px;
+}
+
+#scoreOut {
+	background-color: green;
+	padding: 4px;
+	width: 60px;
+}
+
+#scoreIn {
+	background-color: green;
+	padding: 14px;
+	width: 60px;
+}
+
+.scorecardBlank tr td {
+	height:60px;
+	color:#446e9b;
+}
+
+#frontNineScores {
+	margin-bottom: 20px;
+}
+
+#scoreardTotal {
+	float: letter-spacing: ;
 }
 
 /*Creating Scrollable Table*/
@@ -91,7 +120,7 @@ table.scroll tr:after {
 }
 
 table.scroll tbody {
-    height: 44vh;
+    max-height: 57vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -114,7 +143,8 @@ thead {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	text-align: center;
-	height: 55vh;
+	min-height: 12vh;
+	max-height: 58vh;
 }
 
 thead tr th { 
@@ -164,11 +194,11 @@ tbody td:last-child, thead th:last-child {
 }
 
 #chatBody {
-	max-height: 39vh;
+	max-height: 40vh;
 }
 
 #messages {
-	max-height: 36vh;
+	max-height: 37vh;
 	overflow-y: auto;
 }
 
@@ -229,7 +259,7 @@ footer {
 }
 
 #score {
-	height: 350px;
+	height: 300px;
 	width: 100%;
 	font-size: 10em;
 	text-align: center;

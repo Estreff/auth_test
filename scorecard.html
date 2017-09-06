@@ -75,29 +75,78 @@
 							<div class="col-md-6 ">
 								<div class="panel panel-primary" id="scorecardEntry">
 									<div class="panel-heading">
-										<h4 class="card-title">Scorecard <span id="hole-number">1</span></h4>
+										<h4 class="card-title">Scorecard</h4>
 									</div>
 									<div class="panel-body">
-										
+										<table class="table table-bordered table-responsive text-center ">
+											<thead class=scorecardLayout id = frontNine>
+							  					<tr>
+													<th>1</th>
+													<th>2</th>
+													<th>3</th>
+													<th>4</th>
+													<th>5</th>
+													<th>6</th>
+													<th>7</th>
+													<th>8</th>
+													<th>9</th>
+													<th id="scoreOut">Out</th>
+												</tr>
+											</thead>
+											<tbody class="scorecardBlank" id="frontNineScores">
+												<tr>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>		
+							  				</tbody>
+							  			</table>
+							  			<table class="table table-bordered table-responsive text-center">
+							  				<thead class=scorecardLayout id = frontNine>
+							  					<tr>
+													<th>10</th>
+													<th>11</th>
+													<th>12</th>
+													<th>13</th>
+													<th>14</th>
+													<th>15</th>
+													<th>16</th>
+													<th>17</th>
+													<th>18</th>
+													<th id="scoreIn">In</th>
+												</tr>
+							  				</thead>
+							  				<tbody class="scorecardBlank" id="backNineScores">
+												<tr>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+		
+							  				</tbody>
+							  			</table>
+							  			<div id="scorecardTotal">
+							  				<h4>Total Score</h4>
+							  				<h4 id="totalScore">72</h4>
+							  			</div>
 									</div>
 								</div>
 							</div>
-							<!-- <div class="col-sm-3"></div>
-							<div class="col-sm-6" id="scorecardEntry">     
-							    <div class="card" id="scorecardView" style="width: 20rem;">
-							        <div class="card-header">
-							            <h5 class="card-title" id="hole">Hole <span id="hole-number"></span></h5>
-							        </div>
-							        <input id="score" rows="1" cols="1" type="number"></input>
-							        <div class="card-body">					              
-							            <button type="button" id="prev" class="btn btn-danger col-sm-6  col-xs-6">Previous</button>
-							            <button type="button" id="submit" class="btn btn-primary col-sm-6 col-xs-6">Submit</button>
-							        </div>
-							    </div>	
-							</div>
-							<div class="col-sm-3"></div> -->
-						</div>
-						
+						</div>						
 					</div>
 				</div>
 				<div class="topicRight col-lg-3">
