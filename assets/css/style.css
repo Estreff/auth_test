@@ -39,7 +39,13 @@ body {
 	border-radius: 5px;
 	margin: 2vh;
 	height: 12vh;
+
+	display: flex;              /* establish flex container */
+    flex-direction: column;     /* stack flex items vertically */
+    justify-content: center;    /* center items vertically, in this case */
+    align-items: center;
 }
+
 
 #localTitle h2 {
 	/*line-height: 0px;*/
@@ -47,7 +53,7 @@ body {
 	font-size: 3vh;
 	font-weight: bold;
 	line-height: 20px;
-	margin: 0px;
+	margin: 4px;
 }
 
 #localHeatMap {
