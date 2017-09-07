@@ -193,7 +193,7 @@ tbody td:last-child, thead th:last-child {
 
 .panel-heading {
 	/*padding-top:0px;*/
-	height: 42px;
+	/* height: 42px; */
 }
 
 .panel-heading h4 {
@@ -257,7 +257,7 @@ footer {
 }
 
 #wind-direction {
-	float: left;
+	float: right;
 }
 
 #scorecardEntry {
