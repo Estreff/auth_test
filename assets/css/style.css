@@ -193,7 +193,7 @@ tbody td:last-child, thead th:last-child {
 
 .panel-heading {
 	/*padding-top:0px;*/
-	/* height: 42px; */
+	min-height: 42px;
 }
 
 .panel-heading h4 {
