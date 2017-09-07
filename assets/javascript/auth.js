@@ -250,7 +250,7 @@ $(function(){
           var joinButton = $('<button class="openGame btn btn-primary">' + 'Game ' + gameDetail.gameId + '</button>');
           var deleteButton = $('<button class="delete btn btn-danger">' + 'X' + '</button>');
             joinButton.attr('data-value', `Game${gameDetail.gameId}`);
-              deleteButton.attr('data-value', `Game${gameDetail.gameId}`);
+            deleteButton.attr('data-value', `Game${gameDetail.gameId}`);
             $('#openGames').append(tableRow);
             tableRow.append(gameNameCell);
             tableRow.append(gameDetailCell);
@@ -309,6 +309,7 @@ join-game logic
     // assigning unique id to variable to use to keep track of player data
     playerKey = localStorage.userKey;
     gameKey = localStorage.gameKey;
+
     
     console.log(playerKey);
 
@@ -381,23 +382,75 @@ function sendChatMessage() {
 /****************************************
 scorecard logic
 ****************************************/
+  var holeNumber = 0;
+  var frontNineScores = [];
+  var backNineScores = [];
+  var frontNine = 0;
+  var backNine = 0;
+  var totalScore = 0;
   
   // getting data from player path in db using unique id
   golfdb.ref('/games/' + gameKey + '/players/' + playerKey).on('value', function(snap) {
       console.log('Player Key: ',playerKey)
 
       // getting current hole number from db to use in switch statement  
-      var holeNumber = snap.val().holeNumber;
+      holeNumber = snap.val().holeNumber;
       $('#hole-number').text(holeNumber);
+
+      frontNineScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine];
+      backNineScores = [snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen];
+
+      frontNine = 0;
+      backNine = 0;
+      totalScore = 0;
+
+      for (var i = 0; i < frontNineScores.length; i++) {
+        if (frontNineScores[i] != 0) {
+        $('#front').find('td').eq(i).text(frontNineScores[i])
+        }
+      }
+
+      for (var i = 0; i < frontNineScores.length; i++) {
+        frontNine += frontNineScores[i];
+      }
+
+      $('#out').text(frontNine);
+
+      for (var i = 0; i < backNineScores.length; i++) {
+        if (backNineScores[i] != 0) {
+        $('#back').find('td').eq(i).text(backNineScores[i])
+        }
+      }
+
+      for (var i = 0; i < backNineScores.length; i++) {
+        backNine += backNineScores[i];
+      }
+
+      $('#in').text(backNine);
+
+      $('#totalScore').text(frontNine + backNine)
+
+  }, function(errorObject) {
+      console.log('the read failed ' + errorObject.code)
+  });
 
     // Need to disable button if nothing is entered
     $('#submit').click(function() {
-      // temporary solution to update hole number. was not updating without page reload
-      location.reload()
+      
       var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey)
       // getting score input from user
       var score = Number($('#score').val());
-     
+      
+      // tim
+      // var data = {
+      //   holeNumber: holeNumber + 1          
+      // };
+      // data['hole'+holeNumber] = score;
+      // playerRef.update(data);
+
+      // /tim
+
+
         switch (holeNumber) {
           case 1:
             playerRef.update({
@@ -530,41 +583,8 @@ scorecard logic
         // setting scorecard back to blank after submit
         var score = Number($('#score').val(''));
 
-    })
-
-    var frontNineScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine];
-    var backNineScores = [snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen];
-
-    var frontNine = 0;
-    var backNine = 0;
-
-    for (var i = 0; i < frontNineScores.length; i++) {
-      if (frontNineScores[i] != 0) {
-        $('#front').find('td').eq(i).text(frontNineScores[i])
-      }
-    }
-
-    for (var i = 0; i < frontNineScores.length; i++) {
-      frontNine += frontNineScores[i];
-    }
-
-    $('#out').text(frontNine);
-
-    for (var i = 0; i < backNineScores.length; i++) {
-      if (backNineScores[i] != 0) {
-        $('#back').find('td').eq(i).text(backNineScores[i])
-      }
-    }
-
-    for (var i = 0; i < backNineScores.length; i++) {
-      backNine += backNineScores[i];
-    }
-
-    $('#in').text(backNine);
-      
-  }, function(errorObject) {
-      console.log('the read failed ' + errorObject.code)
-  });
+    }) // end click
+        
 
   
   /*****************************************
@@ -596,6 +616,8 @@ scorecard logic
     tableRow.append(thru);
 
   })
+
+  
 
 });
 
