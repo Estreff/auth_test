@@ -250,6 +250,7 @@ $(function(){
           var joinButton = $('<button class="openGame btn btn-primary">' + 'Game ' + gameDetail.gameId + '</button>');
           var deleteButton = $('<button class="delete btn btn-danger">' + 'X' + '</button>');
             joinButton.attr('data-value', `Game${gameDetail.gameId}`);
+            joinButton.attr('data-name', gameDetail.gameName);
             deleteButton.attr('data-value', `Game${gameDetail.gameId}`);
             $('#openGames').append(tableRow);
             tableRow.append(gameNameCell);
@@ -304,7 +305,7 @@ join-game logic
     });
     // grabbing unique id from push method above and storing it to localStorage
     localStorage.setItem('userKey', newPostRef.key);
-    localStorage.setItem('gameKey', gameKey)
+    localStorage.setItem('gameKey', gameKey);
 
     // assigning unique id to variable to use to keep track of player data
     playerKey = localStorage.userKey;
@@ -435,155 +436,162 @@ scorecard logic
   });
 
     // Need to disable button if nothing is entered
-    $('#submit').click(function() {
-      
-      var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey)
-      // getting score input from user
-      var score = Number($('#score').val());
-      
-      // tim
-      // var data = {
-      //   holeNumber: holeNumber + 1          
-      // };
-      // data['hole'+holeNumber] = score;
-      // playerRef.update(data);
+  $('#submit').click(function() {
 
-      // /tim
+    var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey)
+    // getting score input from user
+    var score = Number($('#score').val());
+    
+    // tim
+    // var data = {
+    //   holeNumber: holeNumber + 1          
+    // };
+    // data['hole'+holeNumber] = score;
+    // playerRef.update(data);
+
+    // /tim
 
 
-        switch (holeNumber) {
-          case 1:
-            playerRef.update({
-              holeOne: score,
-              holeNumber: holeNumber + 1          
-            })          
-            break;
+      switch (holeNumber) {
+        case 1:
+          playerRef.update({
+            holeOne: score,
+            holeNumber: holeNumber + 1          
+          })          
+          break;
 
-          case 2:
-            playerRef.update({
-              holeTwo: score,
-              holeNumber: holeNumber + 1
-            })       
-            break;
+        case 2:
+          playerRef.update({
+            holeTwo: score,
+            holeNumber: holeNumber + 1
+          })       
+          break;
 
-          case 3:
-            playerRef.update({
-              holeThree: score,
-              holeNumber: holeNumber + 1
-            })    
-            break;
+        case 3:
+          playerRef.update({
+            holeThree: score,
+            holeNumber: holeNumber + 1
+          })    
+          break;
 
-          case 4:
-            playerRef.update({
-              holeFour: score,
-              holeNumber: holeNumber + 1
-            }) 
-            break;
+        case 4:
+          playerRef.update({
+            holeFour: score,
+            holeNumber: holeNumber + 1
+          }) 
+          break;
 
-          case 5:
-            playerRef.update({
-              holeFive: score,
-              holeNumber: holeNumber + 1
-            }) 
-            break;
+        case 5:
+          playerRef.update({
+            holeFive: score,
+            holeNumber: holeNumber + 1
+          }) 
+          break;
 
-          case 6:
-            playerRef.update({
-              holeSix: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 6:
+          playerRef.update({
+            holeSix: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 7:
-            playerRef.update({
-              holeSeven: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 7:
+          playerRef.update({
+            holeSeven: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 8:
-            playerRef.update({
-              holeEight: score,
-              holeNumber: holeNumber + 1
-            })  
-            break;
+        case 8:
+          playerRef.update({
+            holeEight: score,
+            holeNumber: holeNumber + 1
+          })  
+          break;
 
-          case 9:
-            playerRef.update({
-              holeNine: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 9:
+          playerRef.update({
+            holeNine: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 10:
-            playerRef.update({
-              holeTen: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 10:
+          playerRef.update({
+            holeTen: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 11:
-            playerRef.update({
-              holeEleven: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 11:
+          playerRef.update({
+            holeEleven: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 12:
-            playerRef.update({
-              holeTwelve: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 12:
+          playerRef.update({
+            holeTwelve: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 13:
-            playerRef.update({
-              holeThirteen: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 13:
+          playerRef.update({
+            holeThirteen: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 14:
-            playerRef.update({
-              holeFourteen: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 14:
+          playerRef.update({
+            holeFourteen: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 15:
-            playerRef.update({
-              holeFifteen: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 15:
+          playerRef.update({
+            holeFifteen: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 16:
-            playerRef.update({
-              holeSixteen: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 16:
+          playerRef.update({
+            holeSixteen: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 17:
-            playerRef.update({
-              holeSeventeen: score,
-              holeNumber: holeNumber + 1
-            })
-            break;
+        case 17:
+          playerRef.update({
+            holeSeventeen: score,
+            holeNumber: holeNumber + 1
+          })
+          break;
 
-          case 18:
-            playerRef.update({
-              holeEighteen: score,
-              holeNumber: 0
-            })
-            break;
+        case 18:
+          playerRef.update({
+            holeEighteen: score,
+            holeNumber: 0
+          })
+          break;
 
-        }
-      
-        // setting scorecard back to blank after submit
-        var score = Number($('#score').val(''));
+      }
+    
+      // setting scorecard back to blank after submit
+      var score = Number($('#score').val(''));
 
-    }) // end click
+  }) // end click
+
+  golfdb.ref('/games/' + gameKey).on('value', function(snap) {
+
+    console.log(snap.val());
+    $('.tourny-name').text(snap.val().gameName)
+
+  })
         
 
   
