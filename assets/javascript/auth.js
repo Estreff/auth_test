@@ -314,6 +314,8 @@ join-game logic
     
     console.log(playerKey);
 
+    window.location.href='scorecard.html';
+
     });
 
 /*******************************************
@@ -396,7 +398,13 @@ scorecard logic
 
       // getting current hole number from db to use in switch statement  
       holeNumber = snap.val().holeNumber;
-      $('#hole-number').text(holeNumber);
+
+      if (holeNumber === 19) {
+        $('#hole-title').text('Game Over')
+        $('#hole-number').text('')
+      } else {
+        $('#hole-number').text(holeNumber);
+      }
 
       frontNineScores = [snap.val().holeOne, snap.val().holeTwo, snap.val().holeThree, snap.val().holeFour, snap.val().holeFive, snap.val().holeSix, snap.val().holeSeven, snap.val().holeEight, snap.val().holeNine];
       backNineScores = [snap.val().holeTen, snap.val().holeEleven, snap.val().holeTwelve, snap.val().holeThirteen, snap.val().holeFourteen, snap.val().holeFifteen, snap.val().holeSixteen, snap.val().holeSeventeen, snap.val().holeEighteen];
@@ -575,8 +583,10 @@ scorecard logic
         case 18:
           playerRef.update({
             holeEighteen: score,
-            holeNumber: 0
+            holeNumber: holeNumber + 1
           })
+
+          $(this).addClass('disabled')
           break;
 
       }
