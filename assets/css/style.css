@@ -44,9 +44,9 @@ body {
 #localTitle h2 {
 	/*line-height: 0px;*/
 	color: #ffffff;
-	font-size: 3vh;
+	font-size: 2em;
 	font-weight: bold;
-	line-height: 20px;
+	line-height: 0px;
 	margin: 0px;
 }
 
