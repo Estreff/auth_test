@@ -163,16 +163,27 @@ $(function(){
         window.location.replace('index.html');
       })
 
+      function getGameState() {
+        if (localStorage.userKey === 'none') {
+          $('#scorecard').addClass('hide');
+          $('#leaderboard').addClass('hide');
+        } else {
+          $('#scorecard').removeClass('hide');
+          $('#leaderboard').removeClass('hide');
+          $('#games').addClass('hide');
+        }
+      }
+
       // What happens when someone logs in
       function loggedIn() {       
         $('#logout-nav').removeClass('hide');
         $('#login-nav').addClass('hide');
         $('#signup-nav').addClass('hide');
-        $('#login-form').addClass('hide')
-        $('#signup-form').addClass('hide')
-        $('#scorecard').removeClass('hide');
-        $('#leaderboard').removeClass('hide');
-        $('#games').removeClass('hide');
+        $('#login-form').addClass('hide');
+        $('#signup-form').addClass('hide');
+
+        getGameState();
+        
         $('#loginModal').modal('hide');
         $('#createModal').modal('hide');
         loadGames();
@@ -196,7 +207,7 @@ $(function(){
         loggedIn();
         console.log('Valid User: ', firebaseUser);
         console.log('Username: ', firebaseUser.displayName);
-        console.log('User UID: ', firebaseUser.uid);        
+        console.log('User UID: ', firebaseUser.uid);      
       } else {
         loggedOut();
       }
@@ -274,19 +285,21 @@ $(function(){
               delTableCell.append(deleteButton);
             } 
       });
-    }
-    
+    }   
 
 /*******************************************
 join-game logic
-*******************************************/   
+*******************************************/ 
 
+    
     var playerKey = localStorage.userKey;
     var gameKey = localStorage.gameKey;
 
     $(document).on('click', '.openGame', function() {
       console.log('join button clicked');
       console.log($(this).attr('data-value'))
+
+      getGameState();
 
       gameKey = $(this).attr('data-value');
 
@@ -322,10 +335,17 @@ join-game logic
     playerKey = localStorage.userKey;
     gameKey = localStorage.gameKey;
 
-    
     console.log(playerKey);
 
     window.location.href='scorecard.html';
+
+    });
+
+    $('#exitGame').click(function() {
+
+      localStorage.setItem('userKey', 'none');
+      getGameState();
+      window.location.href='games.html';
 
     });
 
@@ -615,8 +635,6 @@ scorecard logic
     $('.tourny-name').text(snap.val().gameName)
 
   })
-        
-
   
   /*****************************************
   leaderboard logic
@@ -648,11 +666,7 @@ scorecard logic
 
   });
 
-  
-
 });
-
-
 
       var map, places, infoWindow;
       var markers = [];
