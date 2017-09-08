@@ -11,12 +11,11 @@ $(function(){
   firebase.initializeApp(config);
 
       var auth = firebase.auth(); 
-      var golfdb = firebase.database();
+      var golfdb = firebase.database();     
       var playerId = 1;
       var gameId = 1;
 
   // Sign-up Navbar to show the form
-
   $('#signup-nav').click(function(){
     $('#signup-form').removeClass('hide')
     $('#login-form').addClass('hide')
@@ -26,7 +25,6 @@ $(function(){
   $('#login-nav').click(function(){
     $('#login-form').removeClass('hide')
     $('#signup-form').addClass('hide')
-
   });
 
   // Cancel Button on forms
@@ -35,6 +33,7 @@ $(function(){
     $('#signup-form').addClass('hide')
   });
 
+  // Global variables for Creating Account
   var userId = "";
   var email = "";
   var firstName = "";
@@ -46,9 +45,12 @@ $(function(){
   var joinedGame = "";
   var gamesPlayed = [""];  
 
+  // Get the Player ID from Firebase
       golfdb.ref('playerCount').on('value', function(snapshot){
         playerId = snapshot.val().playerId;
       });
+
+  // Show Login Modal
       
   // Add Login on click
     $('#login').click(function(event){
@@ -65,83 +67,95 @@ $(function(){
       var promise = auth.signInWithEmailAndPassword(email, loginPswd);
       promise.catch(event => $('#loginError').text(event.message).removeClass('hide'));
 
-      
+      // Clear input fields of sign-in form
         $('#email-login').val("");
         $('#password-login').val("");
       });
 
+    // Cancel Button on Login Screen
     $('#loginCancel').click(function() {
       $('#loginError').text("").addClass('hide');
     });
 
-  // Add Signup on click 
+    // Show Create Account Modal
+    $('#signup-nav').on('shown.bs.modal', function () {
+      $('#createModal').focus()
+    })
 
+  // Add Signup on click 
     $('#createAcct').click(function(event) {
     
-      // Get email and password
-      email = $('#email-input').val().trim();
-      console.log(email);
+      // Get User Information
       displayName = $('#displayName-input').val().trim();
-      console.log(displayName);
+      console.log('Display Name: ', displayName);
+      email = $('#email-input').val().trim();
+      console.log('Email Address: ', email);
       firstName = $('#fName-input').val().trim();
-      console.log(firstName);
+      console.log('First Name: ', firstName);
       lastName = $('#lName-input').val().trim();
-      console.log(lastName);
+      console.log('Last Name', lastName);
       loginPswd = $('#password-input').val().trim();
-      console.log(loginPswd);
+      console.log('Password: ', loginPswd);
 
-
-
-      // Create User
-        if (displayName == "") {
-          $('#createError').text('Display Name Required').removeClass('hide')
-          console.log('Display Name needed');
-          } else {
-            var promise = auth.createUserWithEmailAndPassword(email, loginPswd);
-            promise.then(function(user) {
-              // add Display Name
-              user.updateProfile({displayName: displayName});
-            })
-
-            promise.catch(event => $('#createError').text(event.message).removeClass('hide'));
-            var ErrorMessage = promise.catch(event=> (event.message));
-            console.log('Error Message', ErrorMessage);
-            console.log('Error Message', event.message);
-
-              event.preventDefault();
-              
-            
-            // if(event.message == "") {
-              var userRef = golfdb.ref("users");
-
-              userRef.child(displayName).set({
-                playerId: playerId,
+      // Checks to see if Display name is present
+      // TODO:  Need to verify that the user doesn't exist
+      if(displayName == "") {
+        // Writes Error Message into Alert Box that shows no Display Name
+        $('#createError').text('Display Name Required').removeClass('hide');
+        console.log('Display Name needed');
+      } else {
+      // Inserts Email and Password into Autentiation function
+      firebase.auth().createUserWithEmailAndPassword(email, loginPswd)
+        .then(function(user) {
+            user.updateProfile({displayName: displayName});
+            // Defines Additional Information to Firebase under Users
+            var ref = firebase.database().ref().child("users");
+            var data = {
+                email: email,
                 firstname: firstName,
                 lastName: lastName,
-                email: email,
+                uid:user.uid,
+                playerId: playerId,
                 joinedGame: joinedGame,
                 games: gamesPlayed,
                 dataAdded: firebase.database.ServerValue.TIMESTAMP
-              })
+            }
+            // Sends Additional Information or Returns Error Message
+            ref.child(displayName).set(data).then(function(ref) {//use 'child' and 'set' combination to save data in your own generated key
+                console.log("Saved");
+            }, function(error) {
+                console.log(error); 
+            });
 
-              $('#email-input').val("");
-              $('#displayName-input').val("");
-              $('#fName-input').val("");
-              $('#lName-input').val("");
-              $('#password-input').val("");
+              // Clear Input fields
+                $('#displayName-input').val("");
+                $('#email-input').val("");
+                $('#fName-input').val("");
+                $('#lName-input').val("");
+                $('#password-input').val("");
 
-              playerId++
-              golfdb.ref('playerCount').set({
-                playerId:playerId
-              });
-            // }               
-        }
-        
+              // Add One to playerId and updates Friebase with that number
+                playerId++
+                golfdb.ref('playerCount').set({
+                  playerId:playerId
+                });
+        })
+
+        // If error happens on account creation and returns and updated Alert
+        .catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // Writes Error Message into Alert Box that shows current Error
+            $('#createError').text(errorMessage).removeClass('hide');
+            console.log(error);
+        });
+      }
     });
 
-    $('#createCancel').click(function() {
-      $('#createError').text("").addClass('hide');
-    });
+    // Cancel Button on Create Account 
+      $('#createCancel').click(function() {
+        $('#createError').text("").addClass('hide');
+      });
 
     // LogOut of Firebase
       $('#logout-nav').click(function(event){
@@ -149,6 +163,7 @@ $(function(){
         window.location.replace('index.html');
       })
 
+      // What happens when someone logs in
       function loggedIn() {       
         $('#logout-nav').removeClass('hide');
         $('#login-nav').addClass('hide');
@@ -163,6 +178,7 @@ $(function(){
         loadGames();
       }
 
+      // What happens when someone logs out
       function loggedOut() {
         console.log('not logged in');
         $('#logout-nav').addClass('hide');
@@ -174,7 +190,6 @@ $(function(){
       }
   
     // Add a realtime listener
-
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if(firebaseUser) {
         $('#player').text(firebaseUser.displayName);
@@ -187,11 +202,7 @@ $(function(){
       }
     });
 
-      $('#signup-nav').on('shown.bs.modal', function () {
-        $('#createModal').focus()
-      })
-
-
+    // Create Game with Game Name & Course Name
     var gamedb = firebase.database().ref('/games');
 
     function createGame() {
@@ -369,10 +380,10 @@ function sendChatMessage() {
     
     var height = 0;
     $('#messages p').each(function(i, value){
-      height += parseInt($(this).height());
+      height += parseInt($(this).height())+20;
     });
 
-    height += 150;
+    height += 200;
 
     $('#messages').animate({scrollTop: height},0);
 
@@ -439,9 +450,11 @@ scorecard logic
 
       $('#totalScore').text(frontNine + backNine)
 
+
   }, function(errorObject) {
       console.log('the read failed ' + errorObject.code)
   });
+
 
     // Need to disable button if nothing is entered
   $('#submit').click(function() {
@@ -633,11 +646,12 @@ scorecard logic
     tableRow.append(score);
     tableRow.append(thru);
 
-  })
+  });
 
   
 
 });
+
 
 
       var map, places, infoWindow;
