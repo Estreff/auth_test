@@ -75,8 +75,14 @@ body {
 
 
 .scorecardBlank tr td {
-	height:60px;
-	color:#446e9b;
+	height:55px;
+	color: #446e9b;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 42px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+
+
 }
 
 #frontNineScores {
@@ -267,6 +273,35 @@ footer {
 #scorecardView {
     margin: auto;
     margin-top: 20pt;
+}
+
+#scorecardTotal {
+	padding-left: 0px;
+}
+
+#totalScoreTitle {
+	background-color: #446e9b;
+	border:2px solid #446e9b;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color: #ffffff;
+	margin-left: 0px;
+	padding: 10px;
+}
+
+#totalScore {
+	border:2px solid #446e9b;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	color: #446e9b;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 36px;
+	padding: 0 10px 0 10px;
+}
+
+#exitGame {
+	margin-top: 10px;
+	padding:10px;
 }
 
 #score {
