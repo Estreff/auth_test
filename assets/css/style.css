@@ -39,15 +39,21 @@ body {
 	border-radius: 5px;
 	margin: 2vh;
 	height: 12vh;
+
+	display: flex;              /* establish flex container */
+    flex-direction: column;     /* stack flex items vertically */
+    justify-content: center;    /* center items vertically, in this case */
+    align-items: center;
 }
+
 
 #localTitle h2 {
 	/*line-height: 0px;*/
 	color: #ffffff;
 	font-size: 2em;
 	font-weight: bold;
-	line-height: 0px;
-	margin: 0px;
+	line-height: 20px;
+	margin: 4px;
 }
 
 #localHeatMap {
@@ -187,7 +193,7 @@ tbody td:last-child, thead th:last-child {
 
 .panel-heading {
 	/*padding-top:0px;*/
-	height: 42px;
+	min-height: 42px;
 }
 
 .panel-heading h4 {
@@ -251,7 +257,7 @@ footer {
 }
 
 #wind-direction {
-	float: left;
+	float: right;
 }
 
 #scorecardEntry {
