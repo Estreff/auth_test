@@ -197,6 +197,7 @@ tbody td:last-child, thead th:last-child {
 	height: 67vh;
 }
 
+
 .panel-heading {
 	/*padding-top:0px;*/
 	min-height: 42px;
@@ -207,8 +208,20 @@ tbody td:last-child, thead th:last-child {
 	font-size:20px;
 	font-weight: bold;
 	margin: 0px;
-
 }
+
+/* .panel > #weatherTitle {
+	padding-top:0px;
+	min-height: 42px;
+} 
+
+#weatherTitle h4 {
+	color:white;
+	font-size:20px;
+	font-weight: bold;
+	padding-left: 0px;
+	margin: 0px;
+} */
 
 #chatBody {
 	max-height: 40vh;
@@ -285,7 +298,8 @@ footer {
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	color: #ffffff;
-	margin-left: 0px;
+	float: left;
+	/*margin-left: 0px;*/
 	padding: 10px;
 }
 
