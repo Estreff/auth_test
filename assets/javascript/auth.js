@@ -166,6 +166,7 @@ $(function(){
         $('#games').removeClass('hide');
         $('#scorecard').removeClass('hide');
         $('#leaderboard').removeClass('hide');
+        // $("#autocomplete").focus();
         
         $('#loginModal').modal('hide');
         $('#createModal').modal('hide');

@@ -189,53 +189,11 @@ function runAjax(){
         var place = autocomplete.getPlace();
         if (place.geometry) {
           map.panTo(place.geometry.location);
-          map.setZoom(15);
+          map.setZoom(16);
           search();
         } else {
           document.getElementById('autocomplete').placeholder = 'Enter a Course Name';
         }
-      }
-
-      // Search for golf courses and hotels nearby in the selected city, within the viewport of the map.
-      function search() {
-        var search = {
-          bounds: map.getBounds(),
-          types: ['lodging']
-        };
-
-        places.nearbySearch(search, function(results, status) {
-          if (status === google.maps.places.PlacesServiceStatus.OK) {
-            clearResults();
-            clearMarkers();
-            // Create a marker for each hotel found, and
-            // assign a letter of the alphabetic to each marker icon.
-            for (var i = 0; i < results.length; i++) {
-              var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-              var markerIcon = MARKER_PATH + markerLetter + '.png';
-              // Use marker animation to drop the icons incrementally on the map.
-              markers[i] = new google.maps.Marker({
-                position: results[i].geometry.location,
-                animation: google.maps.Animation.DROP,
-                icon: markerIcon
-              });
-              // If the user clicks a hotel marker, show the details of that hotel
-              // in an info window.
-              markers[i].placeResult = results[i];
-              google.maps.event.addListener(markers[i], 'click', showInfoWindow);
-              setTimeout(dropMarker(i), i * 100);
-              addResult(results[i], i);
-            }
-          }
-        });
-      }
-
-      function clearMarkers() {
-        for (var i = 0; i < markers.length; i++) {
-          if (markers[i]) {
-            markers[i].setMap(null);
-          }
-        }
-        markers = [];
       }
 
       // Set the country restriction based on user input.
