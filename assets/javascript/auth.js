@@ -163,11 +163,13 @@ $(function(){
         $('#signup-nav').addClass('hide');
         $('#login-form').addClass('hide');
         $('#signup-form').addClass('hide');
-
-        getGameState();
+        $('#games').removeClass('hide');
+        $('#scorecard').removeClass('hide');
+        $('#leaderboard').removeClass('hide');
         
         $('#loginModal').modal('hide');
         $('#createModal').modal('hide');
+        getGameState();
         loadGames();
       }
 
