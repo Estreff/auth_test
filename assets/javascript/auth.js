@@ -690,7 +690,7 @@ scorecard logic
                 
                 if(currentVal > input.attr('min')) {
                     input.val(currentVal - 1).change();
-                    input.focus();
+                    // input.focus();
                 } 
                 if(parseInt(input.val()) == input.attr('min')) {
                     $(this).attr('disabled', true);
@@ -700,7 +700,7 @@ scorecard logic
 
                 if(currentVal < input.attr('max')) {
                     input.val(currentVal + 1).change();
-                    input.focus();
+                    // input.focus();
                 }
                 if(parseInt(input.val()) == input.attr('max')) {
                     $(this).attr('disabled', true);
