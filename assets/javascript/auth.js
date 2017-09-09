@@ -325,7 +325,15 @@ join-game logic
 
     });
 
+    // Exit button on scorecard
     $('#exitGame').click(function() {
+
+      $('#exit-modal').show();
+
+    });
+
+    // Exit button on modal
+    $('#exit').click(function() {
 
       var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
 
@@ -334,6 +342,13 @@ join-game logic
       playerRef.remove();
       window.location.href='games.html';
 
+    });
+
+    // Cancel button on modal
+    $('#exit-cancel').click(function() {
+
+      $('#exit-modal').hide();
+    
     });
 
 /*******************************************
