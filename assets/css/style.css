@@ -75,7 +75,7 @@ body {
 
 
 .scorecardBlank tr td {
-	height:55px;
+	height:70px;
 	color: #446e9b;
 	font-family: 'Reenie Beanie', cursive;
 	font-size: 42px;
@@ -306,6 +306,9 @@ footer {
 	border-bottom-left-radius: 5px;
 	color: #ffffff;
 	float: left;
+	font-size: 38px;
+	height:60px;
+	line-height: :70px;
 	/*margin-left: 0px;*/
 	padding: 10px;
 }
@@ -316,11 +319,14 @@ footer {
 	border-bottom-right-radius: 5px;
 	color: #446e9b;
 	font-family: 'Reenie Beanie', cursive;
-	font-size: 36px;
+	font-size: 48px;
+	height:60px;
+	line-height: :70px;
 	padding: 0 10px 0 10px;
 }
 
 #exitGame {
+	height: 60px;
 	margin-top: 10px;
 	padding:10px;
 }
