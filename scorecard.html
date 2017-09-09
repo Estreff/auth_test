@@ -47,7 +47,7 @@
 			        	<li><a href="#" id="player"></a></li>
 			      		<li id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
 			            <li id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
-			            <li id="logout-nav" class="hide"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
+			            <li id="logout-nav" class="" data-toggle="modal" data-target="#logoutModal"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
 					</ul>
 		    	</div>
 		  	</div>
@@ -201,6 +201,23 @@
 				</div>
 			</div>
 		</div>
+		<!-- Logout Modal -->
+		<div class="modal" id="logoutModal">
+		  	<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<h5 class="modal-title"><span class="fa fa-sign-out"></span> Logout</h5>
+		      		</div>
+		      		<div class="modal-body">
+		      			<p>Do you really want to Logout?</p>
+	      			</div>
+		      		<div class="modal-footer">
+		        		<button type="submit" class="btn btn-primary" id="logout">Logout</button>
+		        		<button type="button" class="btn btn-danger" data-dismiss="modal" id="logoutCancel">Cancel</button>
+		    		</div>
+		    	</div>
+		  	</div>
+		</div>
 
 		<footer class="navbar navbar-default navbar-fixed-bottom">
 				<ul class="nav navbar-nav col-lg-12">
@@ -221,7 +238,7 @@
   	<!-- Local Javascript -->
   	<script type="text/javascript" src="assets/javascript/auth.js"></script>
   	<!-- Weather Local Javascript -->
-  	<script type="text/javascript" src="assets/javascript/weather.js"></script>
+  	<script type="text/javascript" src="assets/javascript/weather_map.js"></script>
 
   	
 </body>
