@@ -432,9 +432,10 @@ scorecard logic
       // getting current hole number from db to use in switch statement  
       holeNumber = snap.val().holeNumber;
 
-      if (holeNumber === 19) {
-        $('#hole-title').text('Game Over')
-        $('#hole-number').text('')
+      if (holeNumber >= 19) {
+        $('#hole-title').text('Game Over');
+        $('#hole-number').text('');
+        $('#submit').addClass('disabled')
       } else {
         $('#hole-number').text(holeNumber);
       }
