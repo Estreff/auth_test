@@ -15,24 +15,6 @@ $(function(){
       var playerId = 1;
       var gameId = 1;
 
-/*  // Sign-up Navbar to show the form
-  $('#signup-nav').click(function(){
-    $('#signup-form').removeClass('hide')
-    $('#login-form').addClass('hide')
-  });
-
-  // Login Navbar to show login to system
-  $('#login-nav').click(function(){
-    $('#login-form').removeClass('hide')
-    $('#signup-form').addClass('hide')
-  });
-
-  // Cancel Button on forms
-  $('.cancel').click(function(){
-    $('#login-form').addClass('hide')
-    $('#signup-form').addClass('hide')
-  });*/
-
   // Global variables for Creating Account
   var userId = "";
   var email = "";
