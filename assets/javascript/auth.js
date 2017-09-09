@@ -462,10 +462,7 @@ scorecard logic
       console.log('the read failed ' + errorObject.code)
   });
 
-
-    // Need to disable button if nothing is entered
-  $('#submit').click(function() {
-
+  function submitScore() {
     var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
     // getting score input from user
     var score = Number($('#score').val());
@@ -608,13 +605,24 @@ scorecard logic
 
           $(this).addClass('disabled')
           break;
-
       }
     
       // setting scorecard back to blank after submit
       var score = Number($('#score').val(''));
+    }
 
+    // Need to disable button if nothing is entered
+  $('#submit').click(function() {
+    submitScore();
   }) // end click
+
+  $('#score').keypress(function(e) {
+      if(e.which == 13) {
+        submitScore();
+      }
+  });
+
+
 
   golfdb.ref('/games/' + gameKey).on('value', function(snap) {
 
