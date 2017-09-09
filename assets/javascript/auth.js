@@ -490,8 +490,7 @@ scorecard logic
     // playerRef.update(data);
 
     // /tim
-
-
+    if(score != "") {
       switch (holeNumber) {
         case 1:
           playerRef.update({
@@ -624,6 +623,7 @@ scorecard logic
     
       // setting scorecard back to blank after submit
       var score = Number($('#score').val(''));
+      }
     }
 
     // Need to disable button if nothing is entered
