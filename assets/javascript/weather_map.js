@@ -189,7 +189,7 @@ function runAjax(){
         var place = autocomplete.getPlace();
         if (place.geometry) {
           map.panTo(place.geometry.location);
-          map.setZoom(15);
+          map.setZoom(16);
           search();
         } else {
           document.getElementById('autocomplete').placeholder = 'Enter a Course Name';
