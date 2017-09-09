@@ -164,13 +164,13 @@ $(function(){
       })
 
       function getGameState() {
-        if (localStorage.userKey === 'none') {
-          $('#scorecard').addClass('hide');
-          $('#leaderboard').addClass('hide');
-        } else {
+        if (localStorage.userKey) {
           $('#scorecard').removeClass('hide');
           $('#leaderboard').removeClass('hide');
           $('#games').addClass('hide');
+        } else {
+          $('#scorecard').addClass('hide');
+          $('#leaderboard').addClass('hide');
         }
       }
 
@@ -343,8 +343,11 @@ join-game logic
 
     $('#exitGame').click(function() {
 
-      localStorage.setItem('userKey', 'none');
+      var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
+
+      localStorage.removeItem('userKey');
       getGameState();
+      playerRef.remove();
       window.location.href='games.html';
 
     });
@@ -479,7 +482,7 @@ scorecard logic
     // Need to disable button if nothing is entered
   $('#submit').click(function() {
 
-    var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey)
+    var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
     // getting score input from user
     var score = Number($('#score').val());
     
