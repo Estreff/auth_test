@@ -84,9 +84,18 @@
 								</div>
 							</div>
 							<div class="col-md-7">
+							  <div>
 								<div class="panel panel-primary" id="scorecardEntry">
 									<div class="panel-heading">
-										<h4 class="card-title">Scorecard</h4>
+										<div class="row">
+										
+										<h4 id="personal-scorecard" class="card-title col-xs-7">Scorecard</h4>
+										
+										<div class="col-xs-5">
+										<button id="edit-score" class="btn btn-danger">Edit Scores</button>
+										<button id="update-score" class="btn btn-danger">Update</button>
+										</div>
+										</div>
 									</div>
 									<div class="panel-body">
 										<table class="table table-bordered table-responsive text-center ">
@@ -106,15 +115,15 @@
 											</thead>
 											<tbody class="scorecardBlank" id="frontNineScores">
 												<tr id="front">
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
+													<td id="hole1" contenteditable="false" class="hole-score"></td>
+													<td id="hole2" contenteditable="false" class="hole-score"></td>
+													<td id="hole3" contenteditable="false" class="hole-score"></td>
+													<td id="hole4" contenteditable="false" class="hole-score"></td>
+													<td id="hole5" contenteditable="false" class="hole-score"></td>
+													<td id="hole6" contenteditable="false" class="hole-score"></td>
+													<td id="hole7" contenteditable="false" class="hole-score"></td>
+													<td id="hole8" contenteditable="false" class="hole-score"></td>
+													<td id="hole9" contenteditable="false" class="hole-score"></td>
 													<td id="out"></td>
 												</tr>		
 							  				</tbody>
@@ -136,15 +145,15 @@
 							  				</thead>
 							  				<tbody class="scorecardBlank" id="backNineScores">
 												<tr id="back">
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
+													<td id="hole10" contenteditable="false" class="hole-score"></td>
+													<td id="hole11" contenteditable="false" class="hole-score"></td>
+													<td id="hole12" contenteditable="false" class="hole-score"></td>
+													<td id="hole13" contenteditable="false" class="hole-score"></td>
+													<td id="hole14" contenteditable="false" class="hole-score"></td>
+													<td id="hole15" contenteditable="false" class="hole-score"></td>
+													<td id="hole16" contenteditable="false" class="hole-score"></td>
+													<td id="hole17" contenteditable="false" class="hole-score"></td>
+													<td id="hole18" contenteditable="false" class="hole-score"></td>
 													<td id="in"></td>
 												</tr>
 		
