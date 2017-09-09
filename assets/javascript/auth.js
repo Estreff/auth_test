@@ -15,7 +15,7 @@ $(function(){
       var playerId = 1;
       var gameId = 1;
 
-  // Sign-up Navbar to show the form
+/*  // Sign-up Navbar to show the form
   $('#signup-nav').click(function(){
     $('#signup-form').removeClass('hide')
     $('#login-form').addClass('hide')
@@ -31,7 +31,7 @@ $(function(){
   $('.cancel').click(function(){
     $('#login-form').addClass('hide')
     $('#signup-form').addClass('hide')
-  });
+  });*/
 
   // Global variables for Creating Account
   var userId = "";
@@ -158,7 +158,7 @@ $(function(){
       });
 
     // LogOut of Firebase
-      $('#logout-nav').click(function(event){
+      $('#logout').click(function(event){
         auth.signOut();
         window.location.replace('index.html');
       })
