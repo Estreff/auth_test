@@ -1,0 +1,284 @@
+body {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.wrapper {
+	 min-height: 93vh; /* will cover the 100% of viewport */
+	 overflow: hidden;
+	 display: block;
+	 position: relative;
+	}
+
+/* --- Navigation --- */
+	
+	.navbar {
+		margin-bottom: 0px;
+	}
+
+	.navbar-brand {
+	  margin-right: 20px;
+	  padding-top: 10px;
+	}
+
+	/* Logged In Display Name */	
+		#player {
+			font-weight: bold;
+		}
+
+/* --- Modal Information --- */
+
+	/* Sign-up | Create User */
+		#createUser input {
+			margin-bottom: 5px;
+		}
+
+		#createError {
+			font-weight: bold;
+		}
+
+	/* Login User */
+		#loginError {
+			font-weight: bold;
+		}
+
+/* --- Left Panel (Large Area) --- */
+
+	/* Main Content (Entire Left Side)  DO NOT CHANGE*/
+		.mainContent {
+			border: 2px solid #5d85b1;
+			border-radius: 5px;
+			min-height: 88vh;
+		}
+
+		/* Title Bar on All Pages */
+			#localTitle {
+				background-color: #446e9b;
+				border: 2px solid #446e9b;
+				border-radius: 5px;
+				margin: 2vh;
+				height: 12vh;
+
+				display: flex;              /* establish flex container */
+			    flex-direction: column;     /* stack flex items vertically */
+			    justify-content: center;    /* center items vertically, in this case */
+			    align-items: center;
+			}
+
+
+			#localTitle h2 {
+				/*line-height: 0px;*/
+				color: #ffffff;
+				font-size: 2em;
+				font-weight: bold;
+				line-height: 20px;
+				margin: 4px;
+			}
+
+		/* index.html */
+			#localHeatMap {
+				border: 2px solid #5d85b1;
+				border-radius: 5px;
+				margin: 2vh;
+				height: 80vh;
+			}
+
+		/* games.html */
+
+			/*Creating Game Management Scrollable Table*/
+
+				table.scroll {
+				    width: 100%;
+				    border-spacing: 0;
+				}
+
+				table.scroll th,
+				table.scroll td,
+				table.scroll tr,
+				table.scroll thead,
+				table.scroll tbody { display: block; }
+
+				table.scroll thead tr {
+				    /* fallback */
+				    width: 97%;
+				    /* minus scroll bar width */
+				    width: calc(100%-16px);
+				}
+
+				table.scroll tr:after {
+				    content: ' ';
+				    display: block;
+				    visibility: hidden;
+				    clear: both;
+				}
+
+				table.scroll tbody {
+				    max-height: 57vh;
+				    overflow-y: auto;
+				    overflow-x: hidden;
+				}
+
+				table.scroll tbody td,
+				table.scroll thead th {
+				    width: 20%;
+				    float: left;
+				}
+
+				thead {
+					background-color: #446e9b;
+					border-top-left-radius: 5px;
+					border-top-right-radius: 5px; 
+				}
+
+				thead tr th { 
+					color:#ffffff;
+				    height: 60px;
+				    line-height: 30px;
+				    text-align: center;
+				}
+
+
+				tbody td:last-child, thead th:last-child {
+				    border-right: none !important;
+				}
+
+				#openGames {
+					color: #446e9b;
+					border: 1px solid #446e9b;
+					border-bottom-left-radius: 5px;
+					border-bottom-right-radius: 5px;
+					text-align: center;
+					min-height: 12vh;
+					max-height: 58vh;
+			}
+		/* scorecard.html */
+			/*This is Entire Section*/
+			#scorecardPage {
+				border: 2px solid #5d85b1;
+				border-radius: 5px;	
+				min-height: 80vh;
+			}
+
+			.scorecardLayout tr th {
+				width:48px;
+			}
+
+			.scorecardBlank tr td {
+				height:70px;
+				color: #446e9b;
+				font-family: 'Reenie Beanie', cursive;
+				font-size: 36px;
+				padding-bottom: 0px;
+				padding-top: 0px;
+			}
+
+			#frontNineScores {
+				margin-bottom: 20px;
+			}
+
+			#scoreOut {
+				background-color: green;
+				padding: 4px;
+				width: 60px;
+			}
+
+			#backNine tr th {
+				padding-left:2px;
+				padding-right:2px;
+			}
+
+			#scoreIn {
+				background-color: green;
+				padding: 14px 14px 4px 14px;
+				width: 60px;
+			}
+
+		/* leaderboard.html */
+
+/* --- Right Panel (Small Area) --- */
+
+	/* SideBar (Entire Right Side) DO NOT CHANGE */
+		.sidebar {
+			border: 2px solid #5d85b1;
+			border-radius: 5px;
+			min-height: 88vh;
+		}
+
+		/* Weather */
+			/*Main Weather Outline DO NOT CHANGE*/
+			#weather {
+				border: 2px solid #5d85b1;
+				border-radius: 5px;
+				margin: 2vh;
+				min-height: 18vh;
+			}
+		/* Find Course */
+
+		/* Chat */
+			/*Main Chat Outline DO NOT CHANGE*/
+			#chat {
+				border: 2px solid #5d85b1;
+				border-radius: 5px;
+				margin: 2vh;
+				height: 35vh;
+			}
+
+
+
+/* --- Footer --- */
+
+	footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 7vh;
+		margin-bottom: 0;
+	}
+
+	#copyright a{
+		padding: 0px;
+	}
+
+	#copyright h5{
+		text-align: center;
+		line-height: 40px;
+	}
+
+/* --- Media Query --- */
+
+	/* --- Phone --- */
+		@media only screen and (min-width : 320px) {
+			table.scroll tbody td,
+			table.scroll thead th {
+		    	width: 33%;
+		    	float: left;
+			}
+			#totalScoreTitle {
+				padding: 3px 0px 3px 10px;
+			}
+		}
+
+	/* --- Tablet --- */
+		@media only screen and (min-width : 480px) {
+			table.scroll tbody td,
+			table.scroll thead th {
+		    	width: 33%;
+		    	float: left;
+			}
+			#totalScoreTitle {
+				padding: 12px 0px 12px 10px;
+			}
+		}
+
+	/* --- Computer --- */
+		@media only screen and (min-width : 768px) {
+			table.scroll tbody td,
+			table.scroll thead th {
+		    	width: 20%;
+		    	float: left;
+			}
+			#totalScoreTitle {
+				padding: 12px 0px 12px 10px;
+			}
+		};
