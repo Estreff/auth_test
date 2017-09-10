@@ -64,8 +64,10 @@
 							<h2 class="text-center tourny-name"> </h2>
 						</div>
 						<div id="scorecardPage">
+
 							<div class="col-md-4" id="scoreEntry">
 								<div class="panel panel-primary">
+
 									<div class="panel-heading">
 										<h4 id="hole-title" class="card-title">Hole <span id="hole-number">1</span></h4>
 									</div>
@@ -75,7 +77,7 @@
 								            <button type="button" id="minus" class="btn btn-danger btn-number col-sm-6 col-xs-6 hide visible-sm visible-xs" data-type="minus" data-field="quant[1]">&#x25BC</button>
 								            <button type="button" id="plus" class="btn btn-primary btn-number col-sm-6  col-xs-6 hide visible-sm visible-xs" data-type="plus" data-field="quant[1]">&#x25B2</button>
 								        </div>
-										<input id="score" type="number" name="quant[1]" class="form-control input-number" value="" min="1" max="20"></input>
+										<input id="score" type="number" pattern="[0-9]*" name="quant[1]" class="form-control input-number" value="" min="1" max="20"></input>
 										<div class="card-body">									            
 								            <!-- <button type="button" id="prev" class="btn btn-danger col-xs-6">Previous</button> -->
 								            <button type="button" id="submit" class="btn btn-primary col-xs-12">Submit</button>
@@ -83,10 +85,18 @@
 									</div>
 								</div>
 							</div>
+
 							<div class="col-md-8" id="scoreCard">
 								<div class="panel panel-primary">
+
 									<div class="panel-heading">
-										<h4 class="card-title">Scorecard</h4>
+										<div class="row">
+										  <h4 id="personal-scorecard" class="card-title col-sm-9 col-xs-7">Scorecard</h4>
+										  <div class="col-sm-3 col-xs-5">
+										    <button id="edit-score" class="btn btn-danger">Edit Scores</button>
+										    <button id="update-score" class="btn btn-danger">Update</button>
+										  </div>
+										</div> <!-- row -->
 									</div>
 									<div class="panel-body">
 										<table class="table table-bordered table-responsive text-center ">
@@ -106,15 +116,15 @@
 											</thead>
 											<tbody class="scorecardBlank" id="frontNineScores">
 												<tr id="front">
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
+													<td id="hole1" contenteditable="false" class="hole-score"></td>
+													<td id="hole2" contenteditable="false" class="hole-score"></td>
+													<td id="hole3" contenteditable="false" class="hole-score"></td>
+													<td id="hole4" contenteditable="false" class="hole-score"></td>
+													<td id="hole5" contenteditable="false" class="hole-score"></td>
+													<td id="hole6" contenteditable="false" class="hole-score"></td>
+													<td id="hole7" contenteditable="false" class="hole-score"></td>
+													<td id="hole8" contenteditable="false" class="hole-score"></td>
+													<td id="hole9" contenteditable="false" class="hole-score"></td>
 													<td id="out"></td>
 												</tr>		
 							  				</tbody>
@@ -136,15 +146,15 @@
 							  				</thead>
 							  				<tbody class="scorecardBlank" id="backNineScores">
 												<tr id="back">
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
+													<td id="hole10" contenteditable="false" class="hole-score"></td>
+													<td id="hole11" contenteditable="false" class="hole-score"></td>
+													<td id="hole12" contenteditable="false" class="hole-score"></td>
+													<td id="hole13" contenteditable="false" class="hole-score"></td>
+													<td id="hole14" contenteditable="false" class="hole-score"></td>
+													<td id="hole15" contenteditable="false" class="hole-score"></td>
+													<td id="hole16" contenteditable="false" class="hole-score"></td>
+													<td id="hole17" contenteditable="false" class="hole-score"></td>
+													<td id="hole18" contenteditable="false" class="hole-score"></td>
 													<td id="in"></td>
 												</tr>
 		
@@ -206,6 +216,25 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Exit Modal -->
+		<div class="modal" id="exit-modal">
+		  	<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<h5 class="modal-title"><span class="fa fa-sign-out"></span> Exit Game?</h5>
+		      		</div>
+		      		<div class="modal-body">
+		      			<p>Do you really want to exit the game?</p>
+	      			</div>
+		      		<div class="modal-footer">
+		        		<button type="submit" class="btn btn-primary" id="exit">Exit</button>
+		        		<button type="button" class="btn btn-danger" data-dismiss="modal" id="exit-cancel">Cancel</button>
+		    		</div>
+		    	</div>
+		  	</div>
+		</div>
+
 		<!-- Logout Modal -->
 		<div class="modal" id="logoutModal">
 		  	<div class="modal-dialog" role="document">

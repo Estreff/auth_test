@@ -166,6 +166,7 @@ $(function(){
         $('#games').removeClass('hide');
         $('#scorecard').removeClass('hide');
         $('#leaderboard').removeClass('hide');
+        // $("#autocomplete").focus();
         
         $('#loginModal').modal('hide');
         $('#createModal').modal('hide');
@@ -325,7 +326,15 @@ join-game logic
 
     });
 
+    // Exit button on scorecard
     $('#exitGame').click(function() {
+
+      $('#exit-modal').show();
+
+    });
+
+    // Exit button on modal
+    $('#exit').click(function() {
 
       var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
 
@@ -334,6 +343,13 @@ join-game logic
       playerRef.remove();
       window.location.href='games.html';
 
+    });
+
+    // Cancel button on modal
+    $('#exit-cancel').click(function() {
+
+      $('#exit-modal').hide();
+    
     });
 
 /*******************************************
@@ -409,6 +425,47 @@ scorecard logic
   var frontNine = 0;
   var backNine = 0;
   var totalScore = 0;
+  $('#update-score').hide();
+
+  $('#edit-score').click(function() {
+
+    $('.hole-score').attr('contenteditable', true);
+    $('#edit-score').hide();
+    $('#update-score').show();
+
+  })
+
+  $('#update-score').click(function() {
+
+    var updatePlayerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
+
+    updatePlayerRef.update({
+      holeOne: Number($('#hole1').text()),
+      holeTwo: Number($('#hole2').text()),
+      holeThree: Number($('#hole3').text()),
+      holeFour: Number($('#hole4').text()),
+      holeFive: Number($('#hole5').text()),
+      holeSix: Number($('#hole6').text()),
+      holeSeven: Number($('#hole7').text()),
+      holeEight: Number($('#hole8').text()),
+      holeNine: Number($('#hole9').text()),
+      holeTen: Number($('#hole10').text()),
+      holeEleven: Number($('#hole11').text()),
+      holeTwelve: Number($('#hole12').text()),
+      holeThirteen: Number($('#hole13').text()),
+      holeFourteen: Number($('#hole14').text()),
+      holeFifteen: Number($('#hole15').text()),
+      holeSixteen: Number($('#hole16').text()),
+      holeSeventeen: Number($('#hole17').text()),
+      holeEighteen: Number($('#hole18').text())
+    })
+
+    $('.hole-score').attr('contenteditable', false);
+    $('#edit-score').show();
+    $('#update-score').hide();
+
+  })
+    
   
   // getting data from player path in db using unique id
   golfdb.ref('/games/' + gameKey + '/players/' + playerKey).on('value', function(snap) {
@@ -417,9 +474,10 @@ scorecard logic
       // getting current hole number from db to use in switch statement  
       holeNumber = snap.val().holeNumber;
 
-      if (holeNumber === 19) {
-        $('#hole-title').text('Game Over')
-        $('#hole-number').text('')
+      if (holeNumber >= 19) {
+        $('#hole-title').text('Game Over');
+        $('#hole-number').text('');
+        $('#submit').addClass('disabled')
       } else {
         $('#hole-number').text(holeNumber);
       }
@@ -436,6 +494,7 @@ scorecard logic
         $('#front').find('td').eq(i).text(frontNineScores[i])
         }
       }
+      console.log(frontNineScores)
 
       for (var i = 0; i < frontNineScores.length; i++) {
         frontNine += frontNineScores[i];

@@ -465,9 +465,14 @@ tbody td:last-child, thead th:last-child {
         padding: 0;
       }
 
+
 #findCourse {
 	min-height: 14vh;
 }
+
+#personal-scorecard {
+	margin-top: 8px;
+
 
 @media only screen and (min-width : 320px) {
 	table.scroll tbody td,
@@ -501,5 +506,7 @@ tbody td:last-child, thead th:last-child {
 		padding: 12px 0px 12px 10px;
 	}
 };
+
+
 
 
