@@ -57,27 +57,39 @@
 				<div class="topicLeft col-lg-9">
 					<div class="mainContent">
 						<div class="well well-lg well-primary" id="localTitle">
-						  <h2 class="tourny-name text-center"></h2>
-						  <h2 class="text-center">Leaderboard</h2>
+							<h2 class="text-center"> Leaderboard</h2>
 						</div>
-    					<div class="col-sm-2"></div>
-				        <div class="col-sm-8">
-				          	<table class="table">
-				            	<thead>
-				              		<tr>
-				                		<th>Name</th>
-				                		<th>Score</th>
-				                		<th>Thru</th>
-				              		</tr>
-				            	</thead>
-				            	<tbody id="leaderBody">
+						<div class="col-md-3">
+							<form role="form" class="form-group">
 
-				            	</tbody>
-				         	</table>  
-				        </div>
-				        <div class="col-sm-2"></div>
-				    </div>					
-				</div>
+<!-- 								<label for="Search">Tournament Name:</label>
+								<input type="text" class="form-control" id="gameName-input" placeholder="" required>
+
+								<label for="Search">Course Name:</label>
+								<input type="text" class="form-control" id="courseName-input" placeholder="" required>
+
+								<button type="submit" class="btn btn-danger" id="createGame">Create Game</button> -->
+
+							</form>
+						</div>
+
+						<div class="col-md-9">
+							<table class="scrollLeader table table-striped text-center">
+								<thead>
+				  					<tr>
+										<th>Name</th>
+										<th>Score</th>
+										<th>Thru</th>
+									</tr>
+								</thead>
+								<tbody id="leaderBody">
+				
+				  				</tbody>
+
+				  			</table>
+						</div>
+					</div>
+				</div>					
 				<div class="topicRight col-lg-3">
 					<div class=sidebar>	
 						<div id = "weather">
@@ -88,11 +100,11 @@
 								</div>
 								<div class="panel-body" id="weatherDetail">
 									<div class = "col-md-6 col-xs-6 text-left">
-										<h4 id = "weather-description"></h4>
+										<h3 id = "weather-description"></h3>
 										<p id = "weather-icon"></p>
 									</div>
 									<div class = "col-md-6 col-xs-6 text-right">
-										<h4 id = "windspeed"></h4>
+										<h3 id = "windspeed"></h3>
 										<p id = "wind-direction"></p>
 									</div>
 								</div>
@@ -140,6 +152,7 @@
 		  	</div>
 		</div>
 
+
 				<!-- WX alert modal -->
 		<div class="modal" id="weather-modal">
 		  	<div class="modal-dialog" role="document">
@@ -157,7 +170,7 @@
 		  	</div>
 		</div>
 
-		<footer class="navbar navbar-default navbar-fixed-bottom">
+		<footer class="navbar navbar-default">
 				<ul class="nav navbar-nav col-lg-12">
 					<li class= "col-lg-12" id = "copyright"><a href="#"><h5>&copy; Golf Tourney Scoring Inc.</h5></a></li>
 				</ul>

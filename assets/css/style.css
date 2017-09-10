@@ -1,6 +1,19 @@
 body {
 	width: 100%;
 	height: 100%;
+	position: relative;
+}
+
+.wrapper {
+ min-height: 93vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+}
+
+.content {
+	width: 100%;
+	min-height: 86vh;
 }
 
 .navbar {
@@ -30,12 +43,13 @@ body {
 
 .row > div {
 	padding: 0px;
+	/*min-height: 86vh;*/
 }
 
 .mainContent {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	min-height: 87vh;
+	min-height: 84vh;
 }
 
 #localTitle {
@@ -65,17 +79,18 @@ body {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
 	margin: 2vh;
-	height: 70vh;
+	height: 69vh;
 }
 
 #scorecardPage {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/	
-	min-height: 50vh;
+	/*margin: 2vh;*/
+	min-height: 69vh;
 }
 
 .scorecardLayout tr th {
-	width:50px;
+	width:48px;
 }
 
 
@@ -83,11 +98,12 @@ body {
 	height:70px;
 	color: #446e9b;
 	font-family: 'Reenie Beanie', cursive;
-	font-size: 42px;
-	padding-bottom: 0px;
-	padding-top: 0px;
+	font-size: 36px;
+	padding: 4px;
+}
 
-
+.results>tbody>tr>td {
+	padding:2px;
 }
 
 #frontNineScores {
@@ -112,10 +128,10 @@ body {
 }
 
 #scoreardTotal {
-	float: letter-spacing: ;
+	/*float: letter-spacing: ;*/
 }
 
-/*Creating Scrollable Table*/
+/*Creating Game Management Scrollable Table*/
 
 table.scroll {
     width: 100%;
@@ -160,16 +176,6 @@ thead {
 	border-top-right-radius: 5px; 
 }
 
-#openGames {
-	color: #446e9b;
-	border: 1px solid #446e9b;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	text-align: center;
-	min-height: 12vh;
-	max-height: 58vh;
-}
-
 thead tr th { 
 	color:#ffffff;
     height: 60px;
@@ -182,33 +188,21 @@ tbody td:last-child, thead th:last-child {
     border-right: none !important;
 }
 
+#openGames {
+	color: #446e9b;
+	border: 1px solid #446e9b;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	text-align: center;
+	min-height: 12vh;
+	max-height: 58vh;
+}
+
 .sidebar {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	min-height: 72vh;
+	/*min-height: 88vh;*/
 }
-
-.sidebarHome {
-/*	border: 2px solid #5d85b1;
-	border-radius: 5px;*/
-	min-height: 52vh;
-	max-height: 84vh;
-}
-
-#weather {
-	/*border: 2px solid #5d85b1;
-	border-radius: 5px;*/
-	margin: 2vh;
-	min-height: 18vh;
-}
-
-#chat {
-/*	border: 2px solid #5d85b1;
-	border-radius: 5px;*/
-	margin: 2vh;
-	height: 35vh;
-}
-
 
 .panel-heading {
 	/*padding-top:0px;*/
@@ -222,25 +216,43 @@ tbody td:last-child, thead th:last-child {
 	margin: 0px;
 }
 
-/* .panel > #weatherTitle {
+.panel > #weatherTitle {
 	padding-top:0px;
 	min-height: 42px;
-} 
+}
+
+#weather {
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
+	margin: 2vh;
+	height: 24vh;
+}
 
 #weatherTitle h4 {
 	color:white;
-	font-size:20px;
+	font-size:1em;
 	font-weight: bold;
-	padding-left: 0px;
+	padding:10px 0 0 0;
 	margin: 0px;
-} */
+}
+
+#weatherDetail {
+	min-height: 17vh;
+}
+
+#chat {
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
+	margin: 2vh;
+	height: 62vh;
+}
 
 #chatBody {
-	max-height: 33vh;
+	max-height: 53vh;
 }
 
 #messages {
-	max-height: 30vh;
+	max-height: 50vh;
 	overflow-y: auto;
 }
 
@@ -274,12 +286,20 @@ tbody td:last-child, thead th:last-child {
 }
 
 footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	height: 7vh;
+	margin-bottom: 0;
+}
+
+#copyright a{
+	padding: 0px;
 }
 
 #copyright h5{
 	text-align: center;
-	line-height: 0px;
+	line-height: 40px;
 }
 
 
@@ -291,9 +311,21 @@ footer {
 	float: right;
 }
 
-#scorecardEntry {
-	/*margin: 2vh;*/
+.card-body input {
+
+}
+
+#scoreEntry {
+	/*padding: 0px;*/
+}
+
+
+#scoreCard {
+	/*padding: 0px;*/
 } 
+#scoreCard.panel.panel-body {
+	min-height: 69vh;
+}
 
 #scorecardView {
     margin: auto;
@@ -310,12 +342,16 @@ footer {
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	color: #ffffff;
-	float: left;
-	font-size: 38px;
-	height:60px;
-	line-height: :70px;
+	font-size: 18pt;
+	float: left;	
+	height:60px;	
 	/*margin-left: 0px;*/
-	padding: 10px;
+	padding: 12px 0px 12px 10px;
+	
+}
+
+#totalScoreTitle h4{
+	line-height: :70px;
 }
 
 #totalScore {
@@ -337,19 +373,77 @@ footer {
 }
 
 #score {
-	height: 300px;
+	height: 345px;
 	width: 100%;
 	font-size: 10em;
 	text-align: center;
 }
 
+/*Creating Scrollable Table*/
+
+table.scroll {
+    width: 100%;
+    border-spacing: 0;
+}
+
+table.scrollLeader th,
+table.scrollLeader td,
+table.scrollLeader tr,
+table.scrollLeader thead,
+table.scrollLeader tbody { display: block; }
+
+table.scrollLeader thead tr {
+    /* fallback */
+    width: 97%;
+    /* minus scroll bar width */
+    width: calc(100%-16px);
+}
+
+table.scrollLeader tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+table.scrollLeader tbody {
+    max-height: 57vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table.scrollLeader tbody td,
+table.scrollLeader thead th {
+    width: 33%;
+    float: left;
+}
+
+thead {
+	background-color: #446e9b;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px; 
+}
+
+thead tr th { 
+	color:#ffffff;
+    height: 60px;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+tbody td:last-child, thead th:last-child {
+    border-right: none !important;
+}
+
 #leaderBody {
-	font-size: 3em;
 	color: #446e9b;
 	border: 1px solid #446e9b;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	text-align: center;
+	min-height: 12vh;
+	max-height: 58vh;
 }
 
 #map {
@@ -362,17 +456,18 @@ footer {
         padding: 0;
       }
 
-/*input .form-control {
-	width: 90%;
-	margin: 5px, auto;
-	padding-bottom: 5px;
-}*/
 
-/*#findCourse {
-	color: black;
-	font-weight: bold;
-	padding-bottom: 5px;
-}*/
+#findCourse {
+	min-height: 14vh;
+}
+
+#personal-scorecard {
+	margin-top: 8px;
+}
+
+#modifyScore {
+	padding-right:10px;
+}
 
 @media only screen and (min-width : 320px) {
 	table.scroll tbody td,
@@ -380,7 +475,9 @@ footer {
     	width: 33%;
     	float: left;
 	}
-
+	#totalScoreTitle {
+		padding: 3px 0px 3px 10px;
+	}
 }
 
 @media only screen and (min-width : 480px) {
@@ -389,7 +486,9 @@ footer {
     	width: 33%;
     	float: left;
 	}
-
+	#totalScoreTitle {
+		padding: 12px 0px 12px 10px;
+	}
 }
 
 @media only screen and (min-width : 768px) {
@@ -398,6 +497,9 @@ footer {
     	width: 20%;
     	float: left;
 	}
-
+	#totalScoreTitle {
+		padding: 12px 0px 12px 10px;
+	}
 };
+
 

@@ -166,6 +166,7 @@ $(function(){
         $('#games').removeClass('hide');
         $('#scorecard').removeClass('hide');
         $('#leaderboard').removeClass('hide');
+        // $("#autocomplete").focus();
         
         $('#loginModal').modal('hide');
         $('#createModal').modal('hide');
@@ -424,6 +425,47 @@ scorecard logic
   var frontNine = 0;
   var backNine = 0;
   var totalScore = 0;
+  $('#update-score').hide();
+
+  $('#edit-score').click(function() {
+
+    $('.hole-score').attr('contenteditable', true);
+    $('#edit-score').hide();
+    $('#update-score').show();
+
+  })
+
+  $('#update-score').click(function() {
+
+    var updatePlayerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
+
+    updatePlayerRef.update({
+      holeOne: Number($('#hole1').text()),
+      holeTwo: Number($('#hole2').text()),
+      holeThree: Number($('#hole3').text()),
+      holeFour: Number($('#hole4').text()),
+      holeFive: Number($('#hole5').text()),
+      holeSix: Number($('#hole6').text()),
+      holeSeven: Number($('#hole7').text()),
+      holeEight: Number($('#hole8').text()),
+      holeNine: Number($('#hole9').text()),
+      holeTen: Number($('#hole10').text()),
+      holeEleven: Number($('#hole11').text()),
+      holeTwelve: Number($('#hole12').text()),
+      holeThirteen: Number($('#hole13').text()),
+      holeFourteen: Number($('#hole14').text()),
+      holeFifteen: Number($('#hole15').text()),
+      holeSixteen: Number($('#hole16').text()),
+      holeSeventeen: Number($('#hole17').text()),
+      holeEighteen: Number($('#hole18').text())
+    })
+
+    $('.hole-score').attr('contenteditable', false);
+    $('#edit-score').show();
+    $('#update-score').hide();
+
+  })
+    
   
   // getting data from player path in db using unique id
   golfdb.ref('/games/' + gameKey + '/players/' + playerKey).on('value', function(snap) {
@@ -432,9 +474,18 @@ scorecard logic
       // getting current hole number from db to use in switch statement  
       holeNumber = snap.val().holeNumber;
 
-      if (holeNumber === 19) {
-        $('#hole-title').text('Game Over')
-        $('#hole-number').text('')
+      if (holeNumber >= 19) {
+        $('#hole-title').text('Game Over');
+        $('#hole-number').text('');
+        $('#submit').addClass('disabled');
+        $('#submit').prop( "disabled", true );
+        $('#minus').addClass('disabled');
+        $('#minus').prop( "disabled", true );
+        $('#plus').addClass('disabled');
+        $('#plus').prop( "disabled", true );
+        $('#score').addClass('disabled');
+        $('#score').prop( "disabled", true );
+
       } else {
         $('#hole-number').text(holeNumber);
       }
@@ -451,6 +502,7 @@ scorecard logic
         $('#front').find('td').eq(i).text(frontNineScores[i])
         }
       }
+      console.log(frontNineScores)
 
       for (var i = 0; i < frontNineScores.length; i++) {
         frontNine += frontNineScores[i];
@@ -749,71 +801,5 @@ scorecard logic
     });
 
 });
-
-      var map, places, infoWindow;
-      var markers = [];
-      var autocomplete;
-      var countryRestrict = {'country': 'us'};
-      var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
-      var hostnameRegexp = new RegExp('^https?://.+?/');
-
-      var countries = {
-        'au': {
-          center: {lat: -25.3, lng: 133.8},
-          zoom: 4
-        },
-        'br': {
-          center: {lat: -14.2, lng: -51.9},
-          zoom: 3
-        },
-        'ca': {
-          center: {lat: 62, lng: -110.0},
-          zoom: 3
-        },
-        'fr': {
-          center: {lat: 46.2, lng: 2.2},
-          zoom: 5
-        },
-        'de': {
-          center: {lat: 51.2, lng: 10.4},
-          zoom: 5
-        },
-        'mx': {
-          center: {lat: 23.6, lng: -102.5},
-          zoom: 4
-        },
-        'nz': {
-          center: {lat: -40.9, lng: 174.9},
-          zoom: 5
-        },
-        'it': {
-          center: {lat: 41.9, lng: 12.6},
-          zoom: 5
-        },
-        'za': {
-          center: {lat: -30.6, lng: 22.9},
-          zoom: 5
-        },
-        'es': {
-          center: {lat: 40.5, lng: -3.7},
-          zoom: 5
-        },
-        'pt': {
-          center: {lat: 39.4, lng: -8.2},
-          zoom: 6
-        },
-        'us': {
-          center: {lat: 37.1, lng: -95.7},
-          zoom: 3
-        },
-        'uk': {
-          center: {lat: 54.8, lng: -4.6},
-          zoom: 5
-        }
-      };
-
-
-  
-
 
 

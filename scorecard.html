@@ -64,32 +64,42 @@
 							<h2 class="text-center tourny-name"> </h2>
 						</div>
 						<div id="scorecardPage">
-							<div class="col-md-5">
-								<div class="panel panel-primary" id="scorecardEntry">
+
+							<div class="col-md-4" id="scoreEntry">
+								<div class="panel panel-primary">
+
 									<div class="panel-heading">
 										<h4 id="hole-title" class="card-title">Hole <span id="hole-number">1</span></h4>
 									</div>
 
 									<div class="panel-body">
 										<div class="card-body">	
-								            <button type="button" id="minus" class="btn btn-danger btn-number col-sm-6 col-xs-6 hide visible-sm visible-xs" data-type="minus" data-field="quant[1]">&#x25BC</button>
-								            <button type="button" id="plus" class="btn btn-primary btn-number col-sm-6  col-xs-6 hide visible-sm visible-xs" data-type="plus" data-field="quant[1]">&#x25B2</button>
+								            <button type="button" id="minus" class="btn btn-danger btn-number col-sm-6 col-xs-6 hide visible-sm visible-xs" data-type="minus" data-field="quant[1]"><span class="fa fa-minus"></span></button>
+								            <button type="button" id="plus" class="btn btn-primary btn-number col-sm-6  col-xs-6 hide visible-sm visible-xs" data-type="plus" data-field="quant[1]"><span class="fa fa-plus"></span></button>
 								        </div>
-										<input id="score" type="text" name="quant[1]" class="form-control input-number" value="" min="1" max="20"></input>
+										<input id="score" type="number" pattern="[0-9]*" name="quant[1]" class="form-control input-number" value="" min="1" max="20"></input>
 										<div class="card-body">									            
-								            <button type="button" id="prev" class="btn btn-danger col-sm-6  col-xs-6">Previous</button>
-								            <button type="button" id="submit" class="btn btn-primary col-sm-6 col-xs-6">Submit</button>
+								            <!-- <button type="button" id="prev" class="btn btn-danger col-xs-6">Previous</button> -->
+								            <button type="button" id="submit" class="btn btn-primary col-xs-12">Submit</button>
 								        </div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-7">
-								<div class="panel panel-primary" id="scorecardEntry">
+
+							<div class="col-md-8" id="scoreCard">
+								<div class="panel panel-primary">
+
 									<div class="panel-heading">
-										<h4 class="card-title">Scorecard</h4>
+										<div class="row">
+										  <h4 id="personal-scorecard" class="card-title col-sm-9 col-xs-7">Scorecard</h4>
+										  <div class="col-sm-3 col-xs-5 text-right" id="modifyScore">
+										    <button id="edit-score" class="btn btn-danger">Edit Scores</button>
+										    <button id="update-score" class="btn btn-danger">Update</button>
+										  </div>
+										</div> <!-- row -->
 									</div>
 									<div class="panel-body">
-										<table class="table table-bordered table-responsive text-center ">
+										<table class="table table-bordered table-responsive text-center results">
 											<thead class=scorecardLayout id = frontNine>
 							  					<tr>
 													<th>1</th>
@@ -106,20 +116,20 @@
 											</thead>
 											<tbody class="scorecardBlank" id="frontNineScores">
 												<tr id="front">
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
+													<td id="hole1" contenteditable="false" class="hole-score"></td>
+													<td id="hole2" contenteditable="false" class="hole-score"></td>
+													<td id="hole3" contenteditable="false" class="hole-score"></td>
+													<td id="hole4" contenteditable="false" class="hole-score"></td>
+													<td id="hole5" contenteditable="false" class="hole-score"></td>
+													<td id="hole6" contenteditable="false" class="hole-score"></td>
+													<td id="hole7" contenteditable="false" class="hole-score"></td>
+													<td id="hole8" contenteditable="false" class="hole-score"></td>
+													<td id="hole9" contenteditable="false" class="hole-score"></td>
 													<td id="out"></td>
 												</tr>		
 							  				</tbody>
 							  			</table>
-							  			<table class="table table-bordered table-responsive text-center">
+							  			<table class="table table-bordered table-responsive text-center results">
 							  				<thead class=scorecardLayout id = backNine>
 							  					<tr>
 													<th>10</th>
@@ -136,15 +146,15 @@
 							  				</thead>
 							  				<tbody class="scorecardBlank" id="backNineScores">
 												<tr id="back">
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
+													<td id="hole10" contenteditable="false" class="hole-score"></td>
+													<td id="hole11" contenteditable="false" class="hole-score"></td>
+													<td id="hole12" contenteditable="false" class="hole-score"></td>
+													<td id="hole13" contenteditable="false" class="hole-score"></td>
+													<td id="hole14" contenteditable="false" class="hole-score"></td>
+													<td id="hole15" contenteditable="false" class="hole-score"></td>
+													<td id="hole16" contenteditable="false" class="hole-score"></td>
+													<td id="hole17" contenteditable="false" class="hole-score"></td>
+													<td id="hole18" contenteditable="false" class="hole-score"></td>
 													<td id="in"></td>
 												</tr>
 		
@@ -152,8 +162,8 @@
 							  			</table>
 							  			<div id="scorecardTotalLayout">
 								  			<div class="col-sm-8 col-xs-8" id="scorecardTotal">
-								  				<h4  class="col-md-8" id="totalScoreTitle">Total Score</h4>
-								  				<h4 class="col-md-4 text-center" id="totalScore">-</h4>
+								  				<h4  class="col-xs-7" id="totalScoreTitle">Total Score</h4>
+								  				<h4 class="col-xs-5 text-center" id="totalScore">-</h4>
 							  				</div>
 							  				<button type="button" id="exitGame" class="btn btn-danger col-sm-4  col-xs-4">Exit Game</button>
 							  			</div>
@@ -168,20 +178,21 @@
 						<div id = "weather">
 							<div class="panel panel-primary">
 								<div class="panel-heading" id="weatherTitle">
-									<h4 class = "text-left" id = "city" style="float:left"></h4>			
-									<h4 class = "text-right" id = "temperature" style="float:right"></h4>	
+									<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
+									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
 								</div>
 								<div class="panel-body" id="weatherDetail">
 									<div class = "col-md-6 col-xs-6 text-left">
-										<h4 id = "weather-description"></h4>
+										<h3 id = "weather-description"></h3>
 										<p id = "weather-icon"></p>
 									</div>
 									<div class = "col-md-6 col-xs-6 text-right">
-										<h4 id = "windspeed"></h4>
+										<h3 id = "windspeed"></h3>
 										<p id = "wind-direction"></p>
 									</div>
 								</div>
 							</div>								
+						</div>								
 						</div>
 						<div id="chat">
 							<div class="panel panel-primary" id = "chatBox">
@@ -260,7 +271,8 @@
 		  	</div>
 		</div>
 
-		<footer class="navbar navbar-default navbar-fixed-bottom">
+
+		<footer class="navbar navbar-default">
 				<ul class="nav navbar-nav col-lg-12">
 					<li class= "col-lg-12" id = "copyright"><a href="#"><h5>&copy; Golf Tourney Scoring Inc.</h5></a></li>
 				</ul>
