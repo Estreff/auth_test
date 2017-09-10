@@ -458,6 +458,10 @@ tbody td:last-child, thead th:last-child {
         padding: 0;
       }
 
+#personal-scorecard {
+	margin-top: 8px;
+}
+
 /*input .form-control {
 	width: 90%;
 	margin: 5px, auto;

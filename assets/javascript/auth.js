@@ -425,10 +425,13 @@ scorecard logic
   var frontNine = 0;
   var backNine = 0;
   var totalScore = 0;
+  $('#update-score').hide();
 
   $('#edit-score').click(function() {
 
     $('.hole-score').attr('contenteditable', true);
+    $('#edit-score').hide();
+    $('#update-score').show();
 
   })
 
@@ -457,7 +460,9 @@ scorecard logic
       holeEighteen: Number($('#hole18').text())
     })
 
-    $('.front-nine').attr('contenteditable', false);
+    $('.hole-score').attr('contenteditable', false);
+    $('#edit-score').show();
+    $('#update-score').hide();
 
   })
     
