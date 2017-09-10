@@ -55,26 +55,34 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="topicLeft col-lg-9">
-					<div class="mainContent">
+					<div class="mainContentLeaderboard">
 						<div class="well well-lg well-primary" id="localTitle">
 							<h2 class="text-center"> Leaderboard</h2>
 						</div>
 						<div class="col-md-3">
-							<form role="form" class="form-group">
+							<div class="panel panel-primary">
+								<div class="panel-heading" id="">
+									<h4 class = "text-left">Tournament Information:</h4>	
+								</div>
+								<div class="panel-body" id="weatherDetail">
+				
+									<div class = "text-left">
+										<label class = "">Name:</label>
+										<h4 class = "" id = "tourneyName">-</h4>
 
-<!-- 								<label for="Search">Tournament Name:</label>
-								<input type="text" class="form-control" id="gameName-input" placeholder="" required>
+										<label class = "">Course:</label>
+										<h4 class = "" id = "courseName">-</h4>
 
-								<label for="Search">Course Name:</label>
-								<input type="text" class="form-control" id="courseName-input" placeholder="" required>
-
-								<button type="submit" class="btn btn-danger" id="createGame">Create Game</button> -->
-
-							</form>
+										<label class = "">Created By:</label>
+										<h4 class = "" id = "createdBy">-</h4>
+									</div>									
+								</div>
+							</div>
 						</div>
+						
 
 						<div class="col-md-9">
-							<table class="scrollLeader table table-striped text-center">
+							<table class="scrollLeader table table-striped text-center" id="leaderboardTable">
 								<thead>
 				  					<tr>
 										<th>Name</th>
