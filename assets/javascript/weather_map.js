@@ -14,7 +14,6 @@ getLocation();
 $(document).click(function(event){
     getLocation();
 });
-//runAjax();
 
 function getLocation(){ 
     if (navigator.geolocation){
@@ -79,7 +78,7 @@ function runAjax(){
         //var wxCurrent = 800//clear
         //var wxCurrent = 962//hurricane
        //var wxCurrent = 781//tornado
-        //var wxCurrent = 211//thunderstorm
+      //var wxCurrent = 211//thunderstorm
         //var wxCurrent = 952//breeze
 
         console.log(wxCurrent)
@@ -94,8 +93,6 @@ function runAjax(){
 };
 $('#wxCancel').on("click",function(){
      $('#weather-modal').hide();
-     // $  ('#weather-modal').modal('hide');
-
 });                    
       
     // Google Maps and searches
