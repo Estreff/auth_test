@@ -43,13 +43,13 @@ body {
 
 .row > div {
 	padding: 0px;
-	min-height: 86vh;
+	/*min-height: 86vh;*/
 }
 
 .mainContent {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	min-height: 88vh;
+	min-height: 84vh;
 }
 
 #localTitle {
@@ -200,7 +200,7 @@ tbody td:last-child, thead th:last-child {
 .sidebar {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	min-height: 88vh;
+	/*min-height: 88vh;*/
 }
 
 .panel-heading {
@@ -224,7 +224,7 @@ tbody td:last-child, thead th:last-child {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
 	margin: 2vh;
-	height: 20vh;
+	height: 24vh;
 }
 
 #weatherTitle h4 {
@@ -236,7 +236,7 @@ tbody td:last-child, thead th:last-child {
 }
 
 #weatherDetail {
-	min-height: 15vh;
+	min-height: 17vh;
 }
 
 #chat {
@@ -257,8 +257,8 @@ tbody td:last-child, thead th:last-child {
 
 
 #otherInfo {
-	border: 2px solid #5d85b1;
-	border-radius: 5px;
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
 	margin: 2vh;
 	min-height: 21vh;
 	padding: 0;
@@ -266,8 +266,8 @@ tbody td:last-child, thead th:last-child {
 }
 
 #moreInfo {
-	border: 2px solid #5d85b1;
-	border-radius: 5px;
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
 	margin: 2vh;
 	min-height: 21vh;
 }
@@ -423,16 +423,6 @@ thead {
 	border-top-right-radius: 5px; 
 }
 
-#leaderBody {
-	color: #446e9b;
-	border: 1px solid #446e9b;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	text-align: center;
-	min-height: 12vh;
-	max-height: 58vh;
-}
-
 thead tr th { 
 	color:#ffffff;
     height: 60px;
@@ -472,7 +462,11 @@ tbody td:last-child, thead th:last-child {
 
 #personal-scorecard {
 	margin-top: 8px;
+}
 
+#modifyScore {
+	padding-right:10px;
+}
 
 @media only screen and (min-width : 320px) {
 	table.scroll tbody td,

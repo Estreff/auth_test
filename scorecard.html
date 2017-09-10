@@ -92,7 +92,7 @@
 									<div class="panel-heading">
 										<div class="row">
 										  <h4 id="personal-scorecard" class="card-title col-sm-9 col-xs-7">Scorecard</h4>
-										  <div class="col-sm-3 col-xs-5">
+										  <div class="col-sm-3 col-xs-5 text-right" id="modifyScore">
 										    <button id="edit-score" class="btn btn-danger">Edit Scores</button>
 										    <button id="update-score" class="btn btn-danger">Update</button>
 										  </div>
@@ -178,20 +178,21 @@
 						<div id = "weather">
 							<div class="panel panel-primary">
 								<div class="panel-heading" id="weatherTitle">
-									<h4 class = "text-left" id = "city" style="float:left"></h4>			
-									<h4 class = "text-right" id = "temperature" style="float:right"></h4>	
+									<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
+									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
 								</div>
 								<div class="panel-body" id="weatherDetail">
-									<div class = "col-md-6 text-left">
-										<h4 id = "weather-description"></h4>
+									<div class = "col-md-6 col-xs-6 text-left">
+										<h3 id = "weather-description"></h3>
 										<p id = "weather-icon"></p>
 									</div>
-									<div class = "col-md-6 text-right">
-										<h4 id = "windspeed"></h4>
+									<div class = "col-md-6 col-xs-6 text-right">
+										<h3 id = "windspeed"></h3>
 										<p id = "wind-direction"></p>
 									</div>
 								</div>
 							</div>								
+						</div>								
 						</div>
 						<div id="chat">
 							<div class="panel panel-primary" id = "chatBox">
