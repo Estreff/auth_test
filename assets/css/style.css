@@ -99,10 +99,11 @@ body {
 	color: #446e9b;
 	font-family: 'Reenie Beanie', cursive;
 	font-size: 36px;
-	padding-bottom: 0px;
-	padding-top: 0px;
+	padding: 4px;
+}
 
-
+.results>tbody>tr>td {
+	padding:2px;
 }
 
 #frontNineScores {

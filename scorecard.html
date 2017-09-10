@@ -74,8 +74,8 @@
 
 									<div class="panel-body">
 										<div class="card-body">	
-								            <button type="button" id="minus" class="btn btn-danger btn-number col-sm-6 col-xs-6 hide visible-sm visible-xs" data-type="minus" data-field="quant[1]">&#x25BC</button>
-								            <button type="button" id="plus" class="btn btn-primary btn-number col-sm-6  col-xs-6 hide visible-sm visible-xs" data-type="plus" data-field="quant[1]">&#x25B2</button>
+								            <button type="button" id="minus" class="btn btn-danger btn-number col-sm-6 col-xs-6 hide visible-sm visible-xs" data-type="minus" data-field="quant[1]"><span class="fa fa-minus"></span></button>
+								            <button type="button" id="plus" class="btn btn-primary btn-number col-sm-6  col-xs-6 hide visible-sm visible-xs" data-type="plus" data-field="quant[1]"><span class="fa fa-plus"></span></button>
 								        </div>
 										<input id="score" type="number" pattern="[0-9]*" name="quant[1]" class="form-control input-number" value="" min="1" max="20"></input>
 										<div class="card-body">									            
@@ -99,7 +99,7 @@
 										</div> <!-- row -->
 									</div>
 									<div class="panel-body">
-										<table class="table table-bordered table-responsive text-center ">
+										<table class="table table-bordered table-responsive text-center results">
 											<thead class=scorecardLayout id = frontNine>
 							  					<tr>
 													<th>1</th>
@@ -129,7 +129,7 @@
 												</tr>		
 							  				</tbody>
 							  			</table>
-							  			<table class="table table-bordered table-responsive text-center">
+							  			<table class="table table-bordered table-responsive text-center results">
 							  				<thead class=scorecardLayout id = backNine>
 							  					<tr>
 													<th>10</th>
@@ -162,8 +162,8 @@
 							  			</table>
 							  			<div id="scorecardTotalLayout">
 								  			<div class="col-sm-8 col-xs-8" id="scorecardTotal">
-								  				<h4  class="col-xs-8" id="totalScoreTitle">Total Score</h4>
-								  				<h4 class="col-xs-4 text-center" id="totalScore">-</h4>
+								  				<h4  class="col-xs-7" id="totalScoreTitle">Total Score</h4>
+								  				<h4 class="col-xs-5 text-center" id="totalScore">-</h4>
 							  				</div>
 							  				<button type="button" id="exitGame" class="btn btn-danger col-sm-4  col-xs-4">Exit Game</button>
 							  			</div>
