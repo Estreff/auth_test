@@ -10,9 +10,12 @@ var long;// = -105;
 
 getLocation();
 
-// console.log(navigator.geolocation.getCurrentPosition());
+//whenever thise is a click on the screen, the weather alert updates
+$(document).click(function(event){
+    getLocation();
+});
 
-function getLocation(){  
+function getLocation(){ 
     if (navigator.geolocation){
         console.log("Geolocation found");
         navigator.geolocation.getCurrentPosition(myPosition);
@@ -27,14 +30,16 @@ function myPosition(position){
     console.log("lat: ", lat);
     long = position.coords.longitude
     console.log("long: ", long);
+
     runAjax();
 };
 
 //this funtion makes the ajax query
 function runAjax(){
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&appid=" + apiKey;
+
+    var queryCurrentURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&appid=" + apiKey;
     $.ajax({
-        url: queryURL,
+        url: queryCurrentURL,
         method: "GET"
     })
     .done(function(response) {//Run this code after API get is complete
@@ -65,10 +70,31 @@ function runAjax(){
 
         //rotate arrow into the wind using 3rd party plugin
         $("#wind-direction").rotate(response.wind.deg);
+
+        var wxCurrent = response.weather[0].id;
+
+        //Testing: 
+        //weather condition codes: https://openweathermap.org/weather-conditions
+        //var wxCurrent = 800//clear
+        //var wxCurrent = 962//hurricane
+       //var wxCurrent = 781//tornado
+      //var wxCurrent = 211//thunderstorm
+        //var wxCurrent = 952//breeze
+
+        console.log(wxCurrent)
+          if ((wxCurrent >= 200 && wxCurrent <= 232) || wxCurrent === 900 || wxCurrent === 781){
+          console.log("WEATHER ALERT!!!");
+          //wxAlert = true;
+          $('#weather-modal').show();
+        } else {
+           console.log("Good Weather");
+        }
     }); //end ajax.done
 };
-
-
+$('#wxCancel').on("click",function(){
+     $('#weather-modal').hide();
+});                    
+      
     // Google Maps and searches
 
     var map, places, infoWindow;
