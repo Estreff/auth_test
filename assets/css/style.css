@@ -293,6 +293,10 @@ footer {
 	margin-bottom: 0;
 }
 
+footer .navbar-nav {
+	margin:0;
+}
+
 #copyright a{
 	padding: 0px;
 }
