@@ -429,9 +429,12 @@ scorecard logic
 
   $('#edit-score').click(function() {
 
-    $('.hole-score').attr('contenteditable', true);
     $('#edit-score').hide();
     $('#update-score').show();
+
+    for (var i = 0; i < holeNumber - 1; i++) {
+      $('#front').find('td').eq(i).attr('contenteditable', true);
+    }
 
   })
 
