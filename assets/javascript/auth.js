@@ -477,7 +477,15 @@ scorecard logic
       if (holeNumber >= 19) {
         $('#hole-title').text('Game Over');
         $('#hole-number').text('');
-        $('#submit').addClass('disabled')
+        $('#submit').addClass('disabled');
+        $('#submit').prop( "disabled", true );
+        $('#minus').addClass('disabled');
+        $('#minus').prop( "disabled", true );
+        $('#plus').addClass('disabled');
+        $('#plus').prop( "disabled", true );
+        $('#score').addClass('disabled');
+        $('#score').prop( "disabled", true );
+
       } else {
         $('#hole-number').text(holeNumber);
       }
