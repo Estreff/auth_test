@@ -152,7 +152,7 @@ function runAjax(){
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent('You are Here');
             infoWindow.open(map);
             map.setCenter(pos);
             map.setZoom(15);
