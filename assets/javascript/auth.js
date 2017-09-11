@@ -430,6 +430,11 @@ scorecard logic
   var totalScore = 0;
   $('#update-score').hide();
 
+  golfdb.ref('/games/' + gameKey).on('value', function(snap) {
+    console.log('Game Name: ', snap.val());
+    $('#scorecardTourney').text(snap.val().gameName);
+  });
+
   $('#edit-score').click(function() {
 
     $('#edit-score').hide();
@@ -550,6 +555,7 @@ scorecard logic
     var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
     // getting score input from user
     var score = Number($('#score').val());
+
     
     // tim
     // var data = {
@@ -710,7 +716,7 @@ scorecard logic
 
   golfdb.ref('/games/' + gameKey).on('value', function(snap) {
     
-    $('.tourny-name').text(snap.val().gameName);
+    
     $('#tourneyName').text(snap.val().gameName);
     $('#courseName').text(snap.val().courseName);
     $('#createdBy').text(snap.val().creator.user);

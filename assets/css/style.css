@@ -386,10 +386,18 @@ footer .navbar-nav {
 }
 
 #score {
+	color: #446e9b;
 	height: 345px;
 	width: 100%;
-	font-size: 10em;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 20em;
 	text-align: center;
+}
+
+.tourneyInfo {
+	color: #446e9b;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 2em;
 }
 
 /*Creating Scrollable Table*/
