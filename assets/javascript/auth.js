@@ -256,6 +256,7 @@ $(function(){
           var userCell = $('<td class="hidden-xs">' + gameDetail.creator.user + '</td>');
           var joinTableCell = $('<td>');
           var delTableCell = $('<td class="hidden-xs">')
+          // var joinButton = $('<button class="openGame btn btn-primary">' + 'Game ' + gameDetail.gameId + '</button>');
           var joinButton = $('<button class="openGame btn btn-primary">Join</button>');
           var deleteButton = $('<button class="delete btn btn-danger">' + 'X' + '</button>');
             joinButton.attr('data-value', `Game${gameDetail.gameId}`);
