@@ -66,6 +66,7 @@
 						</div>
 					</div>
 
+
 					<div class="topicRight col-lg-3">
 						<div class = sidebarHome>
 							<div id = "weather">
@@ -74,6 +75,7 @@
 										<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
 										<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
 									</div>
+                  
 									<div class="panel-body" id="weatherDetail">
 										<div class = "col-md-6 col-xs-6 text-left">
 											<h3 id = "weather-description"></h3>
@@ -154,6 +156,8 @@
 								</div>
 							</div>
 						</div>
+						<button class = "btn btn-basic" id = "testWx">Test Wx Alert</button>
+
 					</div>
 				</div>
 			</div>		
@@ -246,14 +250,31 @@
 			  	</div>
 			</div>
 
-			<!-- Footer -->
-			<footer class="navbar navbar-default">
-					<ul class="nav navbar-nav col-lg-12">
-						<li class= "col-lg-12" id = "copyright"><a href="#"><h5>&copy; Golf Tourney Scoring Inc.</h5></a></li>
-					</ul>
-			</footer>
-			
-		
+
+		<!-- WX alert modal -->
+		<div class="modal" id="weather-modal">
+		  	<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<h1 class="modal-title"><strong>WEATHER ALERT!</strong></h1>
+		      		</div>
+		      		<div class="modal-body">
+		      			<p><strong>Seek Shelter Immediately!</strong></p>
+	      			</div>
+		      		<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal" id="wxCancel">Cancel</button>
+		    		</div>
+		    	</div>
+		  	</div>
+		</div>
+
+	<!-- Footer -->
+		<footer class="navbar navbar-default">
+				<ul class="nav navbar-nav col-lg-12">
+					<li class= "col-lg-12" id = "copyright"><a href="#"><h5>&copy; Golf Tourney Scoring Inc.</h5></a></li>
+				</ul>
+		</footer>	
+
 
 		</div>
 
