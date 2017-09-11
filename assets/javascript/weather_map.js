@@ -13,7 +13,6 @@ var test = false;
 getLocation();
 
 $("#testWx").on("click",function(){
-  alert("test");
   test = true;
 })
 
