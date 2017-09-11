@@ -8,7 +8,13 @@ var apiKey = "b1d8243e585e458550ec2db368435c82";
 var lat;// = 40;
 var long;// = -105;
 
+var test = false;
+
 getLocation();
+
+$("#testWx").on("click",function(){
+  test = true;
+})
 
 //whenever thise is a click on the screen, the weather alert updates
 $(document).click(function(event){
@@ -71,7 +77,11 @@ function runAjax(){
         //rotate arrow into the wind using 3rd party plugin
         $("#wind-direction").rotate(response.wind.deg);
 
-        var wxCurrent = response.weather[0].id;
+        if (test === false){
+          var wxCurrent = response.weather[0].id;
+        } else {
+          wxCurrent = 211;//thunderstorm;
+        }
 
         //Testing: 
         //weather condition codes: https://openweathermap.org/weather-conditions
@@ -92,7 +102,8 @@ function runAjax(){
     }); //end ajax.done
 };
 $('#wxCancel').on("click",function(){
-     $('#weather-modal').hide();
+    test = false;
+    $('#weather-modal').hide();
 });                    
       
     // Google Maps and searches
