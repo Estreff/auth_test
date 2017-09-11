@@ -5,7 +5,7 @@ body {
 }
 
 .wrapper {
- min-height: 1024px;
+ min-height: 93vh;
  overflow: hidden;
  display: block;
  position: relative;
@@ -43,6 +43,7 @@ body {
 
 .row > div {
 	padding: 0px;
+/*	min-height: 798px;*/
 
 }
 
@@ -459,14 +460,17 @@ tbody td:last-child, thead th:last-child {
 }
 
 #map {
-        height: 100%;
+	height:778px;
+}
+/*        min-height: 100%;
       }
-      /* Optional: Makes the sample page fill the window. */
+       Optional: Makes the sample page fill the window. 
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
-      }
+      }*/
+
 
 #personal-scorecard {
 	margin-top: 8px;
@@ -487,11 +491,19 @@ tbody td:last-child, thead th:last-child {
 	}
 
 	#localHeatMap {
-		min-height: 404px;
+		min-height: 420px;
+	}
+
+	#map {
+	height:420px;
 	}
 
 	.mainContent {
 		min-height: 512px;
+	}
+
+	.topicLeft {
+		min-height:512px;
 	}
 }
 
@@ -504,9 +516,15 @@ tbody td:last-child, thead th:last-child {
 	#totalScoreTitle {
 		padding: 12px 0px 12px 10px;
 	}
+
 	#localHeatMap {
 		min-height: 778px;
 	}
+
+	#map {
+	height:778px;
+	}
+
 	.mainContent {
 		min-height: 798px;
 	}
