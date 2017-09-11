@@ -432,9 +432,20 @@ scorecard logic
 
   $('#edit-score').click(function() {
 
-    $('.hole-score').attr('contenteditable', true);
     $('#edit-score').hide();
     $('#update-score').show();
+
+    if (holeNumber <= 9) {
+      for (var i = 0; i < holeNumber - 1; i++) {
+        $('#front').find('td').eq(i).attr('contenteditable', true);
+      }
+    } else {
+      for (var i = 0; i < holeNumber - 10; i++) {
+        $('#back').find('td').eq(i).attr('contenteditable', true);
+      }
+      $('.front-nine-hole').attr('contenteditable', true);
+    }
+    
 
   })
 
@@ -463,7 +474,8 @@ scorecard logic
       holeEighteen: Number($('#hole18').text())
     })
 
-    $('.hole-score').attr('contenteditable', false);
+    $('.front-nine-hole').attr('contenteditable', false);
+    $('.back-nine-hole').attr('contenteditable', false);
     $('#edit-score').show();
     $('#update-score').hide();
 
@@ -698,8 +710,9 @@ scorecard logic
 
   golfdb.ref('/games/' + gameKey).on('value', function(snap) {
 
-    console.log(snap.val());
-    $('.tourny-name').text(snap.val().gameName)
+    $('#tourneyName').text(snap.val().gameName);
+    $('#courseName').text(snap.val().courseName);
+    $('#createdBy').text(snap.val().creator.user);
 
   })
   
@@ -730,6 +743,7 @@ scorecard logic
     tableRow.append('<td>' + newPlayer);
     tableRow.append(score);
     tableRow.append(thru);
+
 
   });
 
@@ -793,4 +807,5 @@ scorecard logic
     });
 
 });
+
 
