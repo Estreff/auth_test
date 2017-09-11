@@ -429,6 +429,10 @@ scorecard logic
   var backNine = 0;
   var totalScore = 0;
   $('#update-score').hide();
+  
+  golfdb.ref('/games/' + gameKey).on('value', function(snap) {
+    $('#scorecardTourney').text(snap.val().gameName);
+  });
 
   golfdb.ref('/games/' + gameKey).on('value', function(snap) {
     console.log('Game Name: ', snap.val());
@@ -715,7 +719,6 @@ scorecard logic
 
 
   golfdb.ref('/games/' + gameKey).on('value', function(snap) {
-    
     
     $('#tourneyName').text(snap.val().gameName);
     $('#courseName').text(snap.val().courseName);
