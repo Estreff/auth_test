@@ -394,6 +394,12 @@ footer .navbar-nav {
 	text-align: center;
 }
 
+.tourneyInfo {
+	color: #446e9b;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 2em;
+}
+
 /*Creating Scrollable Table*/
 
 table.scroll {
