@@ -166,6 +166,7 @@ $(function(){
         $('#games').removeClass('hide');
         $('#scorecard').removeClass('hide');
         $('#leaderboard').removeClass('hide');
+        $('#player').removeClass('hide');
         // $("#autocomplete").focus();
         
         $('#loginModal').modal('hide');
@@ -182,7 +183,8 @@ $(function(){
         $('#signup-nav').removeClass('hide');
         $('#scorecard').addClass('hide');
         $('#leaderboard').addClass('hide');
-        $('#games').addClass('hide'); 
+        $('#games').addClass('hide');
+        $('#player').addClass('hide');
       }
   
     // Add a realtime listener
@@ -530,17 +532,6 @@ scorecard logic
   });
 
   var scoreInput = 0;
-
-
-  // $(#'score').text(scoreInput);
-
-  // $('#minus').click(function() {
-  //   scoreInput--;
-  // });
-
-  // $('#plus').click(function() {
-  //   scoreInput--;
-  // });
 
   function submitScore() {
     var playerRef = golfdb.ref('/games/' + gameKey + '/players/' + playerKey);
