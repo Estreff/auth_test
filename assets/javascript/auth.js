@@ -718,8 +718,9 @@ scorecard logic
 
   golfdb.ref('/games/' + gameKey).on('value', function(snap) {
 
-    console.log(snap.val());
-    $('.tourny-name').text(snap.val().gameName)
+    $('#tourneyName').text(snap.val().gameName);
+    $('#courseName').text(snap.val().courseName);
+    $('#createdBy').text(snap.val().creator.user);
 
   })
   
@@ -750,6 +751,7 @@ scorecard logic
     tableRow.append('<td>' + newPlayer);
     tableRow.append(score);
     tableRow.append(thru);
+
 
   });
 
