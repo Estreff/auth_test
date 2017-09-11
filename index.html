@@ -21,242 +21,235 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
 </head>
 
-<body>
-<div class="wrapper">
-	
-		<nav class="navbar navbar-default">
-		  	<div class="container-fluid">
+	<body>
+		<div class="wrapper">
+			
+			<nav class="navbar navbar-default">
+			  	<div class="container-fluid">
+				    <div class="navbar-header">
+				      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        	<span class="sr-only">Toggle navigation</span>
+				        	<span class="fa fa-bars fa-lg"></span> 
+				      	</button>
+				      	<a class="navbar-brand" href="#">
+				      		<span><img src="assets/images/gts32.gif"></span>
+				      		 Golf Tourney Scoring
+				      	</a>
+				    </div>
+				  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      	<ul class="nav navbar-nav">
+				      		<li class="active" id=home><a href="index.html">Home</a></li>
+				        	<li class="hide" id="games"><a href="games.html">Games</a></li>
+				        	<li class="hide" id='scorecard'><a href="scorecard.html">Scorecard</a></li>
+				        	<li class="hide" id="leaderboard"><a href="leaderboard.html">Leaderboard</a></li>
+				     	</ul>
+				        <ul class="nav navbar-nav navbar-right">
+				      		<li><a href="#" class="hide" id="player"></a></li>
+				      		<li id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
+				            <li id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
+				            <li id="logout-nav" class="hide" data-toggle="modal" data-target="#logoutModal"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
+						</ul>
+			    	</div>
+			  	</div>
+			</nav>
 
-			    <div class="navbar-header">
-			      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			        	<span class="sr-only">Toggle navigation</span>
-			        	<span class="fa fa-bars fa-lg"></span> 
-			      	</button>
-			      	<a class="navbar-brand" href="#">
-			      		<span><img src="assets/images/gts32.gif"></span>
-			      		 Golf Tourney Scoring
-			      	</a>
-			    </div>
-			  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			      	<ul class="nav navbar-nav">
-			      		<li class="active" id=home><a href="index.html">Home</a></li>
-			        	<li class="hide" id="games"><a href="games.html">Games</a></li>
-			        	<li class="hide" id='scorecard'><a href="scorecard.html">Scorecard</a></li>
-			        	<li class="hide" id="leaderboard"><a href="leaderboard.html">Leaderboard</a></li>
-			     	</ul>
-			        <ul class="nav navbar-nav navbar-right">
-			      		<li><a href="#" id="player"></a></li>
-			      		<li id="signup-nav" data-toggle="modal" data-target="#createModal"><a href="#"><span class="fa fa-user-plus"></span> Sign Up</a></li>
-			            <li id="login-nav" data-toggle="modal" data-target="#loginModal"><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
-			            <li id="logout-nav" class="hide" data-toggle="modal" data-target="#logoutModal"><a href="#"><span class="fa fa-sign-out"></span> Logout</a></li>
-					</ul>
-		    	</div>
-		  	</div>
-		</nav>
-
-		<div class="content container-fluid">
-			<div class="row">
-				<div class="topicLeft col-lg-9">
-					<div class="mainContent">
-						<div class="well well-lg well-primary" id="localTitle">
-							<h2 class="text-center"> Golf Tourney Scoring</h2>
-						</div>
-						<div id="localHeatMap">
-							<div id="map"></div>
+			<div class="content container-fluid">
+				<div class="row">
+					<div class="topicLeft col-lg-9">
+						<div class="mainContent">
+							<div class="well well-lg well-primary" id="localTitle">
+								<h2 class="text-center"> Golf Tourney Scoring</h2>
+							</div>
+							<div id="localHeatMap">
+								<div id="map"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="topicRight col-lg-3">
 
-					<!-- weather sidebar -->
-					<div class = sidebar>
-						<div id = "weather">
-							<div class="panel panel-primary">
-								<div class="panel-heading" id="weatherTitle">
-									<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
 
-									<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
-								</div>
-								<div class="panel-body" id="weatherDetail">
-									<div class = "col-md-6 col-xs-6 text-left">
-										<h3 id = "weather-description"></h3>
-										<p id = "weather-icon"></p>
+					<div class="topicRight col-lg-3">
+						<div class = sidebarHome>
+							<div id = "weather">
+								<div class="panel panel-primary">
+									<div class="panel-heading" id="weatherTitle">
+										<h4 class = "col-md-6 col-xs-6 text-left" id = "city"></h4>			
+										<h4 class = "col-md-6 col-xs-6 text-right" id = "temperature"></h4>	
 									</div>
-									<div class = "col-md-6 col-xs-6 text-right">
-										<h3 id = "windspeed"></h3>
-										<p id = "wind-direction"></p>
+                  
+									<div class="panel-body" id="weatherDetail">
+										<div class = "col-md-6 col-xs-6 text-left">
+											<h3 id = "weather-description"></h3>
+											<p id = "weather-icon"></p>
+										</div>
+										<div class = "col-md-6 col-xs-6 text-right">
+											<h3 id = "windspeed"></h3>
+											<p id = "wind-direction"></p>
+										</div>
 									</div>
-								</div>
-							</div>								
-						</div>
-						<!-- Golf Course Search -->
-						<div id = "otherInfo">
-							<div class="panel panel-primary">
-								<div class="panel-heading" id="findCourseTitle">
-									<h4 class="text-left">	Find a Course To Play: 
-									</h4>
-								</div>
+								</div>								
+							</div>
+							<!-- Golf Course Search -->
+							<div id="otherInfo">
+								<div class="panel panel-primary">
+									<div class="panel-heading" id="findCourseTitle">
+										<h4 class="text-left">	Find a Course To Play: 
+										</h4>
+									</div>
 
-								<div class="panel-body">
-      								<input id="autocomplete" placeholder="Enter a Course" type="text" class="form-control" value="Golf Course" />
+									<div class="panel-body">
+		  								<input id="autocomplete" placeholder="Enter a Course" type="text" class="form-control" value="Golf Course"/>
 
-      								<br>
-									<div id="controls">
-								      <select id="country" class="form-control">
-								        <option value="all">All</option>
-								        <option value="au">Australia</option>
-								        <option value="br">Brazil</option>
-								        <option value="ca">Canada</option>
-								        <option value="fr">France</option>
-								        <option value="de">Germany</option>
-								        <option value="mx">Mexico</option>
-								        <option value="nz">New Zealand</option>
-								        <option value="it">Italy</option>
-								        <option value="za">South Africa</option>
-								        <option value="es">Spain</option>
-								        <option value="pt">Portugal</option>
-								        <option value="us" selected>U.S.A.</option>
-								        <option value="uk">United Kingdom</option>
-								      </select>
-							      	</div>
-						    	
+		  								<br/>
+										<div id="controls">
+									      	<select id="country" class="form-control">
+										        <option value="all">All</option>
+										        <option value="au">Australia</option>
+										        <option value="br">Brazil</option>
+										        <option value="ca">Canada</option>
+										        <option value="fr">France</option>
+										        <option value="de">Germany</option>
+										        <option value="mx">Mexico</option>
+										        <option value="nz">New Zealand</option>
+										        <option value="it">Italy</option>
+										        <option value="za">South Africa</option>
+										        <option value="es">Spain</option>
+										        <option value="pt">Portugal</option>
+										        <option value="us" selected>U.S.A.</option>
+										        <option value="uk">United Kingdom</option>
+									      	</select>
+								      	</div>
 
-									 <div id="listing">
-									      <table id="resultsTable">
-									        <tbody id="results"></tbody>
-									      </table>
-									    </div>
+										<div id="listing">
+										    <table id="resultsTable">
+										        <tbody id="results"></tbody>
+										    </table>
+										</div>
 
-									    <div style="display: none">
-									      <div id="info-content">
-									        <table>
-									          <tr id="iw-url-row" class="iw_table_row">
-									            <td id="iw-icon" class="iw_table_icon"></td>
-									            <td id="iw-url"></td>
-									          </tr>
-									          <tr id="iw-address-row" class="iw_table_row">
-									            <td class="iw_attribute_name">Address:</td>
-									            <td id="iw-address"></td>
-									          </tr>
-									          <tr id="iw-phone-row" class="iw_table_row">
-									            <td class="iw_attribute_name">Telephone:</td>
-									            <td id="iw-phone"></td>
-									          </tr>
-									          <tr id="iw-rating-row" class="iw_table_row">
-									            <td class="iw_attribute_name">Rating:</td>
-									            <td id="iw-rating"></td>
-									          </tr>
-									          <tr id="iw-website-row" class="iw_table_row">
-									            <td class="iw_attribute_name">Website:</td>
-									            <td id="iw-website"></td>
-									          </tr>
-									        </table>
-									      </div>
-									    </div>
-										
+										<div style="display: none">
+										    <div id="info-content">
+										        <table>
+										        	<tr id="iw-url-row" class="iw_table_row">
+										            	<td id="iw-icon" class="iw_table_icon"></td>
+										            	<td id="iw-url"></td>
+										          	</tr>
+										          	<tr id="iw-address-row" class="iw_table_row">
+										           		<td class="iw_attribute_name">Address:</td>
+										            	td id="iw-address"></td>
+										          	</tr>
+										          	<tr id="iw-phone-row" class="iw_table_row">
+										            	<td class="iw_attribute_name">Telephone:</td>
+										            	<td id="iw-phone"></td>
+										          	</tr>
+										          	<tr id="iw-rating-row" class="iw_table_row">
+										            	<td class="iw_attribute_name">Rating:</td>
+										            	<td id="iw-rating"></td>
+										          	</tr>
+										          	<tr id="iw-website-row" class="iw_table_row">
+										            	<td class="iw_attribute_name">Website:</td>
+										            	<td id="iw-website"></td>
+										          	</tr>
+										        </table>
+										    </div>
+										</div>
+
 									</div>
 								</div>
 							</div>
-
-
-							<!-- <div id = "moreInfo"></div>	 -->
 						</div>
 						<button class = "btn btn-basic" id = "testWx">Test Wx Alert</button>
 
 					</div>
 				</div>
-			</div>
-		</div>
-		
+			</div>		
 
-		<!-- Create New User Modal -->
-		<div class="modal" id="createModal">
-		  	<div class="modal-dialog" role="document">
-		    	<div class="modal-content">
-		      		<div class="modal-header">
-		        		<h5 class="modal-title"><span class="fa fa-user-plus"></span> Create Account</h5>
-		      		</div>
-		      		<div class="modal-body">
-		      			<div class="alert alert-danger hide" id="createError" role="alert"></div>
-		        		<form role="form" class="form-group" id="createUser">
+			<!-- Create New User Modal -->
+			<div class="modal" id="createModal">
+			  	<div class="modal-dialog" role="document">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+			        		<h5 class="modal-title"><span class="fa fa-user-plus"></span> Create Account</h5>
+			      		</div>
+			      		<div class="modal-body">
+			      			<div class="alert alert-danger hide" id="createError" role="alert"></div>
+			        		<form role="form" class="form-group" id="createUser">
+									
+								<div id="firebaseui-auth-container"></div>
+											
+								<label for="DisplayName">Display Name:<span style="color:red">*</span></label>
+								<input type="text" class="form-control" id="displayName-input" required>
+
+								<label for="Search">Email Address:<span style="color:red">*</span></label>
+								<input type="email" class="form-control" id="email-input" placeholder="" required>
+
+								<label for="First Name">First Name:</label>
+								<input type="text" class="form-control" id="fName-input">
+															
+								<label for="Last Name">Last Name:</label>
+								<input type="text" class="form-control" id="lName-input" >
 								
-							<div id="firebaseui-auth-container"></div>
-										
-							<label for="DisplayName">Display Name:<span style="color:red">*</span></label>
-							<input type="text" class="form-control" id="displayName-input" required>
+								<label for="Password">Password:<span style="color:red">*</span></label>
+								<input type="text" class="form-control" id="password-input" required>
+								<p><span style="color:red">*</span> Required</p>
+							</form>
+			      		</div>
+			      		<div class="modal-footer">
+			        		<button type="submit" class="btn btn-primary" id="createAcct">Create Account</button>
+			        		<button type="button" class="btn btn-danger" id="createCancel" data-dismiss="modal">Cancel</button>
+			    		</div>
+			    	</div>
+			  	</div>
+			</div>
+			
+			<!-- Login with Existing Credentials Modal -->
+			<div class="modal" id="loginModal">
+			  	<div class="modal-dialog" role="document">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+			        		<h5 class="modal-title"><span class="fa fa-sign-in"></span> Login</h5>
+			      		</div>
+			      		<div class="modal-body">
+			      			<div class="alert alert-danger hide" id="loginError" role="alert"></div>
+					    	
+					    	<form class="form-signin">
+					        	<label for="email">Email address</label>
+					        	<input type="email" id="email-login" class="form-control" placeholder="Email address" required autofocus="">
 
-							<label for="Search">Email Address:<span style="color:red">*</span></label>
-							<input type="email" class="form-control" id="email-input" placeholder="" required>
+						        <label for="password">Password</label>
+						        <input type="password" id="password-login" class="form-control" placeholder="Password" required>
+	                       <!-- <div class="checkbox">
+							        <label>
+							    	    <input type="checkbox" value="remember-me"> Remember me
+							        </label>
+							    </div> -->
+						        
+					    	</form>
+		      			</div>
+			      		<div class="modal-footer">
+			        		<button type="submit" class="btn btn-primary" id="login">Sign In</button>
+			        		<button type="button" class="btn btn-danger" data-dismiss="modal" id="loginCancel">Cancel</button>
+			    		</div>
+			    	</div>
+			  	</div>
+			</div>
 
-							<label for="First Name">First Name:</label>
-							<input type="text" class="form-control" id="fName-input">
-														
-							<label for="Last Name">Last Name:</label>
-							<input type="text" class="form-control" id="lName-input" >
-							
-							<label for="Password">Password:<span style="color:red">*</span></label>
-							<input type="text" class="form-control" id="password-input" required>
-							<p><span style="color:red">*</span> Required</p>
-						</form>
-		      		</div>
-		      		<div class="modal-footer">
-		        		<button type="submit" class="btn btn-primary" id="createAcct">Create Account</button>
-		        		<button type="button" class="btn btn-danger" id="createCancel" data-dismiss="modal">Cancel</button>
-		    		</div>
-		    	</div>
-		  	</div>
-		</div>
-		
-		<!-- Login with Existing Credentials Modal -->
-		<div class="modal" id="loginModal">
-		  	<div class="modal-dialog" role="document">
-		    	<div class="modal-content">
-		      		<div class="modal-header">
-		        		<h5 class="modal-title"><span class="fa fa-sign-in"></span> Login</h5>
-		      		</div>
-		      		<div class="modal-body">
-		      			<div class="alert alert-danger hide" id="loginError" role="alert"></div>
-				    	
-				    	<form class="form-signin">
-				        	<label for="email">Email address</label>
-				        	<input type="email" id="email-login" class="form-control" placeholder="Email address" required autofocus="">
+			<!-- Logout Modal -->
+			<div class="modal" id="logoutModal">
+			  	<div class="modal-dialog" role="document">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+			        		<h5 class="modal-title"><span class="fa fa-sign-out"></span> Logout</h5>
+			      		</div>
+			      		<div class="modal-body">
+			      			<p>Do you really want to Logout?</p>
+		      			</div>
+			      		<div class="modal-footer">
+			        		<button type="submit" class="btn btn-primary" id="logout">Logout</button>
+			        		<button type="button" class="btn btn-danger" data-dismiss="modal" id="logoutCancel">Cancel</button>
+			    		</div>
+			    	</div>
+			  	</div>
+			</div>
 
-					        <label for="password">Password</label>
-					        <input type="password" id="password-login" class="form-control" placeholder="Password" required>
-
-<!-- 						    <div class="checkbox">
-						        <label>
-						    	    <input type="checkbox" value="remember-me"> Remember me
-						        </label>
-						    </div> -->
-					        
-				    	</form>
-	      			</div>
-		      		<div class="modal-footer">
-		        		<button type="submit" class="btn btn-primary" id="login">Sign In</button>
-		        		<button type="button" class="btn btn-danger" data-dismiss="modal" id="loginCancel">Cancel</button>
-		    		</div>
-		    	</div>
-		  	</div>
-		</div>
-
-		<!-- Logout Modal -->
-		<div class="modal" id="logoutModal">
-		  	<div class="modal-dialog" role="document">
-		    	<div class="modal-content">
-		      		<div class="modal-header">
-		        		<h5 class="modal-title"><span class="fa fa-sign-out"></span> Logout</h5>
-		      		</div>
-		      		<div class="modal-body">
-		      			<p>Do you really want to Logout?</p>
-	      			</div>
-		      		<div class="modal-footer">
-		        		<button type="submit" class="btn btn-primary" id="logout">Logout</button>
-		        		<button type="button" class="btn btn-danger" data-dismiss="modal" id="logoutCancel">Cancel</button>
-		    		</div>
-		    	</div>
-		  	</div>
-		</div>
 
 		<!-- WX alert modal -->
 		<div class="modal" id="weather-modal">
@@ -275,31 +268,30 @@
 		  	</div>
 		</div>
 
-	
+	<!-- Footer -->
 		<footer class="navbar navbar-default">
 				<ul class="nav navbar-nav col-lg-12">
 					<li class= "col-lg-12" id = "copyright"><a href="#"><h5>&copy; Golf Tourney Scoring Inc.</h5></a></li>
 				</ul>
-		</footer>
-
-	
-</div>
+		</footer>	
 
 
-	<!-- Firebase -->
-	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- Bootstrap jQuery -->
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<!-- jQueryRotate.js  for rotating the weather icon-->
-    <script src="assets/javascript/jQueryRotate.js"></script>
-  	<!-- Local Javascript -->
-  	<script type="text/javascript" src="assets/javascript/auth.js"></script>
-  	<!-- Weather Local Javascript -->
-  	<script type="text/javascript" src="assets/javascript/weather_map.js"></script>
-  	<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByS1Ugc40pFTd1TIswGXWKCS5saUsvfnM&libraries=visualization&callback=initMap&libraries=places">
-    </script>
-</body>
+		</div>
+
+		<!-- Firebase -->
+		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Bootstrap jQuery -->
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  	<!-- jQueryRotate.js  for rotating the weather icon-->
+	    <script src="assets/javascript/jQueryRotate.js"></script>
+	  	<!-- Local Javascript -->
+	  	<script type="text/javascript" src="assets/javascript/auth.js"></script>
+	  	<!-- Weather Local Javascript -->
+	  	<script type="text/javascript" src="assets/javascript/weather_map.js"></script>
+	  	<script async defer
+	        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByS1Ugc40pFTd1TIswGXWKCS5saUsvfnM&libraries=visualization&callback=initMap&libraries=places">
+	    </script>
+	</body>
 </html>

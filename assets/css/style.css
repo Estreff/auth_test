@@ -5,7 +5,7 @@ body {
 }
 
 .wrapper {
- min-height: 93vh; /* will cover the 100% of viewport */
+ min-height: 1024px;
  overflow: hidden;
  display: block;
  position: relative;
@@ -13,7 +13,7 @@ body {
 
 .content {
 	width: 100%;
-	min-height: 86vh;
+	min-height: 922px;
 }
 
 .navbar {
@@ -43,21 +43,21 @@ body {
 
 .row > div {
 	padding: 0px;
-	/*min-height: 86vh;*/
+
 }
 
 .mainContent {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	min-height: 84vh;
+	min-height: 798px;
 }
 
 #localTitle {
 	background-color: #446e9b;
 	border: 2px solid #446e9b;
 	border-radius: 5px;
-	margin: 2vh;
-	height: 12vh;
+	margin: 20px;
+	height: 62px;
 
 	display: flex;              /* establish flex container */
     flex-direction: column;     /* stack flex items vertically */
@@ -78,15 +78,16 @@ body {
 #localHeatMap {
 	border: 2px solid #5d85b1;
 	border-radius: 5px;
-	margin: 2vh;
-	height: 69vh;
+	margin: 20px;
+	min-height: 788px;
+	margin-bottom: 0px
 }
 
 #scorecardPage {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/	
-	/*margin: 2vh;*/
-	min-height: 69vh;
+	/*margin: 20px;*/
+	min-height: 490px;
 }
 
 .scorecardLayout tr th {
@@ -159,7 +160,7 @@ table.scroll tr:after {
 }
 
 table.scroll tbody {
-    max-height: 57vh;
+    max-height: 328px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -178,7 +179,7 @@ thead {
 
 thead tr th { 
 	color:#ffffff;
-    height: 60px;
+    min-height: 60px;
     line-height: 30px;
     text-align: center;
 }
@@ -194,14 +195,21 @@ tbody td:last-child, thead th:last-child {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	text-align: center;
-	min-height: 12vh;
-	max-height: 58vh;
+	min-height: 62px;
+	max-height: 328px;
+}
+
+.sidebarHome {
+/*	border: 2px solid #5d85b1;
+	border-radius: 5px;*/
+	min-height: 412px;
+
 }
 
 .sidebar {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	/*min-height: 88vh;*/
+	min-height: 784px;
 }
 
 .panel-heading {
@@ -224,8 +232,8 @@ tbody td:last-child, thead th:last-child {
 #weather {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	margin: 2vh;
-	height: 24vh;
+	margin: 20px;
+	height: 200px;
 }
 
 #weatherTitle h4 {
@@ -237,22 +245,22 @@ tbody td:last-child, thead th:last-child {
 }
 
 #weatherDetail {
-	min-height: 17vh;
+	min-height: 144px;
 }
 
 #chat {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	margin: 2vh;
-	height: 62vh;
+	margin: 20px;
+	height: 380px;
 }
 
 #chatBody {
-	max-height: 53vh;
+	max-height: 474px;
 }
 
 #messages {
-	max-height: 50vh;
+	max-height: 440px;
 	overflow-y: auto;
 }
 
@@ -260,8 +268,8 @@ tbody td:last-child, thead th:last-child {
 #otherInfo {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	margin: 2vh;
-	min-height: 21vh;
+	margin: 20px;
+	min-height: 188px;
 	padding: 0;
 	color: #446e9b;
 }
@@ -269,8 +277,8 @@ tbody td:last-child, thead th:last-child {
 #moreInfo {
 /*	border: 2px solid #5d85b1;
 	border-radius: 5px;*/
-	margin: 2vh;
-	min-height: 21vh;
+	margin: 20px;
+	min-height: 188px;
 }
 
 .modal-header {
@@ -289,11 +297,11 @@ footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 7vh;
 	margin-bottom: 0;
 }
 
 footer .navbar-nav {
+	height: 40px;
 	margin:0;
 }
 
@@ -328,7 +336,7 @@ footer .navbar-nav {
 	/*padding: 0px;*/
 } 
 #scoreCard.panel.panel-body {
-	min-height: 69vh;
+	min-height: 493px;
 }
 
 #scorecardView {
@@ -411,7 +419,7 @@ table.scrollLeader tr:after {
 }
 
 table.scrollLeader tbody {
-    max-height: 57vh;
+    max-height: 328px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -430,7 +438,7 @@ thead {
 
 thead tr th { 
 	color:#ffffff;
-    height: 60px;
+    height: 40px;
     line-height: 30px;
     text-align: center;
 }
@@ -446,8 +454,8 @@ tbody td:last-child, thead th:last-child {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	text-align: center;
-	min-height: 12vh;
-	max-height: 58vh;
+	min-height: 62px;
+	max-height: 328px;
 }
 
 #map {
@@ -459,11 +467,6 @@ tbody td:last-child, thead th:last-child {
         margin: 0;
         padding: 0;
       }
-
-
-#findCourse {
-	min-height: 14vh;
-}
 
 #personal-scorecard {
 	margin-top: 8px;
@@ -482,6 +485,14 @@ tbody td:last-child, thead th:last-child {
 	#totalScoreTitle {
 		padding: 3px 0px 3px 10px;
 	}
+
+	#localHeatMap {
+		min-height: 404px;
+	}
+
+	.mainContent {
+		min-height: 512px;
+	}
 }
 
 @media only screen and (min-width : 480px) {
@@ -492,6 +503,12 @@ tbody td:last-child, thead th:last-child {
 	}
 	#totalScoreTitle {
 		padding: 12px 0px 12px 10px;
+	}
+	#localHeatMap {
+		min-height: 778px;
+	}
+	.mainContent {
+		min-height: 798px;
 	}
 }
 
