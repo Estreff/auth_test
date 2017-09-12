@@ -16,10 +16,12 @@ $("#testWx").on("click",function(){
   test = true;
 })
 
-//whenever thise is a click on the screen, the weather alert updates
-$(document).click(function(event){
-    getLocation();
-});
+//refreshes wx api after a given period of time
+$(document).ready(function(){
+    setInterval(function(){ getLocation(); }, 10 * 60 * 1000);    
+    
+}); 
+
 
 function getLocation(){ 
     if (navigator.geolocation){
