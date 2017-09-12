@@ -14,13 +14,13 @@ getLocation();
 
 $("#testWx").on("click",function(){
   test = true;
+   $('#weather-modal').show();
 })
 
 //refreshes wx api after a given period of time
 $(document).ready(function(){
     setInterval(function(){ getLocation(); }, 10 * 60 * 1000);    
-    
-}); 
+  }); 
 
 
 function getLocation(){ 
@@ -96,8 +96,8 @@ function runAjax(){
         console.log(wxCurrent)
           if ((wxCurrent >= 200 && wxCurrent <= 232) || wxCurrent === 900 || wxCurrent === 781){
           console.log("WEATHER ALERT!!!");
-          //wxAlert = true;
-          $('#weather-modal').show();
+          wxAlert = true;
+          //$('#weather-modal').show();
         } else {
            console.log("Good Weather");
         }
